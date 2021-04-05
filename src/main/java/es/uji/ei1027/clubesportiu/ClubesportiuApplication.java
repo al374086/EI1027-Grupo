@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ClubesportiuApplication {
 
 	public static void main(String[] args) {
-		System.out.println("--tercera pr----");
+		System.out.println("--cuarta pr----");
 		//SpringApplication.run(ClubesportiuApplication.class, args);
 	}
 
