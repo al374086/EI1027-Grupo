@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ClubesportiuApplication {
 
 	public static void main(String[] args) {
-		System.out.println("Tercera Prueba");
+		System.out.println("Tercera Prueba Samir");
 		//SpringApplication.run(ClubesportiuApplication.class, args);
 	}
 
