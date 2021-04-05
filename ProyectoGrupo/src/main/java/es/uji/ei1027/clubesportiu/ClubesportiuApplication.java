@@ -3,11 +3,11 @@ package es.uji.ei1027.clubesportiu;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class ClubesportiuApplication {
 
 	public static void main(String[] args) {
-		System.out.println("Prueba");
+		System.out.println("Segunda Prueba");
 		//SpringApplication.run(ClubesportiuApplication.class, args);
 	}
 
