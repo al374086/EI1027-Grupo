@@ -1,4 +1,4 @@
-package es.uji.ei1027.clubesportiu.dao;
+package es.uji.ei1027.reservas.dao;
 
 import java.sql.Time;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import es.uji.ei1027.clubesportiu.modelo.TemporalService;
+import es.uji.ei1027.reservas.modelo.TemporalService;
 
 @Repository
 public class TemporalServiceDao {

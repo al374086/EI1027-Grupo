@@ -1,4 +1,4 @@
-package es.uji.ei1027.clubesportiu;
+package es.uji.ei1027.reservas;
 
 import javax.sql.DataSource;
 
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 
-public class ClubesportiuConfiguration {
+public class AreaReservasConfiguration {
 	// Configura l'accés a la base de dades (DataSource)
 	// a partir de les propietats a src/main/resources/applications.properties
 	// que comencen pel prefix spring.datasource

@@ -1,4 +1,4 @@
-package es.uji.ei1027.clubesportiu.dao;
+package es.uji.ei1027.reservas.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import es.uji.ei1027.clubesportiu.modelo.Plan;
-import es.uji.ei1027.clubesportiu.modelo.Service;
+import es.uji.ei1027.reservas.modelo.Plan;
+import es.uji.ei1027.reservas.modelo.Service;
 
 public class ServiceDao {
 

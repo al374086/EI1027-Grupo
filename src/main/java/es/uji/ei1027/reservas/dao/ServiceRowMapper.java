@@ -1,11 +1,11 @@
-package es.uji.ei1027.clubesportiu.dao;
+package es.uji.ei1027.reservas.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import es.uji.ei1027.clubesportiu.modelo.Service;
+import es.uji.ei1027.reservas.modelo.Service;
 
 public final class ServiceRowMapper implements RowMapper<Service> {
 

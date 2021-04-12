@@ -1,14 +1,12 @@
-package es.uji.ei1027.clubesportiu.controller;
+package es.uji.ei1027.reservas.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
-import es.uji.ei1027.clubesportiu.dao.PlanDao;
-
-import es.uji.ei1027.clubesportiu.modelo.Plan;
+import es.uji.ei1027.reservas.dao.PlanDao;
+import es.uji.ei1027.reservas.modelo.Plan;
 
 @Controller
 @RequestMapping("/plan")

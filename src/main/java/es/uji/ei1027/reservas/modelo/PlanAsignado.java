@@ -1,4 +1,4 @@
-package es.uji.ei1027.clubesportiu.modelo;
+package es.uji.ei1027.reservas.modelo;
 
 public class PlanAsignado {
 	

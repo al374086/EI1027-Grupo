@@ -1,4 +1,4 @@
-package es.uji.ei1027.clubesportiu.dao;
+package es.uji.ei1027.reservas.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,7 +7,7 @@ import java.util.Date;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import es.uji.ei1027.clubesportiu.modelo.Plan;
+import es.uji.ei1027.reservas.modelo.Plan;
 
 
 public final class PlanRowMapper implements RowMapper<Plan> {

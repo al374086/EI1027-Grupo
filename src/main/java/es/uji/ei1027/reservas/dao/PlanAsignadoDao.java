@@ -1,4 +1,4 @@
-package es.uji.ei1027.clubesportiu.dao;
+package es.uji.ei1027.reservas.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +10,8 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import es.uji.ei1027.clubesportiu.modelo.Plan;
-import es.uji.ei1027.clubesportiu.modelo.PlanAsignado;
+import es.uji.ei1027.reservas.modelo.Plan;
+import es.uji.ei1027.reservas.modelo.PlanAsignado;
 
 @Repository // En Spring els DAOs van anotats amb @Repository
 
