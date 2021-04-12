@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Crear nou nadador</title>
+   <meta charset="UTF-8" />
+    <link rel="stylesheet"  
+    	private int idplan;
+	private String comments;
+	private Date initialDate;
+	private Date endDate;
+	private String name_area;     
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h2>Nou plan</h2>
+    <form action="#" th:action="@{/plan/add}"
+                     th:object="${plan}" method="post">
+      <table>
+        <tr>
+            <td><label>idplan</label></td>
+            <td><input type="number" th:field="*{idplan}" /></td>
+        </tr>
+        <tr>
+            <td><label>comments</label></td>
+            <td><input type="text" th:field="*{comments}" /></td>
+        </tr>
+        <tr>
+            <td><label>initialDate</label></td>
+            <td><input type="date" th:field="*{initialDate}" /></td>
+        </tr>
+        <tr>
+            <td><label>endDate</label></td>
+            <td><input type="Date" th:field="*{endDate}" /></td>
+        </tr>
+        <tr>
+            <td><label>name_area</label></td>
+            <td><input type="text" th:field="*{name_area}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Afegeix plan" /></td>
+        </tr>
+      </table>
+    </form>
+</body>
+</html>
+   
