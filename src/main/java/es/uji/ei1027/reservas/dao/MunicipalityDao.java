@@ -1,5 +1,8 @@
 package es.uji.ei1027.reservas.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +42,16 @@ public class MunicipalityDao {
  	     }
  	     catch(EmptyResultDataAccessException e) {
  	           return null;
+ 	     }
+ 	}
+ 	
+    /* Obté tots els municipalities. Torna una llista buida si no n'hi ha cap. */
+ 	public List<Municipality> getMunicipality() {
+ 	     try {
+ 	         return jdbcTemplate.query("SELECT * from municipality",
+ 	                 new MunicipalityRowMapper());
+ 	     } catch (EmptyResultDataAccessException e) {
+ 	         return new ArrayList<Municipality>();
  	     }
  	}
 }
