@@ -27,32 +27,32 @@ public class CitizenDao {
    }
 
    /* Afegeix un temporalService a la base de dades */
-   public void addTemporalService(Citizen citizen) {
+   public void addCitizen(Citizen citizen) {
        jdbcTemplate.update("INSERT INTO citizen VALUES(?, ?, ?, ?, ?, ?, ?)",
     		   citizen.getDni(), citizen.getName(), citizen.getAddress(), citizen.getTown(), citizen.getCountry(),
     		   citizen.getCp(), citizen.getPin());
    }
 
    /* Esborra un temporalService de la base de dades */
-   public void deleteTemporalService(int dni) {
+   public void deleteCitizen(int dni) {
        jdbcTemplate.update("DELETE from citizen where dni=?",
     		   dni);
    }
-   public void deleteTemporalservice(Citizen citizen) {
+   public void deleteCitizen(Citizen citizen) {
        jdbcTemplate.update("DELETE from citizen where dni=?",
     		   citizen.getDni());
    }
 
    /* Actualitza els atributs del citizen
       (excepte el dni  que és la clau primària) */
-   public void updatePlan(Citizen citizen) {
+   public void updateCitizen(Citizen citizen) {
        jdbcTemplate.update("UPDATE citizen SET name=?, address=?, town=?, country=?, cp=?, pin=? where dni=?",
     		   citizen.getName(), citizen.getAddress(), citizen.getTown(), citizen.getCountry(), citizen.getCp(),
     		   citizen.getPin(), citizen.getDni());
    }
 
    /* Obté el Citizen amb el dni donat. Torna null si no existeix. */
-   public Citizen getTemporalservice (int dni) {
+   public Citizen getCiziten (int dni) {
        try {
            return jdbcTemplate.queryForObject("SELECT * from citizen WHERE dni=?",
                    new CitizenRowMapper(), dni);
