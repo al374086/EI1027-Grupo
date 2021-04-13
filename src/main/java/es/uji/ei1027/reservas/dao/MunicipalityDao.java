@@ -3,9 +3,11 @@ package es.uji.ei1027.reservas.dao;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import es.uji.ei1027.reservas.modelo.Municipality;
+import es.uji.ei1027.reservas.modelo.Plan;
 import es.uji.ei1027.reservas.modelo.PlanAsignado;
 
 public class MunicipalityDao {
@@ -23,9 +25,20 @@ public class MunicipalityDao {
 	    municipality.getCode(), municipality.getName());
 	}
 	
-	/* Esborra un planAsignado de la base de dades */
+	/* Esborra un municipality de la base de dades */
     public void deleteMunicipality(int code, String name) {
 		jdbcTemplate.update("DELETE from municipality where code=? AND name=?",
 		                           code, name);
 	}
+    
+    /* Obté el municipality amb el nom donat. Torna null si no existeix. */
+ 	public Municipality getMunicipality(String name) {
+ 	     try {
+ 	         return jdbcTemplate.queryForObject("SELECT * from Municipality WHERE name=? ",
+ 	                 new MunicipalityRowMapper(), name);
+ 	     }
+ 	     catch(EmptyResultDataAccessException e) {
+ 	           return null;
+ 	     }
+ 	}
 }
