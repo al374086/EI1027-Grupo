@@ -70,10 +70,10 @@ public class ReserveDao {
 	   
 	   
 	   @SuppressWarnings("deprecation")
-	public List<Reserve> getReserves(String numberOfReserve) {
+	public List<Reserve> getReserves(int numberOfReserve) {
 		   try {
 		     return this.jdbcTemplate.query(
-		           "SELECT * FROM citizen WHERE dni=?",
+		           "SELECT * FROM reserve WHERE numberOfReserve=?",
 		           new Object[] {numberOfReserve}, new ReserveRowMapper());
 		  }
 		  catch(EmptyResultDataAccessException e) {
