@@ -10,8 +10,6 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import es.uji.ei1027.reservas.modelo.Area;
-import es.uji.ei1027.reservas.modelo.Municipality;
-import es.uji.ei1027.reservas.modelo.Plan;
 
 public class AreaDao {
 	
@@ -36,7 +34,7 @@ public class AreaDao {
     /* Actualiza un Area en la bbdd. */
     public void updateArea(Area area) {
         jdbcTemplate.update("UPDATE area SET isrestricted=?, geographicallocation=?, typeofarea=?, physicalcharacteristics=?, description=?, lengthandwidth=?, orientation=?  where name=? ",
-        		area.isRestricted(), area.getGeographicalLocation(), area.getTypeOfArea(), area.getPhysicalCharacteristics(), area.getDescription(), area.getLenghtAndWidth(), area.getOrientation());
+        		area.isRestricted(), area.getGeographicalLocation(), area.getTypeOfArea(), area.getPhysicalCharacteristics(), area.getDescription(), area.getLenghtAndWidth(), area.getOrientation(), area.getName());
     }
     
     /* Obté el AREA amb el nom donat. Torna null si no existeix. */
