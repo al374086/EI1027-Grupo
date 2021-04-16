@@ -56,7 +56,7 @@ public class MunicipalManager {
 
     @Override
     public String toString() {
-        return "Plan {" + "dni='" + dni + "\'" + ", name='" + name + "\'" + ", user='" + user + "\'" + ",password='"
+        return "MunicipalManager {" + "dni='" + dni + "\'" + ", name='" + name + "\'" + ", user='" + user + "\'" + ",password='"
                 + password + "\'" + ", initialDate='" + initialDate+ "\'" + "}";
     }
 }

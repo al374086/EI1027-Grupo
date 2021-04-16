@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import es.uji.ei1027.reservas.modelo.Municipality;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -32,9 +33,20 @@ public class MunicipalManagerDao{
     }
 
     /* Esborra un MunicipalManager de la base de dades */
-    public void deletePlanAsignado(MunicipalManager municipalManager) {
+    public void deleteMunicipalManager(MunicipalManager municipalManager) {
         jdbcTemplate.update("DELETE from municipalManager where dni=?",
                 municipalManager.getDni());
+    }
+
+    /* Obté el MunicipalManager amb el dni donat. Torna null si no existeix. */
+    public MunicipalManager getMunicipalManager(String dni) {
+        try {
+            return jdbcTemplate.queryForObject("SELECT * from municipalManager WHERE dni=? ",
+                    new MunicipalManagerRowMapper(), dni);
+        }
+        catch(EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 
 
