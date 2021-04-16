@@ -1,17 +1,15 @@
 package es.uji.ei1027.reservas.dao;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.sql.DataSource;
-
+import es.uji.ei1027.reservas.modelo.Plan;
+import es.uji.ei1027.reservas.modelo.PlanAsignado;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import es.uji.ei1027.reservas.modelo.Plan;
-import es.uji.ei1027.reservas.modelo.PlanAsignado;
+import javax.sql.DataSource;
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository // En Spring els DAOs van anotats amb @Repository
 
