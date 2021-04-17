@@ -28,8 +28,8 @@ public class MunicipalManagerDao{
 
     /* Afegeix un municipalManager a la base de dades */
     public void addMunicipalManager(MunicipalManager municipalManager) {
-        jdbcTemplate.update("INSERT INTO municipalManager VALUES(?, ?,?,?,?)",
-                municipalManager.getDni(), municipalManager.getName(),municipalManager.getUser(),municipalManager.getPassword(),municipalManager.getInitialDate());
+        jdbcTemplate.update("INSERT INTO municipalManager VALUES(?, ?,?,?,?,?)",
+                municipalManager.getDni(), municipalManager.getName(),municipalManager.getUser(),municipalManager.getPassword(),municipalManager.getInitialDate(),municipalManager.getCode());
     }
 
     /* Esborra un MunicipalManager de la base de dades */

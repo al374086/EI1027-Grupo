@@ -10,6 +10,27 @@ public class MunicipalManager {
     private String user;
     private String password;
     private Date initialDate;
+    private Integer code;
+
+    @Override
+    public String toString() {
+        return "MunicipalManager{" +
+                "dni='" + dni + '\'' +
+                ", name='" + name + '\'' +
+                ", user='" + user + '\'' +
+                ", password='" + password + '\'' +
+                ", initialDate=" + initialDate +
+                ", code=" + code +
+                '}';
+    }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
 
     public void setDni(String dni) {
         this.dni = dni;
@@ -54,11 +75,7 @@ public class MunicipalManager {
 
     }
 
-    @Override
-    public String toString() {
-        return "MunicipalManager {" + "dni='" + dni + "\'" + ", name='" + name + "\'" + ", user='" + user + "\'" + ",password='"
-                + password + "\'" + ", initialDate='" + initialDate+ "\'" + "}";
-    }
+
 }
 
 
