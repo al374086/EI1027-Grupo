@@ -14,8 +14,6 @@ import es.uji.ei1027.reservas.modelo.Service;
 
 public class ServiceDao {
 
-
-
 	private JdbcTemplate jdbcTemplate;
 
 	@Autowired
