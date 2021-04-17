@@ -8,11 +8,13 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import es.uji.ei1027.reservas.modelo.Municipality;
 import es.uji.ei1027.reservas.modelo.Plan;
 import es.uji.ei1027.reservas.modelo.PlanAsignado;
 
+@Repository
 public class MunicipalityDao {
 	
 	private JdbcTemplate jdbcTemplate;

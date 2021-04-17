@@ -8,10 +8,12 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import es.uji.ei1027.reservas.modelo.Area;
 import es.uji.ei1027.reservas.modelo.TimeSlot;
 
+@Repository
 public class TimeSlotDao {
 	
 	private JdbcTemplate jdbcTemplate;
