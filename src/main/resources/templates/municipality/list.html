@@ -20,6 +20,10 @@
          <td th:text="${municipality.code}"></td>
          <td th:text="${municipality.name}"></td>
          <td th:text="${municipality.country}"></td>
+         <td><a th:href="@{/municipality/update/{code}(code=${municipality.code})}">Edita</a>
+         </td>
+         <td><a th:href="@{/municipality/delete/{code}(code=${municipality.code})}">Esborra</a>
+         </td>
        </tr>
      </tbody>
    </table>
