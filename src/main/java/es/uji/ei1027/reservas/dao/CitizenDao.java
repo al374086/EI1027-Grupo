@@ -34,7 +34,7 @@ public class CitizenDao {
    }
 
    /* Esborra un temporalService de la base de dades */
-   public void deleteCitizen(int dni) {
+   public void deleteCitizen(String dni) {
        jdbcTemplate.update("DELETE from citizen where dni=?",
     		   dni);
    }
@@ -52,7 +52,7 @@ public class CitizenDao {
    }
 
    /* Obté el Citizen amb el dni donat. Torna null si no existeix. */
-   public Citizen getCiziten (int dni) {
+   public Citizen getCiziten (String dni) {
        try {
            return jdbcTemplate.queryForObject("SELECT * from citizen WHERE dni=?",
                    new CitizenRowMapper(), dni);
@@ -73,7 +73,7 @@ public class CitizenDao {
    }
    
    
-   public List<Citizen> getCitizens(String dni) {
+ /* public List<Citizen> getCitizens(String dni) {
 	   try {
 	     return this.jdbcTemplate.query(
 	           "SELECT * FROM citizen WHERE dni=?",
@@ -82,6 +82,6 @@ public class CitizenDao {
 	  catch(EmptyResultDataAccessException e) {
 	      return new ArrayList<Citizen>();
 	  }
-	}
+	} */
    /*Prueba commit*/
 }

@@ -12,12 +12,12 @@ public class CitizenRowMapper implements RowMapper<Citizen> {
 	  {
 		Citizen citizen = new Citizen();
 		citizen.setDni(rs.getString("dni"));
-		citizen.setName(rs.getString("initialdate"));
-		citizen.setAddress(rs.getString("enddate"));
-		citizen.setTown(rs.getString("starttime"));
-		citizen.setCountry(rs.getString("endtime"));
-		citizen.setCp(rs.getInt("name_area"));
-		citizen.setPin(rs.getInt("idservice"));
+		citizen.setName(rs.getString("name"));
+		citizen.setAddress(rs.getString("address"));
+		citizen.setTown(rs.getString("town"));
+		citizen.setCountry(rs.getString("country"));
+		citizen.setCp(rs.getInt("cp"));
+		citizen.setPin(rs.getInt("pin"));
 	      
 	      	       
 	      return citizen;

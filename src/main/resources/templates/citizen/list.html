@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   <title>Gestionar citizens</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+   <h1>Llista de citizens</h1>
+   <table class="table table-striped">
+     <thead>
+       <tr>
+         <th>Dni</th>
+         <th>Name</th>
+         <th>Address</th>
+         <th>Town</th>
+         <th>Country</th>
+		 <th>Cp</th>
+		 <th>Pin</th>
+         <th></th>
+         <th></th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="citizen: ${citizens}">
+         <td th:text="${citizen.dni}"></td>
+         <td th:text="${citizen.name}"></td>
+         <td th:text="${citizen.address}"></td>
+         <td th:text="${citizen.town}"></td>
+         <td th:text="${citizen.country}"></td>
+		 <td th:text="${citizen.cp}"></td>
+		 <td th:text="${citizen.pin}"></td>
+         <td><a type="button" class="btn btn-warning" th:href="@{/citizen/update/{dni}(dni=${citizen.dni})}">Edita</a>
+         </td>
+         <td><a type="button" class="btn btn-danger" th:href="@{/citizen/delete/{dni}(dni=${citizen.dni})}">Esborra</a>
+         </td>
+       </tr>
+     </tbody>
+   </table>
+   <a type="button" class="btn btn-success" href="add">Afegeix citizen</a>
+</body>
+</html>
