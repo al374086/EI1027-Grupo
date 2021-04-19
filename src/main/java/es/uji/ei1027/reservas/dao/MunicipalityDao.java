@@ -10,7 +10,6 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import es.uji.ei1027.clubesportiu.model.Nadador;
 import es.uji.ei1027.reservas.modelo.Municipality;
 import es.uji.ei1027.reservas.modelo.Plan;
 import es.uji.ei1027.reservas.modelo.PlanAsignado;
@@ -29,7 +28,7 @@ public class MunicipalityDao {
 	public void addMunicipality(Municipality municipality) {
 		jdbcTemplate.update("INSERT INTO municipality VALUES(?, ?)",
 	    municipality.getName(), municipality.getCountry());
-		System.out.println("add municipality");
+		//System.out.println("add municipality");
 	}
 	
 	public void updateMunicipality(Municipality municipality) {
