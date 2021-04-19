@@ -24,12 +24,12 @@ public class MunicipalityController {
 	 @RequestMapping(value="/add") 
 	 public String addMunicipality(Model model) {
 			model.addAttribute("municipality", new Municipality());
-			return "municipis/add";
+			return "municipality/add";
 	 }
 	 @RequestMapping("/list") 
 	 public String listMunicipality(Model model) {
 		 model.addAttribute("municipality", municipalityDao.getMunicipality());
-		 return "municipis/list";
+		 return "municipality/list";
 	 }
 	 
 }
