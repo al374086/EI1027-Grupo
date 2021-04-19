@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Crear nova Municipi</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h2>Nou Municipi</h2>
+    <form action="#" th:action="@{/municipis/add}" 
+                     th:object="${municipality}" method="post">
+      <table>
+        <tr>
+            <td><label>Municipi</label></td>
+            <td><input type="text" th:field="*{name}" /></td> 
+        </tr>
+        <tr>
+            <td><label>Pais</label></td>
+            <td><input type="text" th:field="*{country}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Afegeix Municipi" /></td>
+        </tr>
+      </table>
+    </form>
+</body>
+</html>

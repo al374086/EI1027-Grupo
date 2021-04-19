@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   <title>Gestionar Municipis</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+   <h1>Llista de Municipis</h1>
+   <table>
+     <thead>
+       <tr>
+         <th>Codí</th>
+         <th>Municipi</th>
+         <th>Pais</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="municipality: ${municipality}">
+         <td th:text="${municipality.code}"></td>
+         <td th:text="${municipality.name}"></td>
+         <td th:text="${municipality.country}"></td>
+       </tr>
+     </tbody>
+   </table>
+   <a href="add">Afegeix Municipi</a>
+</body>
+</html>
