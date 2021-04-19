@@ -9,7 +9,7 @@ import es.uji.ei1027.reservas.dao.MunicipalityDao;
 import es.uji.ei1027.reservas.modelo.Municipality;
 
 @Controller
-@RequestMapping("/municipis")
+@RequestMapping("/municipality")
 
 public class MunicipalityController {
 	
