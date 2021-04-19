@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"> 
 <head>
-   <title>Crear nou nadador</title>
+   <title>Crear nou plan</title>
    <meta charset="UTF-8" />
     <link rel="stylesheet"  
-    	private int idplan;
-	private String comments;
-	private Date initialDate;
-	private Date endDate;
-	private String name_area;     
+    
      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
@@ -16,10 +12,7 @@
     <form action="#" th:action="@{/plan/add}"
                      th:object="${plan}" method="post">
       <table>
-        <tr>
-            <td><label>idplan</label></td>
-            <td><input type="number" th:field="*{idplan}" /></td>
-        </tr>
+        
         <tr>
             <td><label>comments</label></td>
             <td><input type="text" th:field="*{comments}" /></td>

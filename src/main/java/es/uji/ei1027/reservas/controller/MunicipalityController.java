@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import es.uji.ei1027.clubesportiu.model.Nadador;
+
 import es.uji.ei1027.reservas.dao.MunicipalityDao;
 import es.uji.ei1027.reservas.modelo.Municipality;
 

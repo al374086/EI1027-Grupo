@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Gestionar Planes</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+   <h1>Llista de Planes</h1>
+   <table>
+     <thead>
+       <tr>
+         <th>idplan</th>
+         <th>comments</th>
+         <th>initialDate</th>
+         <th>endDate</th>
+         <th>name_area</th>
+         <th></th>
+         <th></th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="plan: ${planes}">
+         <td th:text="${plan.idplan}"></td> 
+         <td th:text="${plan.comments}"></td>
+         <td th:text="${plan.initialDate}"></td>
+         <td th:text="${plan.endDate}"></td>
+         <td th:text="${plan.name_area}"></td>
+         <td><a th:href="@{/plan/update/{idplan}{name_area}(idplan=${plan.idplan}, name_area=${plan.name_area})}">Edita</a> 
+         </td>
+         <td><a th:href="@{/plan/delete/{idplan}{name_area}(idplan=${plan.idplan}, name_area=${plan.name_area})}">Esborra</a>
+         </td>
+       </tr>
+     </tbody>
+   </table>
+   <a href="add" >Afegeix plan</a> 
+</body>
+</html>

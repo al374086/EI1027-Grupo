@@ -30,7 +30,7 @@ public class PlanDao {
    }
 
    /* Esborra un plan de la base de dades */
-   public void deletePlan(String idplan, String name_area) {
+   public void deletePlan(int idplan, String name_area) {
        jdbcTemplate.update("DELETE from plan where idplan=? AND name_area=?",
                            idplan, name_area);
    }
