@@ -10,7 +10,7 @@ public class Plan {
 	private LocalDate initialDate;
 	private LocalDate endDate;
 	private String name_area;
-	
+//prueba para borrar
 	
 
 	public Plan() {
