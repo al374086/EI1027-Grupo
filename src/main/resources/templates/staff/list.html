@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Staff</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Llista de Staff</h1>
+<table>
+    <thead>
+    <tr>
+        <th>DNI</th>
+        <th>name</th>
+
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="staff: ${staff}">
+        <td th:text="${staff.dni}"></td>
+        <td th:text="${staff.name}"></td>
+
+        <td><a th:href="@{/staff/update/{dni}{name}(dni=${staff.dni}, name=${staff.name})}">Edita</a>
+        </td>
+        <td><a th:href="@{/staff/delete/{dni}{name}(dni=${staff.dni}, name=${staff.name})}">Esborra</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="add" >Afegeix staff</a>
+</body>
+</html>
