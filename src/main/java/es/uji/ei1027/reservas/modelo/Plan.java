@@ -1,13 +1,14 @@
 package es.uji.ei1027.reservas.modelo;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Plan {
 	
 	private int idplan;
 	private String comments;
-	private Date initialDate;
-	private Date endDate;
+	private LocalDate initialDate;
+	private LocalDate endDate;
 	private String name_area;
 	
 	
@@ -42,25 +43,25 @@ public class Plan {
 
 
 
-	public Date getInitialDate() {
+	public LocalDate getInitialDate() {
 		return initialDate;
 	}
 
 
 
-	public void setInitialDate(Date initialDate) {
+	public void setInitialDate(LocalDate initialDate) {
 		this.initialDate = initialDate;
 	}
 
 
 
-	public Date getEndDate() {
+	public LocalDate getEndDate() {
 		return endDate;
 	}
 
 
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
 

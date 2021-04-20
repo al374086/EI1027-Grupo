@@ -3,6 +3,7 @@ package es.uji.ei1027.reservas.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.time.LocalDate;
 import java.util.Date;
 
 import org.springframework.jdbc.core.RowMapper;
@@ -18,8 +19,8 @@ public final class PlanRowMapper implements RowMapper<Plan> {
 	      plan.setIdplan(rs.getInt("idplan"));
 	      plan.setName_area(rs.getString("name_area"));
 	      plan.setComments(rs.getString("comments"));
-	      plan.setInitialDate(rs.getDate("initialDate"));
-	      plan.setEndDate(rs.getDate("endDate"));
+	      plan.setInitialDate(rs.getObject("initialDate",LocalDate.class));
+	      plan.setEndDate(rs.getObject("endDate",LocalDate.class));
 	      
 	       
 	      return plan;
