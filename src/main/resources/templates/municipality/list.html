@@ -7,7 +7,7 @@
 </head>
 <body>
    <h1>Llista de Municipis</h1>
-   <table>
+   <table class="table table-striped">
      <thead>
        <tr>
          <th>Codí</th>
@@ -20,9 +20,9 @@
          <td th:text="${municipality.code}"></td>
          <td th:text="${municipality.name}"></td>
          <td th:text="${municipality.country}"></td>
-         <td><a th:href="@{/municipality/update/{code}(code=${municipality.code})}">Edita</a>
+         <td><a type="button" class="btn btn-warning" th:href="@{/municipality/update/{code}(code=${municipality.code})}">Edita</a>
          </td>
-         <td><a th:href="@{/municipality/delete/{code}(code=${municipality.code})}">Esborra</a>
+         <td><a type="button" class="btn btn-danger" th:href="@{/municipality/delete/{code}(code=${municipality.code})}">Esborra</a>
          </td>
        </tr>
      </tbody>
