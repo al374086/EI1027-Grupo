@@ -47,8 +47,10 @@ public class PlanController {
 	    public String processAddSubmit(@ModelAttribute("plan") Plan plan,
 	                                   BindingResult bindingResult) {
 	        if (bindingResult.hasErrors())
-	        return "plan/add";
+	        	return "plan/add";
+	        	
 	        planDao.addPlan(plan);
+	        System.out.println("hola");
 	        return "redirect:list.html";
 	 }
 	 

@@ -3,10 +3,13 @@ package es.uji.ei1027.reservas.modelo;
 import java.time.LocalDate;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Plan {
 	
 	private int idplan;
 	private String comments;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate initialDate;
 	private LocalDate endDate;
 	private String name_area;

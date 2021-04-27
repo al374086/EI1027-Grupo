@@ -25,6 +25,7 @@ public class PlanDao {
 
    /* Afegeix un plan a la base de dades */
    public void addPlan(Plan plan) {
+	   System.out.println(plan.getInitialDate());
        jdbcTemplate.update("INSERT INTO plan VALUES( ?, ?, ?,?)",
                plan.getComments(), plan.getInitialDate(), plan.getEndDate(), plan.getName_area());
    }
