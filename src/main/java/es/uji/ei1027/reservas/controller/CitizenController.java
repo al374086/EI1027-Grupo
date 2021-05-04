@@ -49,7 +49,7 @@ public class CitizenController {
    
    @RequestMapping(value="/update/{dni}", method = RequestMethod.GET)
 	public String editCitizen(Model model, @PathVariable String dni) {
-		model.addAttribute("citizen", citizenDao.getCiziten(dni));
+		model.addAttribute("citizen", citizenDao.getCitizen(dni));
 		return "citizen/update"; 
 	}
    

@@ -2,6 +2,7 @@ package es.uji.ei1027.reservas.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 import org.springframework.jdbc.core.RowMapper;
 
@@ -16,8 +17,8 @@ public class ReserveRowMapper implements RowMapper<Reserve> {
 		
 		Reserve reserve = new Reserve();
 		reserve.setNumberOfReserve(rs.getInt("numberOfReserve"));
-		reserve.setDateOfReservation(rs.getDate("dateOfReservation"));
-		reserve.setDateOfTheReserve(rs.getDate("dateOfTheReserve"));
+		reserve.setDateOfReservation(rs.getObject("dateOfReservation",LocalDate.class));
+		reserve.setDateOfTheReserve(rs.getObject("dateOfTheReserve",LocalDate.class));
 		reserve.setStatus(rs.getString("status"));
 		reserve.setNumberOfPeople(rs.getInt("numberOfPeople"));
 		reserve.setQrCode(rs.getString("qrCode"));

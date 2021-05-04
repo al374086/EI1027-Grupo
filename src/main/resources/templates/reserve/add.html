@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Crear nou reserve</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h2>Nou reserve</h2>
+    <form action="#" th:action="@{/reserve/add}" 
+                     th:object="${reserve}" method="post"> 
+      <table>
+        <tr>
+            <td><label>dateOfReservation</label></td>
+            <td><input type="text" th:field="*{dateOfReservation}"  placeholder="dd/MM/yyyy"/></td> 
+        </tr>
+        <tr>
+            <td><label>dateOfTheReserve</label></td>
+            <td><input type="text" th:field="*{dateOfTheReserve}"   placeholder="dd/MM/yyyy"/></td>
+        </tr>
+        <tr>
+            <td><label>status</label></td>
+            <td><input type="text" th:field="*{status}" /></td>
+        </tr>
+		<tr>
+            <td><label>numberOfPeople</label></td>
+            <td><input type="number" th:field="*{numberOfPeople}" /></td>
+        </tr>
+        <tr>
+            <td><label>qrCode</label></td>
+            <td><input type="text" th:field="*{qrCode}" /></td>
+        </tr>
+        <tr>
+            <td><label>dni</label></td>
+            <td><input type="text" th:field="*{dni}" /></td>
+        </tr>
+		<tr>
+            <td><label>timeID</label></td>
+            <td><input type="number" th:field="*{timeID}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Afegeix reserve" /></td>
+        </tr>
+      </table>
+    </form>
+</body>
+</html>

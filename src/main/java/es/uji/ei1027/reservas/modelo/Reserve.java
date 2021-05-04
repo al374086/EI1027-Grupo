@@ -1,11 +1,15 @@
 package es.uji.ei1027.reservas.modelo;
 
 import java.sql.Date;
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Reserve {
 	private int numberOfReserve;
-	private Date dateOfReservation;
-	private Date dateOfTheReserve;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private LocalDate dateOfReservation;
+	private LocalDate dateOfTheReserve;
 	private String status;
 	private int numberOfPeople;
 	private String qrCode;
@@ -17,16 +21,16 @@ public class Reserve {
 	public void setNumberOfReserve(int numberOfReserve) {
 		this.numberOfReserve = numberOfReserve;
 	}
-	public Date getDateOfReservation() {
+	public LocalDate getDateOfReservation() {
 		return dateOfReservation;
 	}
-	public void setDateOfReservation(Date dateOfReserve) {
+	public void setDateOfReservation(LocalDate dateOfReserve) {
 		this.dateOfReservation = dateOfReserve;
 	}
-	public Date getDateOfTheReserve() {
+	public LocalDate getDateOfTheReserve() {
 		return dateOfTheReserve;
 	}
-	public void setDateOfTheReserve(Date dateOfTheReserve) {
+	public void setDateOfTheReserve(LocalDate dateOfTheReserve) {
 		this.dateOfTheReserve = dateOfTheReserve;
 	}
 	public String getStatus() {

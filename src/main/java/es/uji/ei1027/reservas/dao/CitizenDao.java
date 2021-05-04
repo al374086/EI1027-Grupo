@@ -52,7 +52,7 @@ public class CitizenDao {
    }
 
    /* Obté el Citizen amb el dni donat. Torna null si no existeix. */
-   public Citizen getCiziten (String dni) {
+   public Citizen getCitizen (String dni) {
        try {
            return jdbcTemplate.queryForObject("SELECT * from citizen WHERE dni=?",
                    new CitizenRowMapper(), dni);

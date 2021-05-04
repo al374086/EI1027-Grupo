@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   <title>Gestionar reserves</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+   <h1>Llista de reserves</h1>
+   <table class="table table-striped">
+     <thead>
+       <tr>
+         <th>numberOfReserve</th>
+         <th>dateOfReservation</th>
+         <th>dateOfTheReserve</th>
+         <th>status</th>
+         <th>numberOfPeople</th>
+		 <th>qrCode</th>
+		 <th>dni</th>
+         <th>timeID</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="reserve: ${reserves}">
+         <td th:text="${reserve.dni}"></td>
+         <td th:text="${reserve.name}"></td>
+         <td th:text="${reserve.address}"></td>
+         <td th:text="${reserve.town}"></td>
+         <td th:text="${reserve.country}"></td>
+		 <td th:text="${reserve.cp}"></td>
+		 <td th:text="${reserve.pin}"></td>
+         <td><a type="button" class="btn btn-warning" th:href="@{/reserve/update/{numberOfReserve}(numberOfReserve=${reserve.numberOfReserve})}">Edita</a>
+         </td>
+         <td><a type="button" class="btn btn-danger" th:href="@{/reserve/delete/{numberOfReserve}(numberOfReserve=${reserve.numberOfReserve})}">Esborra</a>
+         </td>
+       </tr>
+     </tbody>
+   </table>
+   <a type="button" class="btn btn-success" href="add">Afegeix reserve</a>
+</body>
+</html>
