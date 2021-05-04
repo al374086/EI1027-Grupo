@@ -37,7 +37,7 @@ public class ZoneController {
 	   
 	   @RequestMapping("/list")
 	   public String listNadadors(Model model) {
-	      model.addAttribute("zonens", zoneDao.getZones());
+	      model.addAttribute("zones", zoneDao.getZones());
 	      return "zone/list";
 	   }
 	   
