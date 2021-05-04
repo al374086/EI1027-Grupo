@@ -22,13 +22,14 @@
      </thead>
      <tbody>
        <tr th:each="reserve: ${reserves}">
-         <td th:text="${reserve.dni}"></td>
-         <td th:text="${reserve.name}"></td>
-         <td th:text="${reserve.address}"></td>
-         <td th:text="${reserve.town}"></td>
-         <td th:text="${reserve.country}"></td>
-		 <td th:text="${reserve.cp}"></td>
-		 <td th:text="${reserve.pin}"></td>
+         <td th:text="${reserve.numberOfReserve}"></td>
+         <td th:text="${reserve.dateOfReservation}"></td>
+         <td th:text="${reserve.dateOfTheReserve}"></td>
+         <td th:text="${reserve.status}"></td>
+         <td th:text="${reserve.numberOfPeople}"></td>
+		 <td th:text="${reserve.qrCode}"></td>
+		 <td th:text="${reserve.dni}"></td>
+		 <td th:text="${reserve.timeID}"></td>
          <td><a type="button" class="btn btn-warning" th:href="@{/reserve/update/{numberOfReserve}(numberOfReserve=${reserve.numberOfReserve})}">Edita</a>
          </td>
          <td><a type="button" class="btn btn-danger" th:href="@{/reserve/delete/{numberOfReserve}(numberOfReserve=${reserve.numberOfReserve})}">Esborra</a>

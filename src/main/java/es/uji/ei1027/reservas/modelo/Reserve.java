@@ -9,6 +9,7 @@ public class Reserve {
 	private int numberOfReserve;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dateOfReservation;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dateOfTheReserve;
 	private String status;
 	private int numberOfPeople;
