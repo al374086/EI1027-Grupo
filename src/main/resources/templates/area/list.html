@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   <title>Gestionar Àrees</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+   <h1>Llista de Àrees</h1>
+   <table class="table table-striped">
+     <thead>
+       <tr>
+         <th>Nom</th>
+         <th>Es restringida</th>
+         <th>Localització</th>
+     	 <th>Tipus de Àrea</th>
+         <th>Caracteristiques</th>
+     	 <th>Descripció</th>
+     	 <th>Longitud y Anchura</th>
+     	 <th>Orientació</th>
+		 <th>Municipí</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="area: ${area}">
+         <td th:text="${area.name}"></td>
+         <td th:text="${area.isRestricted}"></td>
+         <td th:text="${area.geographicalLocation}"></td>
+         <td th:text="${area.typeOfArea}"></td>
+         <td th:text="${area.physicalCharacteristics}"></td>
+         <td th:text="${area.description}"></td>
+         <td th:text="${area.lenghtAndWidth}"></td>
+         <td th:text="${area.Orientation}"></td>
+         <td th:text="${area.codeMunicipality}"></td>
+         <td><a type="button" class="btn btn-warning" th:href="@{/area/update/{name}(name=${area.name})}">Edita</a>
+         </td>
+         <td><a type="button" class="btn btn-danger" th:href="@{/area/delete/{name}(code=${area.name})}">Esborra</a>
+         </td>
+       </tr>
+     </tbody>
+   </table>
+   <a href="add">Afegeix Àrea</a>
+</body>
+</html>
