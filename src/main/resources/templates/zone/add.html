@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Crear nou zone</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h2>Nou zone</h2>
+    <form action="#" th:action="@{/zone/add}" 
+                     th:object="${zone}" method="post"> 
+      <table>
+	    <tr>
+            <td><label>capacity</label></td>
+            <td><input type="text" th:field="*{capacity}" /></td> 
+        </tr>
+        <tr>
+            <td><label>letterAndNumber</label></td>
+            <td><input type="text" th:field="*{letterAndNumber}" /></td> 
+        </tr>
+        <tr>
+            <td><label>nameArea</label></td>
+            <td><input type="text" th:field="*{nameArea}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Afegeix zone" /></td>
+        </tr>
+      </table>
+    </form>
+</body>
+</html>
