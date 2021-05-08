@@ -43,7 +43,7 @@ public class PlanDao {
 
    /* Actualitza els atributs del plan
       (excepte el idplan y name_area, que és la clau primària) */
-   public void updatePlan(Plan plan) {
+   public void updatePlan(Plan plan ) {
        jdbcTemplate.update("UPDATE plan SET comments=?, initialDate=?, endDate=? where idplan=? and name_area=?",
                plan.getComments(), plan.getInitialDate(), plan.getEndDate(), plan.getIdplan(), plan.getName_area());
      
