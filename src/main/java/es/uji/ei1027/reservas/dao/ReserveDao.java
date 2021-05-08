@@ -24,8 +24,8 @@ public class ReserveDao {
 
 	   /* Afegeix un reserve a la base de dades */
 	   public void addReserve(Reserve reserve) {
-	       jdbcTemplate.update("INSERT INTO reserve VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
-	    		   reserve.getNumberOfReserve(), reserve.getDateOfReservation(), reserve.getDateOfTheReserve(), reserve.getStatus(), reserve.getNumberOfPeople(),
+	       jdbcTemplate.update("INSERT INTO reserve VALUES(?, ?, ?, ?, ?, ?, ?)",
+	    		   reserve.getDateOfReservation(), reserve.getDateOfTheReserve(), reserve.getStatus(), reserve.getNumberOfPeople(),
 	    		   reserve.getQrCode(), reserve.getDni(), reserve.getTimeID());
 	   }
 
