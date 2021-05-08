@@ -15,6 +15,4 @@ public class AreaReservasApplication {
 	     // Auto-configura l'aplicació
 	     new SpringApplicationBuilder(AreaReservasApplication.class).run(args);
 	  }
-
-
 }

@@ -11,6 +11,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+
 import es.uji.ei1027.reservas.modelo.Plan;
 
 @Repository
@@ -43,9 +44,12 @@ public class PlanDao {
    /* Actualitza els atributs del plan
       (excepte el idplan y name_area, que és la clau primària) */
    public void updatePlan(Plan plan) {
-       jdbcTemplate.update("UPDATE plan SET comments=?, initialDate=?, endDate=?, where idplan=? and name_area=?",
+       jdbcTemplate.update("UPDATE plan SET comments=?, initialDate=?, endDate=? where idplan=? and name_area=?",
                plan.getComments(), plan.getInitialDate(), plan.getEndDate(), plan.getIdplan(), plan.getName_area());
+     
    }
+   
+  
 
    /* Obté el Plan amb el nom donat. Torna null si no existeix. */
    public Plan getPlan(int idplan, String name_area) {

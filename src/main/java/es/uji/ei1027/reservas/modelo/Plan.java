@@ -11,6 +11,7 @@ public class Plan {
 	private String comments;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate initialDate;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate endDate;
 	private String name_area;
 	

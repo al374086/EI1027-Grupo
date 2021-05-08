@@ -26,9 +26,9 @@
          <td th:text="${plan.initialDate}"></td>
          <td th:text="${plan.endDate}"></td>
          <td th:text="${plan.name_area}"></td>
-         <td><a th:href="@{/plan/update/{idplan}{name_area}(idplan=${plan.idplan}, name_area=${plan.name_area})}">Edita</a> 
+         <td><a th:href="@{/plan/update/{idplan}/{name_area}(idplan=${plan.idplan}, name_area=${plan.name_area})}">Edita</a> 
          </td>
-         <td><a th:href="@{/plan/delete/{idplan}{name_area}(idplan=${plan.idplan}, name_area=${plan.name_area})}">Esborra</a>
+         <td><a th:href="@{/plan/delete/{idplan}/{name_area}(idplan=${plan.idplan}, name_area=${plan.name_area})}">Esborra</a>
          </td>
        </tr>
      </tbody>

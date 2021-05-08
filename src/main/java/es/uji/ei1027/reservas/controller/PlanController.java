@@ -1,6 +1,8 @@
 package es.uji.ei1027.reservas.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 
 import es.uji.ei1027.reservas.dao.PlanDao;
 import es.uji.ei1027.reservas.modelo.Plan;
@@ -48,10 +51,18 @@ public class PlanController {
 	                                   BindingResult bindingResult) {
 	        if (bindingResult.hasErrors())
 	        	return "plan/add";
-	        	
+	       /*try {	        	
 	        planDao.addPlan(plan);
-	        System.out.println("hola");
-	        return "redirect:list.html";
+	        } catch (DuplicateKeyException e) { 
+	        	throw new ClubesportiuException(
+	        			"Ja existeix un plan d'aquest area en " 
+	        	                 +plan.getIdplan(), "CPduplicada"); 
+	        }catch (DataAccessException e) { 
+	            throw new ClubesportiuException(  
+	                    "Error en l'accés a la base de dades", "ErrorAccedintDades"); 
+	          }*/
+	        
+	        return "redirect:list";
 	 }
 	 
 	 
@@ -76,7 +87,7 @@ public class PlanController {
 	    @RequestMapping(value="/delete/{idplan}/{name_area}")
 	    public String processDelete(@PathVariable int idplan,@PathVariable String name_area) {
 	        planDao.deletePlan(idplan, name_area);
-	        return "redirect:../list";
+	        return "redirect:../../list";
 	    }
 	 
 	 
