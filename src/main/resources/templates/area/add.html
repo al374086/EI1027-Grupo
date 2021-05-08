@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Crea nova Àrea</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h2>Nova Àrea</h2>
+    <form action="#" th:action="@{/area/add}" 
+                     th:object="${area}" method="post">
+      <table>
+        <tr>
+            <td><label>Area</label></td>
+            <td><input type="text" th:field="*{name}" /></td> 
+        </tr>
+         <tr>
+            <td><label>Caracteristiques</label></td>
+            <td><input type="text" th:field="*{physicalCharacteristics}" /></td>
+        </tr>
+         <tr>
+            <td><label>Municipí</label></td>
+            <td><input type="number" th:field="*{codeMunicipality}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Afegeix Àrea" /></td>
+        </tr>
+      </table>
+    </form>
+</body>
+</html>

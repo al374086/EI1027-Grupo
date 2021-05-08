@@ -13,7 +13,14 @@ public Area mapRow(ResultSet rs, int rowNum) throws SQLException{
 		
 		Area area = new Area();
 		area.setName(rs.getString("name"));
-		
+		area.setRestricted(rs.getBoolean("isRestricted"));
+		area.setGeographicalLocation(rs.getString("geographicalLocation"));
+		area.setTypeOfArea(rs.getString("typeOfArea"));
+		area.setPhysicalCharacteristics(rs.getString("physicalCharacteristics"));
+		area.setDescription(rs.getString("description"));
+		area.setLengthAndWidth(rs.getString("lengthAndWidth"));
+		area.setOrientation(rs.getString("Orientation"));
+		area.setCodeMunicipality(rs.getInt("codeMunicipality"));
 		return area;
 	}
 

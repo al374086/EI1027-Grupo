@@ -8,7 +8,7 @@ public class Area {
 	private String typeOfArea;
 	private String physicalCharacteristics;
 	private String description;
-	private String lenghtAndWidth;
+	private String lengthAndWidth;
 	private String Orientation;
 	private int codeMunicipality;
 	public String getName() {
@@ -47,11 +47,11 @@ public class Area {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getLenghtAndWidth() {
-		return lenghtAndWidth;
+	public String getLengthAndWidth() {
+		return lengthAndWidth;
 	}
-	public void setLenghtAndWidth(String lenghtAndWidth) {
-		this.lenghtAndWidth = lenghtAndWidth;
+	public void setLengthAndWidth(String lenghtAndWidth) {
+		this.lengthAndWidth = lenghtAndWidth;
 	}
 	public String getOrientation() {
 		return Orientation;
@@ -69,7 +69,7 @@ public class Area {
 	public String toString() {
 		return "Area [name=" + name + ", isRestricted=" + isRestricted + ", geographicalLocation="
 				+ geographicalLocation + ", typeOfArea=" + typeOfArea + ", physicalCharacteristics="
-				+ physicalCharacteristics + ", description=" + description + ", lenghtAndWidth=" + lenghtAndWidth
+				+ physicalCharacteristics + ", description=" + description + ", lenghtAndWidth=" + lengthAndWidth
 				+ ", Orientation=" + Orientation + ", codeMunicipality=" + codeMunicipality + "]";
 	}
 	
