@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Gestionar TemporalService</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+   <h1>Llista de TemporalServices</h1>
+   <table>
+     <thead>
+       <tr>
+         <th>idtemporalservice</th>
+         <th>initialdate</th>
+         <th>enddate</th>
+         <th>starttime</th>
+         <th>endtime</th>
+         <th>name_area</th>
+         <th>idservice</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="temporalservice: ${temporalservices}">
+         <td th:text="${temporalservice.idtemporalservice}"></td> 
+         <td th:text="${temporalservice.initialdate}"></td>
+         <td th:text="${temporalservice.enddate}"></td>
+         <td th:text="${temporalservice.starttime}"></td>
+         <td th:text="${temporalservice.endtime}"></td>
+         <td th:text="${temporalservice.name_area}"></td>
+         <td th:text="${temporalservice.idservice}"></td>
+         <td><a th:href="@{/temporalservice/update/{idtemporalservice}(temporalservice=${temporalservice.idtemporalservice}}">Edita</a> 
+         </td>
+         <td><a th:href="@{/temporalservice/delete/{idtemporalservice}(temporalservice=${temporalservice.idtemporalservice}}">Esborra</a>
+         </td>
+       </tr>
+     </tbody>
+   </table>
+   <a href="add" >Afegeix temporalservice</a> 
+</body>
+</html>

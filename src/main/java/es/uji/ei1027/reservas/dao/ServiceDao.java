@@ -16,7 +16,7 @@ import es.uji.ei1027.reservas.modelo.Service;
 public class ServiceDao {
 
 	private JdbcTemplate jdbcTemplate;
-
+	private String type;
 	@Autowired
 	public void setDataSource(DataSource dataSource) {
 		jdbcTemplate = new JdbcTemplate(dataSource);
@@ -24,17 +24,17 @@ public class ServiceDao {
 
 	/* Afegeix un servei a la base de dades */
 	public void addService(Service service) {
-		jdbcTemplate.update("INSERT INTO plan VALUES(?, ?, ?, ?,?)", service.getIdservice(), service.getName(),
+		jdbcTemplate.update("INSERT INTO service VALUES(?, ?, ?, ?,?)", service.getName(), service.getType(),
 				service.getDescription(), service.getName_service(), service.getName_area());
 	}
 
 	/* Esborra un servei de la base de dades */
-	public void deleteService(String idservice, String name_area) {
-		jdbcTemplate.update("DELETE from plan where idservice=? AND name_area=?", idservice, name_area);
+	public void deleteService(int idservice) {
+		jdbcTemplate.update("DELETE from service where idservice=?", idservice);
 	}
 
-	public void deletePlan(Service service) {
-		jdbcTemplate.update("DELETE from plan where idservice=? AND name_area=?", service.getIdservice(), service.getName_area());
+	public void deleteService(Service service) {
+		jdbcTemplate.update("DELETE from service where idservice=?", service.getIdservice());
 	}
 
 	/*
@@ -42,8 +42,8 @@ public class ServiceDao {
 	 * clau primària)
 	 */
 	public void updateService(Service service) {
-		jdbcTemplate.update("UPDATE plan SET name=?, description=?, name_service=?, name_area=?, where idservice=?",
-				service.getName(), service.getDescription(), service.getName_service(), service.getName_area(), service.getIdservice());
+		jdbcTemplate.update("UPDATE service SET name=?, type=?, description=?, name_service=?, name_area=?, where idservice=?",
+				service.getName(), service.getType(), service.getDescription(), service.getName_service(), service.getName_area(), service.getIdservice());
 	}
 
 	/* Obté el Servei amb el nom donat. Torna null si no existeix. */
@@ -65,7 +65,7 @@ public class ServiceDao {
 		}
 	}
 
-	public List<Service> getPlanArea(String name_area) {
+	public List<Service> getServiceArea(String name_area) {
 		try {
 			return this.jdbcTemplate.query("SELECT * FROM service WHERE name_area=?", new Object[] { name_area },
 					new ServiceRowMapper());

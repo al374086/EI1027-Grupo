@@ -1,17 +1,30 @@
 package es.uji.ei1027.reservas.modelo;
 
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class TemporalService {
 	
 	private int idtemporalservice;
-	private Date initialdate;
-	private Date enddate;
-	private Time starttime;
-	private Time endtime;
+	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private LocalDate initialdate;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private LocalDate enddate;
+	
+	@DateTimeFormat(pattern = "HH:mm:ss.SSS")
+	private LocalTime starttime;
+	@DateTimeFormat(pattern = "HH:mm:ss.SSS")
+	private LocalTime endtime;
+	 
+	 
 	private String name_area;
 	private int idservice;
+	
 	
 	
 	public TemporalService() {
@@ -29,42 +42,42 @@ public class TemporalService {
 	}
 
 
-	public Date getInitialdate() {
+	public LocalDate getInitialdate() {
 		return initialdate;
 	}
 
 
-	public void setInitialdate(Date initialdate) {
+	public void setInitialdate(LocalDate initialdate) {
 		this.initialdate = initialdate;
 	}
 
 
-	public Date getEnddate() {
+	public LocalDate getEnddate() {
 		return enddate;
 	}
 
 
-	public void setEnddate(Date enddate) {
+	public void setEnddate(LocalDate enddate) {
 		this.enddate = enddate;
 	}
 
 
-	public Time getStarttime() {
+	public LocalTime getStarttime() {
 		return starttime;
 	}
 
 
-	public void setStarttime(Time starttime) {
+	public void setStarttime(LocalTime starttime) {
 		this.starttime = starttime;
 	}
 
 
-	public Time getEndtime() {
+	public LocalTime getEndtime() {
 		return endtime;
 	}
 
 
-	public void setEndtime(Time endtime) {
+	public void setEndtime(LocalTime endtime) {
 		this.endtime = endtime;
 	}
 

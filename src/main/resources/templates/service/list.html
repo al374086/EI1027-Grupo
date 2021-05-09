@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Gestionar Service</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+   <h1>Llista de Services</h1>
+   <table>
+     <thead>
+       <tr>
+         <th>idservice</th>
+         <th>name</th>
+         <th>type</th>
+         <th>description</th>
+         <th>name_service</th>
+         <th>name_area</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="service: ${services}">
+         <td th:text="${service.idservice}"></td> 
+         <td th:text="${service.name}"></td>
+         <td th:text="${service.type}"></td>
+         <td th:text="${service.description}"></td>
+         <td th:text="${service.name_service}"></td>
+         <td th:text="${service.name_area}"></td>
+         
+         <td><a th:href="@{/service/update/{idservice}(service=${service.idservice}}">Edita</a> 
+         </td>
+         <td><a th:href="@{/service/delete/{idservice}(service=${service.idservice}}">Esborra</a>
+         </td>
+       </tr>
+     </tbody>
+   </table>
+   <a href="add" >Afegeix service</a> 
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Crear nou temporalservice</title>
+   <meta charset="UTF-8" />
+    <link rel="stylesheet"  
+    
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h2>Nou temporalservice</h2>
+    <form action="#" th:action="@{/temporalservice/add}"
+                     th:object="${temporalservice}" method="post">
+      <table>
+        
+        <tr>
+            <td><label>initialdate</label></td>
+            <td><input type="text" th:field="*{initialdate}" placeholder="dd/MM/yyyy"/></td>
+        </tr>
+        <tr>
+            <td><label>enddate</label></td>
+            <td><input type="text" th:field="*{enddate}" placeholder="dd/MM/yyyy"/></td>
+        </tr>
+        <tr>
+            <td><label>starttime</label></td>
+            <td><input type="text" th:field="*{starttime}" placeholder="HH:mm:ss.SSS"/></td>
+        </tr>
+        <tr>
+            <td><label>endtime</label></td>
+            <td><input type="text" th:field="*{endtime}" placeholder="HH:mm:ss.SSS"/></td>
+        </tr>
+        <tr>
+            <td><label>name_area</label></td>
+            <td><input type="text" th:field="*{name_area}" /></td>
+        </tr>
+        <tr>
+            <td><label>idservice</label></td>
+            <td><input type="text" th:field="*{idservice}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Afegeix temporalservice" /></td>
+        </tr>
+      </table>
+    </form>
+</body>
+</html>

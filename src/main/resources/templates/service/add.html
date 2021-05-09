@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Crear nou service</title>
+   <meta charset="UTF-8" />
+    <link rel="stylesheet"  
+    
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h2>Nou service</h2>
+    <form action="#" th:action="@{/service/add}"
+                     th:object="${service}" method="post">
+      <table>
+   
+        <tr>
+            <td><label>name</label></td>
+            <td><input type="text" th:field="*{name}" /></td>
+        </tr>
+        <tr>
+            <td><label>type</label></td>
+            <td><input type="text" th:field="*{type}" /></td>
+        </tr>
+        <tr>
+            <td><label>description</label></td>
+            <td><input type="text" th:field="*{description}"/></td>
+        </tr>
+        <tr>
+            <td><label>name_service</label></td>
+            <td><input type="text" th:field="*{name_service}"/></td>
+        </tr>
+        <tr>
+            <td><label>name_area</label></td>
+            <td><input type="text" th:field="*{name_area}"/></td>
+        </tr>
+        
+        <tr>
+            <td colspan="2"><input type="submit" value="Afegeix service" /></td>
+        </tr>
+      </table>
+    </form>
+</body>
+</html>

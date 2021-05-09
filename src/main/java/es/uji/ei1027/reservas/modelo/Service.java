@@ -4,6 +4,7 @@ public class Service {
 	
 	private int idservice;
 	private String name;
+	private String type;
 	private String description;
 	private int name_service;
 	private String name_area;
@@ -34,6 +35,16 @@ public class Service {
 		this.name = name;
 	}
 
+	public String getType() {
+		return type;
+	}
+
+
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	
 
 	public String getDescription() {
 		return description;

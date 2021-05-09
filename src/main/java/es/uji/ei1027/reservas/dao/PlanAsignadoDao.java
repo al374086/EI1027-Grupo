@@ -26,29 +26,38 @@ public class PlanAsignadoDao {
 
 	   /* Afegeix un planAsignado a la base de dades */
 	public void addPlanAsignado(PlanAsignado planAsignado) {
-	   jdbcTemplate.update("INSERT INTO Plan VALUES(?, ?)",
-	               planAsignado.getIdplan(), planAsignado.getIdservicio());
+	   jdbcTemplate.update("INSERT INTO planasignado VALUES(?, ?)",
+	               planAsignado.getIdservicio(), planAsignado.getIdplan());
 	}
+	
+	 /* Esborra un plan de la base de dades */
+	   public void deletePlanAsignado(int idservicio, int idplan) {
+	       jdbcTemplate.update("DELETE from planasignado where idservicio=? AND idplan=?",
+	                           idservicio, idplan);
+	   }
 
-	   /* Esborra un planAsignado de la base de dades */
-	public void deletePlanAsignado(String idplan, String name_area) {
-	     jdbcTemplate.update("DELETE from Plan where idplan=? AND idservicio=?",
-	                           idplan, name_area);
-	}
+
 	public void deletePlanAsignado(PlanAsignado planAsignado) {
-	     jdbcTemplate.update("DELETE from Plan where idplan=? AND name_area=?",
-	                           planAsignado.getIdplan(), planAsignado.getIdservicio());
+	     jdbcTemplate.update("DELETE from planasignado where idplan=?",
+	                           planAsignado.getIdplan());
 	}
 	
 	
-
-	   /*No es pot actualitzar els atributs del planAsignado perque els 2 atributs son clau primaria
-	      
+	   /* Actualitza els atributs del planasignado
+    (no es pot modificar cap atribut per que son la clau primària)
+    
+ public void updatePlan(PlanAsignado planasignado) {
+     jdbcTemplate.update("UPDATE planasignado SET idservicio=? where idplan=? ",
+    		 planasignado.getIdservicio(), planasignado.getIdplan());
+   
+ }
+	 */
+	     
 
 	   /* Obté el PlanAsignado amb el nom donat. Torna null si no existeix. */
 	public Plan getPlanAsignado(int idplan, int idservicio) {
 	     try {
-	         return jdbcTemplate.queryForObject("SELECT * from Plan WHERE idplan=? and idservicio=?",
+	         return jdbcTemplate.queryForObject("SELECT * from planasignado WHERE idplan=? and idservicio=?",
 	                 new PlanRowMapper(), idplan, idservicio);
 	     }
 	     catch(EmptyResultDataAccessException e) {

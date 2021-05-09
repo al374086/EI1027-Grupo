@@ -17,14 +17,6 @@ import es.uji.ei1027.reservas.modelo.TemporalService;
 @Repository
 public class TemporalServiceDao {
 
-	private int idtemporalservice;
-	private Date initialdate;
-	private Date enddate;
-	private Time starttime;
-	private Time endtime;
-	private String name_area;
-	private int idservice;
-	
 	
    private JdbcTemplate jdbcTemplate;
 
@@ -35,27 +27,27 @@ public class TemporalServiceDao {
 
    /* Afegeix un temporalService a la base de dades */
    public void addTemporalService(TemporalService temporalService) {
-       jdbcTemplate.update("INSERT INTO plan VALUES(?, ?, ?, ?, ?, ?, ?)",
-    		   temporalService.getIdtemporalservice(), temporalService.getInitialdate(), temporalService.getEnddate(), temporalService.getStarttime(), temporalService.getEndtime(),
+       jdbcTemplate.update("INSERT INTO temporalservice VALUES(?, ?, ?, ?, ?, ?)",
+    		   temporalService.getInitialdate(), temporalService.getEnddate(), temporalService.getStarttime(), temporalService.getEndtime(),
     		   temporalService.getName_area(), temporalService.getIdservice());
    }
 
    /* Esborra un temporalService de la base de dades */
    public void deleteTemporalService(int idtemporalservice) {
-       jdbcTemplate.update("DELETE from plan where idtemporalservice=?",
+       jdbcTemplate.update("DELETE from temporalservice where idtemporalservice=?",
     		   idtemporalservice);
    }
    public void deleteTemporalservice(TemporalService temporalservice) {
-       jdbcTemplate.update("DELETE from plan where idtemporalservice=?",
+       jdbcTemplate.update("DELETE from temporalservice where idtemporalservice=?",
     		   temporalservice.getIdtemporalservice());
    }
 
    /* Actualitza els atributs del temporalservice.getStarttime()
       (excepte el idtemporalservice  que és la clau primària) */
-   public void updatePlan(TemporalService temporalservice) {
-       jdbcTemplate.update("UPDATE plan SET initialdate=?, enddate=?, starttime=?, endtime=?, name_area=?, idservice=? where idtemporalservice=?",
-    		   temporalservice.getInitialdate(), temporalservice.getEnddate(), temporalservice.getStarttime(), temporalservice.getEndtime(), temporalservice.getStarttime(),
-    		   temporalservice.getEndtime(), temporalservice.getName_area(), temporalservice.getIdservice());
+   public void updateTemporalservice(TemporalService temporalservice) {
+       jdbcTemplate.update("UPDATE temporalservice SET initialdate=?, enddate=?, starttime=?, endtime=?, name_area=?, idservice=? where idtemporalservice=?",
+    		   temporalservice.getInitialdate(), temporalservice.getEnddate(), temporalservice.getStarttime(), temporalservice.getEndtime(),
+    		   temporalservice.getName_area(), temporalservice.getIdservice(), temporalservice.getIdtemporalservice());
    }
 
    /* Obté el TemporalService amb el id donat. Torna null si no existeix. */
