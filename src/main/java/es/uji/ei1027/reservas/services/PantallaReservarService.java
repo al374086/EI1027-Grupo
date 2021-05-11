@@ -10,7 +10,9 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import es.uji.ei1027.reservas.dao.AreaDao;
 import es.uji.ei1027.reservas.dao.MunicipalityDao;
+import es.uji.ei1027.reservas.modelo.Area;
 import es.uji.ei1027.reservas.modelo.Municipality;
 
 @Repository
@@ -18,15 +20,32 @@ public class PantallaReservarService {
 	
 	@Autowired
 	MunicipalityDao municipality;
-
+	
+	@Autowired
+	AreaDao area;
+	
+	
+	public List<String> getProvincias() {
+		List<String> provincias = new ArrayList<String>();
+		List<Municipality> municipios = municipality.getMunicipality();
+		for (Municipality municipio : municipios) {
+			if (!provincias.contains(municipio.getCountry()))
+			provincias.add(municipio.getCountry()); //De momento dejo PAIS como provincia..
+		}
+		return provincias;
+	}
 	
 	public List<String> getLocalidades() {
 		List<String> localidades = new ArrayList<String>();
 		List<Municipality> municipios = municipality.getMunicipality();
 		for (Municipality municipio : municipios) {
-			localidades.add(municipio.getName()); //De momento lo dejo asi a modo de prueba
+			localidades.add(municipio.getName());
 		}
 		return localidades;
+	}
+	
+	public List<Area> getAreas() { //Proximamente, modificar funcion a un municipio solo
+		return area.getAreas();
 	}
 
 }

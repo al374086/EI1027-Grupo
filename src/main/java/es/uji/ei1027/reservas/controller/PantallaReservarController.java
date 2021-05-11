@@ -14,19 +14,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.uji.ei1027.reservas.services.PantallaReservarService;
 @Controller
-@RequestMapping("/Pantalla_Reservar")
+@RequestMapping("/pantallaReservar")
 public class PantallaReservarController {
 	
-	private PantallaReservarService reservasDao;
+	private PantallaReservarService reservasService;
 
 	   @Autowired 
-	   public void setSociDao(PantallaReservarService reservasDao) {
-	       this.reservasDao = reservasDao;
+	   public void setSociDao(PantallaReservarService reservasService) {
+	       this.reservasService = reservasService;
 	   }
 
-	@RequestMapping(value="/reservar", method=RequestMethod.GET)
+	@RequestMapping(value="/seleccionarArea", method=RequestMethod.GET)
 	public String getLocalidades(Model model) {
-		model.addAttribute("localidadesList", reservasDao.getLocalidades());
-		return "Pantalla_Reservar/reservar"; 
+		model.addAttribute("provinciasList", reservasService.getProvincias());
+		model.addAttribute("localidadesList", reservasService.getLocalidades());
+		model.addAttribute("area", reservasService.getAreas());
+		return "pantallaReservar/seleccionarArea"; 
 	}
 }
