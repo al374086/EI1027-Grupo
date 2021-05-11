@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import es.uji.ei1027.reservas.dao.PantallaReservarDao;
+import es.uji.ei1027.reservas.services.PantallaReservarService;
 @Controller
 @RequestMapping("/Pantalla_Reservar")
 public class PantallaReservarController {
 	
-	private PantallaReservarDao reservasDao;
+	private PantallaReservarService reservasDao;
 
 	   @Autowired 
-	   public void setSociDao(PantallaReservarDao reservasDao) {
+	   public void setSociDao(PantallaReservarService reservasDao) {
 	       this.reservasDao = reservasDao;
 	   }
 
