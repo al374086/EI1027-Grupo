@@ -29,7 +29,7 @@ public class UsuarioControladorPublico {
 	       { 
 	          model.addAttribute("user", new Usuario()); 
 	          session.setAttribute("nextUrl", "/user/list");
-	          return "login";
+	          return "user/login";
 	       } 
 	       model.addAttribute("users", userDao.listAllUsers());
 	       return "user/list";

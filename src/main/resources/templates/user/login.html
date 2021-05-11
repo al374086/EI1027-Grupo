@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<link rel="stylesheet" type="text/css"  
-      href="/css/natacio.css" 
-      th:href="@{/css/natacio.css}"/>
+
 <title>Login</title>
 <meta charset="UTF-8"/>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"/>
@@ -11,7 +9,7 @@
 </head>
 <body>
 	<h2>Accés</h2>
-	<form action="#" th:action="@{/login}" 
+	<form action="#" th:action="@{/user/login}" 
 	      th:object="${user}" method="post">
 		<p>
 		   	<label>Nom d'usuari:</label>

@@ -42,27 +42,32 @@ public class LoginController {
 	@Autowired
 	private UserDao userDao;
 
-	@RequestMapping("/login")
+	@RequestMapping("user/login")
 	public String login(Model model) {
+		
 		model.addAttribute("user", new Usuario());
-		return "login";
+		return "user/login";
 	}
 
-	@RequestMapping(value="/login", method=RequestMethod.POST)
+	@RequestMapping(value="user/login", method=RequestMethod.POST)
 	public String checkLogin(@ModelAttribute("user") Usuario user,  		
 				BindingResult bindingResult, HttpSession session) {
+		
 		UserValidator userValidator = new UserValidator(); 
 		userValidator.validate(user, bindingResult); 
+		
 		if (bindingResult.hasErrors()) {
-			return "login";
+			
+			return "user/login";
 		}
 	       // Comprova que el login siga correcte 
 		// intentant carregar les dades de l'usuari 
 		user = userDao.loadUserByUsername(user.getUsername(), user.getPassword()); 
 		if (user == null) {
 			bindingResult.rejectValue("password", "badpw", "Contrasenya incorrecta"); 
-			return "login";
+			return "user/login";
 		}
+		
 		// Autenticats correctament. 
 		// Guardem les dades de l'usuari autenticat a la sessió
 		session.setAttribute("user", user); 
@@ -71,11 +76,12 @@ public class LoginController {
 		if (session.getAttribute("nextUrl") == "/user/list") {
 			String nextUrl = (String) session.getAttribute("nextUrl");
 			session.removeAttribute("nextUrl");
+			System.out.println("login correcto");
 			return "redirect:/user/list" ;
 		}
-			
+		
 		// Torna a la pàgina principal
-		return "redirect:/";
+		return "redirect:/user/list";
 	}
 
 	@RequestMapping("/logout") 

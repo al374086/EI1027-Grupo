@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <div class="loggeduser" th:object="${session}"> 
     <p th:if="*{user == null}">
 	  No autenticat <a href="/login" th:href="@{/login}">Entrar</a> 
@@ -10,4 +8,3 @@
     </p>
 </div>
 
-</html>
