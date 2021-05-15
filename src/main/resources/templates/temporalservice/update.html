@@ -12,11 +12,7 @@
       th:object="${temporalservice}" method="post">
     <table>
         
-        <tr>
         
-        	
-            <td><input type="hidden" th:field="*{idtemporalservice}" /></td>
-         </tr>
          <tr>
             <td><label>initialdate</label></td>
             <td><input type="text" th:field="*{initialdate}" placeholder="dd/MM/yyyy"/></td>
@@ -35,11 +31,11 @@
         </tr>
         <tr>
             <td><label>name_area</label></td>
-            <td><input type="text" th:field="*{name_area}"/></td>
+            <td><input type="text" th:field="*{name_area}" readonly="readonly"/></td>
         </tr>
         <tr>
             <td><label>idservice</label></td>
-            <td><input type="text" th:field="*{idservice}" /></td>
+            <td><input type="text" th:field="*{idservice}" readonly="readonly"/></td>
         </tr>
         <tr>
             <td colspan="2"><input type="submit" value="Edita temporalservice" /></td>

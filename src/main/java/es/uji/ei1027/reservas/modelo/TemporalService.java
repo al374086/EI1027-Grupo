@@ -11,14 +11,14 @@ public class TemporalService {
 	
 	private int idtemporalservice;
 	
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
 	private LocalDate initialdate;
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
 	private LocalDate enddate;
 	
-	@DateTimeFormat(pattern = "HH:mm:ss.SSS")
+	@DateTimeFormat(iso=DateTimeFormat.ISO.TIME)
 	private LocalTime starttime;
-	@DateTimeFormat(pattern = "HH:mm:ss.SSS")
+	@DateTimeFormat(iso=DateTimeFormat.ISO.TIME)
 	private LocalTime endtime;
 	 
 	 
@@ -104,7 +104,7 @@ public class TemporalService {
 	
 	@Override
 	public String toString() {
-		return "Plan {" + "idtemporalservice='" + idtemporalservice + "\'" + ", initialdate='" + initialdate + "\'" + ", enddate='" + enddate + "\'" + ",starttime='"
+		return "TemporalService {" + " idtemporalservice='" + idtemporalservice + "\'" + ", initialdate='" + initialdate + "\'" + ", enddate='" + enddate + "\'" + ",starttime='"
 				+ starttime+ "\'" + ", endtime='" + endtime + "\'" + ", name_area='" + name_area + "\'" + ", idservice='" + idservice + "\'" + "}";
 	}
 

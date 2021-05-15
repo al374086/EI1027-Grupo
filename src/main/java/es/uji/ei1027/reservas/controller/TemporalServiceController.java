@@ -32,7 +32,7 @@ public class TemporalServiceController {
 	   // ...
 	 
 	 @RequestMapping("/list")
-	    public String listPlanes(Model model) {
+	    public String listTemporalServices(Model model) {
 	        model.addAttribute("temporalservices", temporalserviceDao.getTemporalServices());
 	        return "temporalservice/list";
 	    }
@@ -47,9 +47,12 @@ public class TemporalServiceController {
 	 @RequestMapping(value="/add", method= RequestMethod.POST)
 	    public String processAddSubmit(@ModelAttribute("temporalservice") TemporalService temporalservice,
 	                                   BindingResult bindingResult) {
-	        if (bindingResult.hasErrors())
+	        if (bindingResult.hasErrors()) {
+	        	
 	        	return "temporalservice/add";
-	       
+	        }
+	        
+	        temporalserviceDao.addTemporalService(temporalservice);
 	        return "redirect:list";
 	 }
 	 
@@ -66,6 +69,7 @@ public class TemporalServiceController {
 	            BindingResult bindingResult) {
 	        if (bindingResult.hasErrors())
 	            return "temporalservice/update";
+	       
 	        temporalserviceDao.updateTemporalservice(temporalservice);
 	        return "redirect:list";
 	    }

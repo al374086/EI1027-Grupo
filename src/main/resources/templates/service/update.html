@@ -7,7 +7,7 @@
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
-<h2>Service</h2>
+<h2>Actualizar Service</h2>
 <form action="#" th:action="@{/service/update}"
       th:object="${service}" method="post">
     <table>
@@ -29,17 +29,10 @@
             <td><label>description</label></td>
             <td><input type="text" th:field="*{description}"/></td>
         </tr>
-        <tr>
-            <td><label>name_service</label></td>
-            <td><input type="text" th:field="*{name_service}"/></td>
-        </tr>
-        <tr>
-            <td><label>name_area</label></td>
-            <td><input type="text" th:field="*{name_area}"/></td>
-        </tr>
+        
         
         <tr>
-            <td colspan="2"><input type="submit" value="Edita temporalservice" /></td>
+            <td colspan="2"><input type="submit" value="Actualizar service" /></td>
         </tr>
     </table>
 </form>

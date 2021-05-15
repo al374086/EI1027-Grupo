@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Actualizar plan</title>
+    <title>Actualizar servicesarea</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
 <h2>Plan</h2>
-<form action="#" th:action="@{/plan/update}"
-      th:object="${plan}" method="post">
+<form action="#" th:action="@{/servicesarea/update}"
+      th:object="${servicesarea}" method="post">
     <table>
         
         <tr>
@@ -34,7 +34,11 @@
             <td><input type="text" th:field="*{name_area}" readonly="readonly"/></td>
         </tr>
         <tr>
-            <td colspan="2"><input type="submit" value="Edita plan" /></td>
+            <td><label>Service</label></td>
+            <td><input type="text" th:field="*{service}" readonly="readonly"/></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Edita servicesarea" /></td>
         </tr>
     </table>
 </form>

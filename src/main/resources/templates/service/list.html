@@ -24,12 +24,11 @@
          <td th:text="${service.name}"></td>
          <td th:text="${service.type}"></td>
          <td th:text="${service.description}"></td>
-         <td th:text="${service.name_service}"></td>
-         <td th:text="${service.name_area}"></td>
          
-         <td><a th:href="@{/service/update/{idservice}(service=${service.idservice}}">Edita</a> 
+         
+         <td><a th:href="@{/service/update/{idservice}(idservice=${service.idservice})}">Edita</a> 
          </td>
-         <td><a th:href="@{/service/delete/{idservice}(service=${service.idservice}}">Esborra</a>
+         <td><a th:href="@{/service/delete/{idservice}(idservice=${service.idservice})}">Esborra</a>
          </td>
        </tr>
      </tbody>
