@@ -28,7 +28,7 @@ public class ServicesAreaDao {
 	   System.out.println(servicesarea.toString()+ "rtyyttttttttttttttttttttttttttttttttttttttttttttttttttt");
 	  // jdbcTemplate.update("INSERT INTO servicesarea (comments,initialdate,enddate,name_area,service")VALUES(servicesarea.getComments(),servicesarea.getInitialDate(),servicesarea.getEndDate(), servicesarea.getName_area(), servicesarea.getService());
 			   
-       jdbcTemplate.update("INSERT INTO servicesarea VALUES( ?, ?, ?, ? ,?)",
+       jdbcTemplate.update("INSERT INTO servicesarea(Comments,initialdate, enddate, name_area,service) VALUES( ?, ?, ?, ? ,?)",
     	  servicesarea.getComments(),servicesarea.getInitialDate(), servicesarea.getEndDate(), servicesarea.getName_area(), servicesarea.getService());
       
    }

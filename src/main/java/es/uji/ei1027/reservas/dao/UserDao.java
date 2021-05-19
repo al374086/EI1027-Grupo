@@ -5,5 +5,5 @@ import es.uji.ei1027.reservas.modelo.Usuario;
 
 public interface UserDao {
 	Usuario loadUserByUsername(String username, String password);
- 	Collection<Usuario> listAllUsers();
+ 	//Collection<Usuario> listAllUsers();
 }

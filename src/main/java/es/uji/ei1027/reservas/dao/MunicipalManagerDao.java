@@ -11,6 +11,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import es.uji.ei1027.reservas.modelo.Citizen;
 import es.uji.ei1027.reservas.modelo.MunicipalManager;
 
 
@@ -43,6 +44,18 @@ public class MunicipalManagerDao{
         try {
             return jdbcTemplate.queryForObject("SELECT * from municipalManager WHERE dni=? ",
                     new MunicipalManagerRowMapper(), dni);
+        }
+        catch(EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+    
+    
+    /* Obté el Citizen amb el nom donat. Torna null si no existeix. */
+    public MunicipalManager getMunicipalManagerNombre (String name) {
+        try {
+            return jdbcTemplate.queryForObject("SELECT * from municipalManager WHERE name=?",
+                    new MunicipalManagerRowMapper(), name);
         }
         catch(EmptyResultDataAccessException e) {
             return null;

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import es.uji.ei1027.reservas.modelo.Citizen;
 import es.uji.ei1027.reservas.modelo.MunicipalManager;
 import es.uji.ei1027.reservas.modelo.Municipality;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,4 +47,17 @@ public class StaffDao {
         }
 
     }
+    
+    /* Obté el Citizen amb el nom donat. Torna null si no existeix. 
+    public Staff getStaffNombre (String name) {
+        try {
+            return jdbcTemplate.queryForObject("SELECT * from staff WHERE name=?",
+                    new StaffRowMapper(), name);
+        }
+        catch(EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+    */
+    
 }
