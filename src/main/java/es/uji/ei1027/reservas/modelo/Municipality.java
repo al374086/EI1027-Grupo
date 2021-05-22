@@ -6,7 +6,7 @@ public class Municipality {
 	
 	private int code;
 	private String name;
-	private String Country;
+	private String province;
 
 	public Municipality() {
 		
@@ -36,21 +36,21 @@ public class Municipality {
 
 
 
-	public String getCountry() {
-		return Country;
+	public String getProvince() {
+		return province;
 	}
 
 
 
-	public void setCountry(String country) {
-		Country = country;
+	public void setProvince(String province) {
+		this.province = province;
 	}
 
 
 
 	@Override
 	public String toString() {
-		return "Municipality [code=" + code + ", name=" + name + ", Country=" + Country + "]";
+		return "Municipality [code=" + code + ", name=" + name + ", Province=" + province + "]";
 	}
 
 	

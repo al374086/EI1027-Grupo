@@ -41,6 +41,10 @@ public class PantallaReservarController {
 	@RequestMapping(value="/seleccionarArea", method=RequestMethod.POST)
 	public String getDatos(Model model,@ModelAttribute("formulario") FormularioSeleccionarLocalidad datos, 
             BindingResult bindingResult) {
+	//	if(datos.getProvincia() == null) {
+	//		model.addAttribute("provinciasList", reservasService.getProvincias());
+	//		return "pantallaReservar/seleccionarArea";
+	//	}
 		if(datos.getLocalidad() == null) {
 			model.addAttribute("provinciasList", datos.getProvincia());
 			model.addAttribute("localidadesList", reservasService.getLocalidades(datos.getProvincia()));
@@ -53,18 +57,9 @@ public class PantallaReservarController {
 			return "pantallaReservar/seleccionarArea";
 		}
 		else {
-			System.out.println(datos.getProvincia());
-			System.out.println(datos.getLocalidad());
-			System.out.println(datos.getArea());
+			//Ir a nueva pantalla reservar
 		}
 		
-		//System.out.println(datos.getArea());
-		//System.out.println(provincia);
-		//model.addAttribute("provinciasList", provincia);
-		//model.addAttribute("localidadesList", reservasService.getLocalidades(provincia));
-		//model.addAttribute("localidadesList", null);
-		//model.addAttribute("area", reservasService.getAreas());
-		//model.addAttribute("area", null);
 		return "pantallaReservar/seleccionarArea"; 
 	}
 }

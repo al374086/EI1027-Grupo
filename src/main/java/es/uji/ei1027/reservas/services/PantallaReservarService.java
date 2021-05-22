@@ -29,8 +29,8 @@ public class PantallaReservarService {
 		List<String> provincias = new ArrayList<String>();
 		List<Municipality> municipios = municipality.getMunicipality();
 		for (Municipality municipio : municipios) {
-			if (!provincias.contains(municipio.getCountry()))
-			provincias.add(municipio.getCountry()); //De momento dejo PAIS como provincia..
+			if (!provincias.contains(municipio.getProvince()))
+			provincias.add(municipio.getProvince()); //De momento dejo PAIS como provincia..
 		}
 		return provincias;
 	}
@@ -39,7 +39,7 @@ public class PantallaReservarService {
 		List<String> localidades = new ArrayList<String>();
 		List<Municipality> municipios = municipality.getMunicipality();
 		for (Municipality municipio : municipios) {
-			if (municipio.getCountry().equals(provincia))
+			if (municipio.getProvince().equals(provincia))
 				localidades.add(municipio.getName());
 		}
 		return localidades;

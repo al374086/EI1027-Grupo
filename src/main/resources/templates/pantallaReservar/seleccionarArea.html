@@ -47,7 +47,6 @@
      	 <th>Descripció</th>
      	 <th>Longitud y Anchura</th>
      	 <th>Orientació</th>
-		 <th>Municipí</th>
        </tr>
      </thead>
      <tbody>
@@ -60,8 +59,7 @@
          <td th:text="${area.description}"></td>
          <td th:text="${area.lengthAndWidth}"></td>
          <td th:text="${area.Orientation}"></td>
-         <td th:text="${area.codeMunicipality}"></td>
-         <td><a th:if="${area.isRestricted == true}" type="submit" class="btn btn-warning">Reservar</a>
+         <td><a th:if="${area.isRestricted == true}" type="submit" class="btn btn-warning" th:href="@{/pantallaReservar/reservar/{area}(area=${area.name})}">Reservar</a>
        </tr>
      </tbody>
    </table>
