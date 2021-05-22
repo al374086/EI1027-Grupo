@@ -1,5 +1,6 @@
 package es.uji.ei1027.reservas.controller;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import es.uji.ei1027.reservas.modelo.FormularioSeleccionarLocalidad;
+import es.uji.ei1027.reservas.modelo.FormularioReservarArea;
 import es.uji.ei1027.reservas.services.PantallaReservarService;
 @Controller
 @RequestMapping("/pantallaReservar")
@@ -34,12 +35,13 @@ public class PantallaReservarController {
 		model.addAttribute("localidadesList", null);
 		//model.addAttribute("area", reservasService.getAreas());
 		model.addAttribute("area", null);
-		model.addAttribute("formulario", new FormularioSeleccionarLocalidad());
+		model.addAttribute("formulario", new FormularioReservarArea());
+		//LocalDate fecha1 = new LocalDate();
 		return "pantallaReservar/seleccionarArea"; 
 	}
 	
 	@RequestMapping(value="/seleccionarArea", method=RequestMethod.POST)
-	public String getDatos(Model model,@ModelAttribute("formulario") FormularioSeleccionarLocalidad datos, 
+	public String getDatos(Model model,@ModelAttribute("formulario") FormularioReservarArea datos, 
             BindingResult bindingResult) {
 	//	if(datos.getProvincia() == null) {
 	//		model.addAttribute("provinciasList", reservasService.getProvincias());
@@ -61,5 +63,12 @@ public class PantallaReservarController {
 		}
 		
 		return "pantallaReservar/seleccionarArea"; 
+	}
+	
+	@RequestMapping(value="/reservar/{area}", method=RequestMethod.GET)
+	public String reservarArea(Model model, @PathVariable String area) {
+		model.addAttribute("formulario", new FormularioReservarArea());
+		model.addAttribute("area", area);
+		return "pantallaReservar/reservar"; 
 	}
 }

@@ -1,6 +1,6 @@
 package es.uji.ei1027.reservas.modelo;
 
-public class FormularioSeleccionarLocalidad {
+public class FormularioReservarArea {
 
 	private String provincia;
 	private String localidad;

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Prueba de Reserva</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h1>Reservar</h1>
+    <form action="#" th:action="@{/pantallaReservar/reservar}" 
+                     th:object="${formulario}" method="post"> 
+	<h2 th:text="${area}"></h2>
+	<table>
+	  <tr>
+	    <td><label>Fecha </label></td>
+		<td> <select class="form_control" type="text"> 
+			<!--option value="No seleccionat">Selecciona el gènere</option-->
+			<option th:each="fechaValue : ${fechaList}"
+				th:value="${fechaValue}"
+				th:text="${fechaValue}"></option>
+			</select>
+		</td>
+		<td><input type="submit" value="Seleccionar" /></td>
+	   </tr>
+      </table>
+    </form>
+</body>
+</html>
