@@ -11,8 +11,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import es.uji.ei1027.reservas.modelo.Municipality;
-import es.uji.ei1027.reservas.modelo.Plan;
-import es.uji.ei1027.reservas.modelo.PlanAsignado;
+import es.uji.ei1027.reservas.modelo.ServicesArea;
+
 
 @Repository
 public class MunicipalityDao {
@@ -27,12 +27,12 @@ public class MunicipalityDao {
 	/* Afegeix un municipality a la base de dades */
 	public void addMunicipality(Municipality municipality) {
 		jdbcTemplate.update("INSERT INTO municipality VALUES(?, ?)",
-	    municipality.getName(), municipality.getCountry());
+	    municipality.getName(), municipality.getProvince());
 		//System.out.println("add municipality");
 	}
 	
 	public void updateMunicipality(Municipality municipality) {
-	       jdbcTemplate.update("UPDATE municipality set name='"+municipality.getName()+"', country='"+municipality.getCountry()+"' WHERE code="+municipality.getCode()+"");
+	       jdbcTemplate.update("UPDATE municipality set name='"+municipality.getName()+"', country='"+municipality.getProvince()+"' WHERE code="+municipality.getCode()+"");
 	}
 	
 	/* Esborra un municipality de la base de dades */

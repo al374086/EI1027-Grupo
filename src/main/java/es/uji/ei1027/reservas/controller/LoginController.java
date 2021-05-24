@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import es.uji.ei1027.reservas.dao.MunicipalManagerDao;
 import es.uji.ei1027.reservas.dao.UserDao;
+import es.uji.ei1027.reservas.modelo.Citizen;
+import es.uji.ei1027.reservas.modelo.MunicipalManager;
 import es.uji.ei1027.reservas.modelo.Usuario;
 
 class UserValidator implements Validator { 
@@ -72,16 +75,21 @@ public class LoginController {
 		// Guardem les dades de l'usuari autenticat a la sessió
 		session.setAttribute("user", user); 
 		
-		// Torna a nextUrl
-		if (session.getAttribute("nextUrl") == "/user/list") {
-			String nextUrl = (String) session.getAttribute("nextUrl");
-			session.removeAttribute("nextUrl");
-			System.out.println("login correcto");
-			return "redirect:/user/list" ;
+		Citizen ciudadano;
+		MunicipalManager municipalManager;
+		
+		if(user.getRol().equals("ciudadanos")) {
+			System.out.println("voy a la pagina reservas");
+			return "reserve/add";
+		
+		}else {
+			System.out.println("voy a la pagina del gestor municipal");
+	
+			return "municipality/add";
+		
 		}
 		
-		// Torna a la pàgina principal
-		return "redirect:/user/list";
+		
 	}
 
 	@RequestMapping("/logout") 

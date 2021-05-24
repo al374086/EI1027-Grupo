@@ -23,7 +23,7 @@ public class ServiceController {
 	private ServiceDao serviceDao;
 	
 	 @Autowired
-	   public void setTemporalService(ServiceDao serviceDao) {
+	   public void setServiceDao(ServiceDao serviceDao) {
 	       this.serviceDao=serviceDao;
 	   }
 	 
@@ -31,13 +31,14 @@ public class ServiceController {
 	   // ...
 	 
 	 @RequestMapping("/list")
-	    public String listPlanes(Model model) {
+	    public String listServices(Model model) {
 	        model.addAttribute("services", serviceDao.getServices());
 	        return "service/list";
 	    }
 	 
 	 @RequestMapping(value="/add") 
-		public String addTemporalService(Model model) {
+		public String addService(Model model) {
+		 	
 			model.addAttribute("service", new Service());
 			return "service/add";
 		}
@@ -46,16 +47,20 @@ public class ServiceController {
 	 @RequestMapping(value="/add", method= RequestMethod.POST)
 	    public String processAddSubmit(@ModelAttribute("service") Service service,
 	                                   BindingResult bindingResult) {
-	        if (bindingResult.hasErrors())
+		 	
+	        if (bindingResult.hasErrors()) 
 	        	return "service/add";
-	       
+	        	
+	        serviceDao.addService(service);
 	        return "redirect:list";
 	 }
 	 
 	 
 	 @RequestMapping(value="/update/{idservice}", method = RequestMethod.GET)
-	    public String editTemporalService(Model model, @PathVariable int idservice) {
+	    public String editService(Model model, @PathVariable int idservice) {
+		 
 	        model.addAttribute("service", serviceDao.getService(idservice));
+	        
 	        return "service/update";
 	    }
 
@@ -64,8 +69,9 @@ public class ServiceController {
 	            @ModelAttribute("service") Service service,
 	            BindingResult bindingResult) {
 	        if (bindingResult.hasErrors())
-	            return "temporalservice/update";
+	            return "service/update";
 	        serviceDao.updateService(service);
+	        
 	        return "redirect:list";
 	    }
 	    

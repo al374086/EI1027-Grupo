@@ -12,22 +12,23 @@
     <form action="#" th:action="@{/temporalservice/add}"
                      th:object="${temporalservice}" method="post">
       <table>
+       
         
         <tr>
             <td><label>initialdate</label></td>
-            <td><input type="text" th:field="*{initialdate}" placeholder="dd/MM/yyyy"/></td>
+            <td><input type="date" th:field="*{initialdate}" placeholder="dd/MM/yyyy"/></td>
         </tr>
         <tr>
             <td><label>enddate</label></td>
-            <td><input type="text" th:field="*{enddate}" placeholder="dd/MM/yyyy"/></td>
+            <td><input type="date" th:field="*{enddate}" placeholder="dd/MM/yyyy"/></td>
         </tr>
         <tr>
             <td><label>starttime</label></td>
-            <td><input type="text" th:field="*{starttime}" placeholder="HH:mm:ss.SSS"/></td>
+            <td><input type="time" th:field="*{starttime}" placeholder="HH:mm:ss.SSS"/></td>
         </tr>
         <tr>
             <td><label>endtime</label></td>
-            <td><input type="text" th:field="*{endtime}" placeholder="HH:mm:ss.SSS"/></td>
+            <td><input type="time" th:field="*{endtime}" placeholder="HH:mm:ss.SSS"/></td>
         </tr>
         <tr>
             <td><label>name_area</label></td>

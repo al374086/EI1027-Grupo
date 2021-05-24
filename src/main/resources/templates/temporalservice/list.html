@@ -28,9 +28,9 @@
          <td th:text="${temporalservice.endtime}"></td>
          <td th:text="${temporalservice.name_area}"></td>
          <td th:text="${temporalservice.idservice}"></td>
-         <td><a th:href="@{/temporalservice/update/{idtemporalservice}(temporalservice=${temporalservice.idtemporalservice}}">Edita</a> 
+         <td><a th:href="@{/temporalservice/update/{idtemporalservice}(idtemporalservice=${temporalservice.idtemporalservice})}">Edita</a> 
          </td>
-         <td><a th:href="@{/temporalservice/delete/{idtemporalservice}(temporalservice=${temporalservice.idtemporalservice}}">Esborra</a>
+         <td><a th:href="@{/temporalservice/delete/{idtemporalservice}(idtemporalservice=${temporalservice.idtemporalservice})}">Esborra</a>
          </td>
        </tr>
      </tbody>

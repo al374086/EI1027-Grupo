@@ -75,7 +75,7 @@ public class TemporalServiceDao {
    public List<TemporalService> getTemporalServices(String name_area) {
 	   try {
 	     return this.jdbcTemplate.query(
-	           "SELECT * FROM plan WHERE name_area=?",
+	           "SELECT * FROM temporalservice WHERE name_area=?",
 	           new Object[] {name_area}, new TemporalServiceRowMapper());
 	  }
 	  catch(EmptyResultDataAccessException e) {

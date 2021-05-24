@@ -51,7 +51,17 @@ public class CitizenDao {
     		   citizen.getPin(), citizen.getDni());
    }
 
-   /* Obté el Citizen amb el dni donat. Torna null si no existeix. */
+   /* Obté el Citizen amb el nom donat. Torna null si no existeix. 
+   public Citizen getCitizenNombre (String name) {
+       try {
+           return jdbcTemplate.queryForObject("SELECT * from citizen WHERE name=?",
+                   new CitizenRowMapper(), name);
+       }
+       catch(EmptyResultDataAccessException e) {
+           return null;
+       }
+   }
+   */
    public Citizen getCitizen (String dni) {
        try {
            return jdbcTemplate.queryForObject("SELECT * from citizen WHERE dni=?",

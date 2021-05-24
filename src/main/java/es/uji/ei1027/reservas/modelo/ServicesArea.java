@@ -5,19 +5,20 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class Plan {
+public class ServicesArea {
 	
 	private int idplan;
 	private String comments;
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
 	private LocalDate initialDate;
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
 	private LocalDate endDate;
 	private String name_area;
+	private int service;
 	
 	
 
-	public Plan() {
+	public ServicesArea() {
 		
 	}
 
@@ -75,19 +76,25 @@ public class Plan {
 		return name_area;
 	}
 
-
-
 	public void setName_area(String name_area) {
 		this.name_area = name_area;
 	}
-
+	
+	
+	public void setService(int service) {
+		this.service = service;
+	}
+	
+	public int getService() {
+		return service;
+	}
 
 
 	@Override
 	public String toString() {
-		return "Plan {" + "idplan='" + idplan + "\'" + ", comments='" + comments + "\'" + ", initialDate='" + initialDate + "\'" + ",endDate='"
-				+ endDate + "\'" + ", name_area='" + name_area + "\'" + "}";
-	}
+		return "ServicesArea {" + "idplan='" + idplan + "\'" + ", comments='" + comments + "\'" + ", initialDate='" + initialDate + "\'" + ",endDate='"
+				+ endDate + "\'" + ", name_area='" + name_area + "\'" + ", service='" + service +"\'" + "}";
+	}                                                                
 	
 	
 	

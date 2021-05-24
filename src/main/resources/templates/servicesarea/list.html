@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Gestionar ServicesArea</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+   <h1>Llista de ServicesArea</h1>
+   <table>
+     <thead>
+       <tr>
+         <th>idplan</th>
+         <th>comments</th>
+         <th>initialDate</th>
+         <th>endDate</th>
+         <th>name_area</th>
+         <th>service</th>
+         <th></th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="servicesarea: ${servicesareas}">
+         <td th:text="${servicesarea.idplan}"></td> 
+         <td th:text="${servicesarea.comments}"></td>
+         <td th:text="${servicesarea.initialDate}"></td>
+         <td th:text="${servicesarea.endDate}"></td>
+		 <td th:text="${servicesarea.name_area}"></td>
+		 <td th:text="${servicesarea.service}"></td>
+         <td><a th:href="@{/servicesarea/update/{idplan}/{name_area}(idplan=${servicesarea.idplan}, name_area=${servicesarea.name_area})}">Edita</a> 
+         </td>
+         <td><a th:href="@{/servicesarea/delete/{idplan}/{name_area}(idplan=${servicesarea.idplan}, name_area=${servicesarea.name_area})}">Esborra</a>
+         </td>
+       </tr>
+     </tbody>
+   </table>
+   <a href="add" >Afegeix servicesarea</a> 
+</body>
+</html>

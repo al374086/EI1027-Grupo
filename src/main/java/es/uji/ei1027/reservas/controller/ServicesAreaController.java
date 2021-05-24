@@ -12,19 +12,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
-import es.uji.ei1027.reservas.dao.PlanDao;
-import es.uji.ei1027.reservas.modelo.Plan;
+import es.uji.ei1027.reservas.dao.ServicesAreaDao;
+import es.uji.ei1027.reservas.modelo.ServicesArea;
 
 @Controller
-@RequestMapping("/plan")
+@RequestMapping("/servicesarea")
 
-public class PlanController {
+public class ServicesAreaController {
 	
-	private PlanDao planDao;
+	private ServicesAreaDao servicesareaDao;
 	
 	 @Autowired
-	   public void setPlanDao(PlanDao planDao) {
-	       this.planDao=planDao;
+	   public void setServicesAreaDao(ServicesAreaDao servicesareaDao) {
+	       this.servicesareaDao=servicesareaDao;
 	   }
 	 
 	// Operacions: Crear, llistar, actualitzar, esborrar
@@ -32,25 +32,25 @@ public class PlanController {
 	 
 	 
 	  @RequestMapping("/list")
-	    public String listPlanes(Model model) {
-	        model.addAttribute("planes", planDao.getPlans());
-	        return "plan/list";
+	    public String listServicesAreaDao(Model model) {
+	        model.addAttribute("servicesareas", servicesareaDao.getServicesAreas());
+	        return "servicesarea/list";
 	    }
 	  
 	  
 	 @RequestMapping(value="/add") 
-		public String addPlan(Model model) {
-			model.addAttribute("plan", new Plan());
-			return "plan/add";
+		public String addServicesAreaDao(Model model) {
+			model.addAttribute("servicesarea", new ServicesArea());
+			return "servicesarea/add";
 		}
 	 
 	 
 	 
 	 @RequestMapping(value="/add", method= RequestMethod.POST)
-	    public String processAddSubmit(@ModelAttribute("plan") Plan plan,
+	    public String processAddSubmit(@ModelAttribute("servicesarea") ServicesArea servicesarea,
 	                                   BindingResult bindingResult) {
 	        if (bindingResult.hasErrors())
-	        	return "plan/add";
+	        	return "servicesarea/add";
 	       /*try {	        	
 	        planDao.addPlan(plan);
 	        } catch (DuplicateKeyException e) { 
@@ -62,31 +62,33 @@ public class PlanController {
 	                    "Error en l'accés a la base de dades", "ErrorAccedintDades"); 
 	          }*/
 	        
+	        
+	        servicesareaDao.addServicesArea(servicesarea);
 	        return "redirect:list";
 	 }
 	 
 	 
 	 
 	 @RequestMapping(value="/update/{idplan}/{name_area}", method = RequestMethod.GET)
-	    public String editPlan(Model model, @PathVariable int idplan,@PathVariable String name_area) {
-	        model.addAttribute("plan", planDao.getPlan(idplan, name_area));
-	        return "plan/update";
+	    public String editServicesArea(Model model, @PathVariable int idplan,@PathVariable String name_area) {
+	        model.addAttribute("servicesarea", servicesareaDao.getServicesArea(idplan, name_area));
+	        return "servicesarea/update";
 	    }
 
 	    @RequestMapping(value="/update", method = RequestMethod.POST)
 	    public String processUpdateSubmit(
-	            @ModelAttribute("plan") Plan plan,
+	            @ModelAttribute("servicesarea") ServicesArea servicesarea,
 	            BindingResult bindingResult) {
 	        if (bindingResult.hasErrors())
-	            return "plan/update";
-	        planDao.updatePlan(plan);
+	            return "servicesarea/update";
+	        servicesareaDao.updateServicesArea(servicesarea);
 	        return "redirect:list";
 	    }
 	    
 
 	    @RequestMapping(value="/delete/{idplan}/{name_area}")
 	    public String processDelete(@PathVariable int idplan,@PathVariable String name_area) {
-	        planDao.deletePlan(idplan, name_area);
+	    	servicesareaDao.deleteServicesArea(idplan, name_area);
 	        return "redirect:../../list";
 	    }
 	 

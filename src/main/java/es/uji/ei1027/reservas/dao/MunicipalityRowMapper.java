@@ -14,7 +14,7 @@ public final class MunicipalityRowMapper implements RowMapper<Municipality> {
 		Municipality municipality = new Municipality();
 		municipality.setCode(rs.getInt("code"));
 		municipality.setName(rs.getString("name"));
-		municipality.setCountry(rs.getString("country"));
+		municipality.setProvince(rs.getString("province"));
 		return municipality;
 	}
 

@@ -29,23 +29,36 @@ public class PantallaReservarService {
 		List<String> provincias = new ArrayList<String>();
 		List<Municipality> municipios = municipality.getMunicipality();
 		for (Municipality municipio : municipios) {
-			if (!provincias.contains(municipio.getCountry()))
-			provincias.add(municipio.getCountry()); //De momento dejo PAIS como provincia..
+			if (!provincias.contains(municipio.getProvince()))
+			provincias.add(municipio.getProvince()); //De momento dejo PAIS como provincia..
 		}
 		return provincias;
 	}
 	
-	public List<String> getLocalidades() {
+	public List<String> getLocalidades(String provincia) {
 		List<String> localidades = new ArrayList<String>();
 		List<Municipality> municipios = municipality.getMunicipality();
 		for (Municipality municipio : municipios) {
-			localidades.add(municipio.getName());
+			if (municipio.getProvince().equals(provincia))
+				localidades.add(municipio.getName());
 		}
 		return localidades;
 	}
 	
-	public List<Area> getAreas() { //Proximamente, modificar funcion a un municipio solo
-		return area.getAreas();
+	public List<Area> getAreas(String localidad) { //Proximamente, modificar funcion a un municipio solo
+		List<Area> areas = new ArrayList<Area>();
+		Municipality municipio = new Municipality();
+		for (Municipality busqueda : municipality.getMunicipality()) {
+			if (busqueda.getName().equals(localidad)) {
+				municipio = busqueda;
+				break;
+			}
+		}
+		for (Area area: area.getAreas()) {
+			if (area.getCodeMunicipality() == municipio.getCode())
+				areas.add(area);
+		}
+		return areas;
 	}
 
 }
