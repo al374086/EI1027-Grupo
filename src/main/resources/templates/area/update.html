@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Edició Àrea</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+ <h2>Gestió del Àrea</h2>
+    <form action="#" th:action="@{/area/update}"
+                     th:object="${area}" method="post">
+      <table>
+        <tr>
+            <td><label>Nom Area</label></td>
+            <td><input type="text" th:field="*{name}" readonly/></td>
+        </tr>
+        <tr>
+            <td>burrum</td>
+            <td>burrun</td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Actualiza Area" /></td>
+        </tr>
+      </table>
+    </form>
+</body>
+</html>

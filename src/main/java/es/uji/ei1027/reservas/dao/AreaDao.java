@@ -50,6 +50,7 @@ public class AreaDao {
         }
     }
     
+    
     /* Obté totes les Areas. Torna una llista buida si no n'hi ha cap. */
     public List<Area> getAreas() {
         try {
