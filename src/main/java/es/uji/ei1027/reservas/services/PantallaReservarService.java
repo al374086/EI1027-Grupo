@@ -1,5 +1,6 @@
 package es.uji.ei1027.reservas.services;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +13,16 @@ import org.springframework.stereotype.Repository;
 
 import es.uji.ei1027.reservas.dao.AreaDao;
 import es.uji.ei1027.reservas.dao.MunicipalityDao;
+import es.uji.ei1027.reservas.dao.ReserveDao;
+import es.uji.ei1027.reservas.dao.TimeSlotDao;
+import es.uji.ei1027.reservas.dao.ZonasReservadasDao;
+import es.uji.ei1027.reservas.dao.ZoneDao;
 import es.uji.ei1027.reservas.modelo.Area;
 import es.uji.ei1027.reservas.modelo.Municipality;
+import es.uji.ei1027.reservas.modelo.Reserve;
+import es.uji.ei1027.reservas.modelo.TimeSlot;
+import es.uji.ei1027.reservas.modelo.ZonasReservadas;
+import es.uji.ei1027.reservas.modelo.Zone;
 
 @Repository
 public class PantallaReservarService {
@@ -24,6 +33,17 @@ public class PantallaReservarService {
 	@Autowired
 	AreaDao area;
 	
+	@Autowired
+	TimeSlotDao timeslot;
+	
+	@Autowired
+	ZonasReservadasDao zonasreservadas;
+	
+	@Autowired
+	ZoneDao zone;
+	
+	@Autowired
+	ReserveDao reservas;
 	
 	public List<String> getProvincias() {
 		List<String> provincias = new ArrayList<String>();
@@ -59,6 +79,36 @@ public class PantallaReservarService {
 				areas.add(area);
 		}
 		return areas;
+	}
+	
+	public List<TimeSlot> getTimeSlots(String area) {
+		List<TimeSlot> timeslots = new ArrayList<TimeSlot>();
+		for (TimeSlot busqueda : timeslot.getTimeSlots()) {
+			if (busqueda.getNameArea().equals(area))
+				timeslots.add(busqueda);
+		}
+		return timeslots;
+	}
+	
+	
+	public List<Zone> getZonasDisponibles(String area, LocalDate fecha, TimeSlot time) {
+		List<Zone> listaDeZonas = new ArrayList<Zone>();
+		List<String> reservasDeUnArea = new ArrayList<String>();
+		for (ZonasReservadas busqueda : zonasreservadas.getZonasReservadas()) {
+			if (busqueda.getNameArea().equals(area)) {
+				Reserve reserva = reservas.getReserve(busqueda.getNumberofreserve());
+				if (reserva.getTimeID() == time.getTimeId() && reserva.getStatus().equals("Reserved") && reserva.getDateOfTheReserve().equals(fecha))
+					reservasDeUnArea.add(busqueda.getLetterAndNumber());
+			}
+		}
+		for (Zone busqueda : zone.getZones()) {
+			if (busqueda.getNameArea().equals(area)) { 
+				if (!reservasDeUnArea.contains(busqueda.getLetterAndNumber()))
+					listaDeZonas.add(busqueda);
+			}
+		}
+		return listaDeZonas;
+		
 	}
 
 }
