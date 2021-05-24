@@ -24,7 +24,7 @@ public class TimeSlotController {
 	   @RequestMapping("/list")
 	   public String listTimeSlots(Model model) {
 	      model.addAttribute("timeslot", timeslotDao.getTimeSlots());
-	      System.out.println("Dentro del dao list timeslot");
+	      //System.out.println("Dentro del dao list timeslot");
 	      return "timeslot/list";
 	   }
 
