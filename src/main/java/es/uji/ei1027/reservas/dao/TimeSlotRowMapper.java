@@ -16,7 +16,7 @@ public final class TimeSlotRowMapper implements RowMapper<TimeSlot> {
 		timeSlot.setStartTime(rs.getTime("starttime"));
 		timeSlot.setEndTime(rs.getTime("endtime"));
 		timeSlot.setNameArea(rs.getString("namearea"));
-		System.out.println("dentro del row mapper");
+		//System.out.println("dentro del row mapper");
 		return timeSlot;
 	}
 }
