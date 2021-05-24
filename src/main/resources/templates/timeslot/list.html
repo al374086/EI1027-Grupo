@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Staff</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Llista de TimeSlots</h1>
+<table>
+    <thead>
+    <tr>
+        <th>TimeID</th>
+        <th>startTime</th>
+        <th>endTime</th>
+        <th>nameArea</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="timeslot: ${timeslot}">
+        <td th:text="${timeslot.timeId}"></td>
+        <td th:text="${timeslot.startTime}"></td>
+	    <td th:text="${timeslot.endTime}"></td>
+	    <td th:text="${timeslot.nameArea}"></td>
+        <td>Edita</a>
+        </td>
+        <td>Esborra</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="add" >Afegeix TimeSlot</a>
+</body>
+</html>
