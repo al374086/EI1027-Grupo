@@ -1,12 +1,13 @@
 package es.uji.ei1027.reservas.modelo;
 
 import java.sql.Time;
+import java.time.LocalTime;
 
 public class TimeSlot {
 	
 	private int timeId;
-	private Time startTime;
-	private Time endTime;
+	private LocalTime startTime;
+	private LocalTime endTime;
 	private String nameArea;
 	
 	public int getTimeId() {
@@ -15,16 +16,16 @@ public class TimeSlot {
 	public void setTimeId(int timeId) {
 		this.timeId = timeId;
 	}
-	public Time getStartTime() {
+	public LocalTime getStartTime() {
 		return startTime;
 	}
-	public void setStartTime(Time startTime) {
-		this.startTime = startTime;
+	public void setStartTime(LocalTime localTime) {
+		this.startTime = localTime;
 	}
-	public Time getEndTime() {
+	public LocalTime getEndTime() {
 		return endTime;
 	}
-	public void setEndTime(Time endTime) {
+	public void setEndTime(LocalTime endTime) {
 		this.endTime = endTime;
 	}
 	public String getNameArea() {

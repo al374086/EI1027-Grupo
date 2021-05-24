@@ -24,9 +24,9 @@
         <td th:text="${timeslot.startTime}"></td>
 	    <td th:text="${timeslot.endTime}"></td>
 	    <td th:text="${timeslot.nameArea}"></td>
-        <td>Edita</a>
+        <td><a type="button" class="btn btn-warning" th:href="@{/timeslot/update/{timeId}(timeId=${timeslot.timeId})}">Edita</a>
         </td>
-        <td>Esborra</a>
+        <td><a type="button" class="btn btn-danger" th:href="@{/timeslot/delete/{timeId}(timeId=${timeslot.timeId})}">Esborra</a>
         </td>
     </tr>
     </tbody>

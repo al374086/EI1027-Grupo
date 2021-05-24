@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Crea nou TimeSlot</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h2>Nou TimeSlot</h2>
+    <form action="#" th:action="@{/timeslot/add}" 
+                     th:object="${timeslot}" method="post">
+      <table>
+        <tr>
+            <td><label>TimeId</label></td>
+            <td><input type="text" th:field="*{timeId}" /></td> 
+        </tr>
+        <tr>
+            <td><label>StartTime</label></td>
+            <td><input type="text" th:field="*{startTime}" /></td> 
+        </tr>
+         <tr>
+            <td><label>EndTime</label></td>
+            <td><input type="text" th:field="*{endTime}" /></td>
+        </tr>
+         <tr>
+            <td><label>nameArea</label></td>
+            <td><input type="text" th:field="*{nameArea}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Afegeix TimeSlot" /></td>
+        </tr>
+      </table>
+    </form>
+</body>
+</html>
