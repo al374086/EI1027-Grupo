@@ -2,10 +2,14 @@ package es.uji.ei1027.reservas.modelo;
 
 import java.sql.Time;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class TimeSlot {
 	
 	private int timeId;
+	@DateTimeFormat(iso=DateTimeFormat.ISO.TIME)
 	private Time startTime;
+	@DateTimeFormat(iso=DateTimeFormat.ISO.TIME)
 	private Time endTime;
 	private String nameArea;
 	
