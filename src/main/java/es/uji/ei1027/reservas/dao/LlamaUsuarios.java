@@ -54,14 +54,19 @@ public class LlamaUsuarios implements UserDao {
 		ciudadano = usuarioDao.getCitizen(dni);
 
 		if (ciudadano != null) {
-
+			
 			String numdni = ciudadano.getDni();
 			String pass = Integer.toString(ciudadano.getPin());
+			System.out.println("el num dni es:" + numdni);
+			System.out.println("el num pass de dni es:" + pass);
+			System.out.println("el password:" + password);
 			
-			
-			//BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
-			if (user.getPassword().equals(pass)) {
+			BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
+			//if (user.getPassword().equals(pass)) {
+			System.out.println("esfdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
+			if (passwordEncryptor.checkPassword(password, pass)) {
 				// Es deuria esborrar de manera segura el camp password abans de tornar-lo
+				
 				user.setRol("ciudadanos");
 				
 				return user;

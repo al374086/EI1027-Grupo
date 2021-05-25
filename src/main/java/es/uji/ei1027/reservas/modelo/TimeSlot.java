@@ -11,8 +11,9 @@ public class TimeSlot {
 
 
 
-
+	@DateTimeFormat(iso=DateTimeFormat.ISO.TIME)
 	private LocalTime startTime;
+	@DateTimeFormat(iso=DateTimeFormat.ISO.TIME)
 	private LocalTime endTime;
 
 	private String nameArea;

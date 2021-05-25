@@ -63,7 +63,7 @@ public class LoginController {
 		
 		if (bindingResult.hasErrors()) {
 			
-			return "reserve/add";
+			return "user/login";
 		}
 	       // Comprova que el login siga correcte 
 		// intentant carregar les dades de l'usuari 
@@ -71,7 +71,7 @@ public class LoginController {
 		if (user == null) {
 			System.out.println("el usuario es nulo");
 			bindingResult.rejectValue("password", "badpw", "Contrasenya incorrecta"); 
-			return "municipality/add";
+			return"user/login";
 		}
 		
 		// Autenticats correctament. 
@@ -83,12 +83,12 @@ public class LoginController {
 		
 		if(user.getRol().equals("ciudadanos")) {
 			System.out.println("voy a la pagina reservas");
-			return "reserve/add";
+			return "reserve/list";
 		
 		}else {
 			System.out.println("voy a la pagina del gestor municipal");
 	
-			return "municipality/add";
+			return "MunicipalManager/list";
 		
 		}
 		

@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.jasypt.util.password.BasicPasswordEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -28,6 +29,12 @@ public class CitizenDao {
 
    /* Afegeix un temporalService a la base de dades */
    public void addCitizen(Citizen citizen) {
+	   System.out.println("antes encriptacion" +citizen.getPin());
+	   BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor(); 
+	   String pass = Integer.toString(citizen.getPin());
+	   citizen.setPin(Integer.parseInt(passwordEncryptor.encryptPassword(pass))); 
+	   System.out.println("despues encriptacion" +citizen.getPin());
+	   
        jdbcTemplate.update("INSERT INTO citizen VALUES(?, ?, ?, ?, ?, ?, ?)",
     		   citizen.getDni(), citizen.getName(), citizen.getAddress(), citizen.getTown(), citizen.getCountry(),
     		   citizen.getCp(), citizen.getPin());
