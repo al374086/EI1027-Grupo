@@ -1,11 +1,30 @@
 package es.uji.ei1027.reservas.modelo;
 
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class FormularioReservarArea {
 
 	private String provincia;
 	private String localidad;
 	private String area;
+	@DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
+	private LocalDate fecha;
+	private String time;
 	
+	public LocalDate getFecha() {
+		return fecha;
+	}
+	public void setFecha(LocalDate fecha) {
+		this.fecha = fecha;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
 	public String getArea() {
 		return area;
 	}

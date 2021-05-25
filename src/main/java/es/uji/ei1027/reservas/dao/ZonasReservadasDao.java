@@ -25,7 +25,7 @@ public class ZonasReservadasDao {
 
 	   /* Afegeix un temporalService a la base de dades */
 	   public void addZonaReservadas(ZonasReservadas zone) {
-	       jdbcTemplate.update("INSERT INTO zonasReservadas Zonas(?, ?, ?)",
+	       jdbcTemplate.update("INSERT INTO zonasReservadas VALUES(?, ?, ?)",
 	    		   zone.getNumberofreserve(), zone.getLetterAndNumber(), zone.getNameArea());
 	   }
 

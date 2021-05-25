@@ -10,12 +10,11 @@
     <h1>Reservar</h1>
     <form action="#" th:action="@{/pantallaReservar/reservar}" 
                      th:object="${formulario}" method="post"> 
-	<h2 th:text="${area}"></h2>
+	<h2 th:text="${areas}"></h2>
 	<table>
 	  <tr>
 	    <td><label>Fecha </label></td>
-		<td> <select class="form_control" type="text"> 
-			<!--option value="No seleccionat">Selecciona el gènere</option-->
+		<td> <select class="form_control" type="text" th:field="*{fecha}"> 
 			<option th:each="fechaValue : ${fechaList}"
 				th:value="${fechaValue}"
 				th:text="${fechaValue}"></option>
@@ -24,7 +23,7 @@
 	   </tr>
 	   <tr>
 	    <td><label>Horario de Reserva </label></td>
-		<td> <select class="form_control" type="text"> 
+		<td> <select class="form_control" type="text" th:field="*{time}"> 
 			<!--option value="No seleccionat">Selecciona el gènere</option-->
 			<option th:each="timeSlotValue : ${timeSlotList}"
 				th:value="${timeSlotValue}"
@@ -33,9 +32,25 @@
 		</td>
 	   </tr>
 	   <tr>
-		<td><input type="submit" value="Seleccionar" /></td>
+		<td><input th:if="${zoneList == null}" type="submit" value="Seleccionar" /></td>
 	   </tr>
       </table>
+	  <table th:if="${zoneList != null}" class="table table-striped" >
+     <thead>
+       <tr>
+         <th>letterAndNumber</th>
+         <th>capacity</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="zone: ${zoneList}">
+         <td th:text="${zone.letterAndNumber}"></td> 
+         <td th:text="${zone.capacity}"></td>
+         <td><a type="submit" class="btn btn-warning" th:href="@{/pantallaReservar/reservar/{areas}/{fecha}/{timeSlot}/{letter}(areas=${areas},fecha=${fechaList},timeSlot=${timeSlotList.timeId},letter=${zone.letterAndNumber})}">Reservar</a> 
+         </td>
+       </tr>
+     </tbody>
+   </table>
     </form>
 </body>
 </html>

@@ -110,5 +110,42 @@ public class PantallaReservarService {
 		return listaDeZonas;
 		
 	}
+	
+	public TimeSlot getTimeSlot(int id) {
+		return timeslot.getTimeSlo(id);
+	}
+	
+	
+	//Pruebas
+	public void reservar(String area, LocalDate fecha, int timeId, String letterAndNumber) {
+		Reserve reserva = new Reserve();
+		reserva.setDateOfReservation(LocalDate.now());
+		reserva.setDateOfTheReserve(fecha);
+		reserva.setDni("73404595");
+		reserva.setNumberOfPeople(5);
+		reserva.setQrCode("qr");
+		reserva.setStatus("Reserved");
+		reserva.setTimeID(timeId);
+		
+		reservas.addReserve(reserva);
+		
+		//Falta conocer el numero de reserva
+		int maxId  = 0;
+		for (Reserve busqueda : reservas.getReserves()) {
+			if (busqueda.getNumberOfReserve() > maxId)
+				maxId = busqueda.getNumberOfReserve();
+		}
+		
+		
+		
+		ZonasReservadas zonaReserva = new ZonasReservadas();
+		zonaReserva.setLetterAndNumber(letterAndNumber);
+		zonaReserva.setNameArea(area);
+		zonaReserva.setNumberofreserve(maxId);
+		
+		zonasreservadas.addZonaReservadas(zonaReserva);
+		// reserve.getDateOfReservation(), reserve.getDateOfTheReserve(), reserve.getStatus(), reserve.getNumberOfPeople(),
+		//   reserve.getQrCode(), reserve.getDni(), reserve.getTimeID()
+	}
 
 }

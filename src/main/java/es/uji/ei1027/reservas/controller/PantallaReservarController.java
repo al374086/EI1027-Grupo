@@ -67,8 +67,10 @@ public class PantallaReservarController {
 	
 	@RequestMapping(value="/reservar/{area}", method=RequestMethod.GET)
 	public String reservarArea(Model model, @PathVariable String area) {
-		model.addAttribute("formulario", new FormularioReservarArea());
-		model.addAttribute("area", area);
+		FormularioReservarArea formulario = new FormularioReservarArea();
+		formulario.setArea(area);
+		model.addAttribute("formulario", formulario);
+		model.addAttribute("areas", (area));
 		LocalDate fecha = LocalDate.now();
 		List<LocalDate> fechaList = new ArrayList<LocalDate>();
 		fechaList.add(fecha);
@@ -82,7 +84,31 @@ public class PantallaReservarController {
 	@RequestMapping(value="/reservar", method=RequestMethod.POST)
 	public String getReservarArea(Model model,@ModelAttribute("formulario") FormularioReservarArea datos, 
             BindingResult bindingResult) {
+		System.out.println(datos.getTime().split("nameArea=")[1].split("]")[0]);
+		System.out.println(datos.getFecha());
+		System.out.println(datos.getTime().split("timeId=")[1].split(",")[0]);
+		return "redirect:./reservar/" + datos.getTime().split("nameArea=")[1].split("]")[0] + "/" + datos.getFecha() + "/" + datos.getTime().split("timeId=")[1].split(",")[0]; 	
+	}
+	
+	@RequestMapping(value="/reservar/{area}/{fecha}/{timeId}", method=RequestMethod.GET)
+	public String reservarArea(Model model, @PathVariable String area, @PathVariable String fecha, @PathVariable int timeId) {
+		LocalDate localDate = LocalDate.parse(fecha);
+		FormularioReservarArea formulario = new FormularioReservarArea();
+		formulario.setArea(area);
+		model.addAttribute("formulario", formulario);
+		model.addAttribute("areas", (area));
+		List<LocalDate> fechaList = new ArrayList<LocalDate>();
+		fechaList.add(localDate);
+		model.addAttribute("fechaList",fechaList);
+		model.addAttribute("timeSlotList",reservasService.getTimeSlot(timeId));
+		model.addAttribute("zoneList",reservasService.getZonasDisponibles(area, localDate, reservasService.getTimeSlot(timeId)));
 		return "pantallaReservar/reservar"; 
-		
+	}
+	
+	@RequestMapping(value="/reservar/{area}/{fecha}/{timeId}/{letterAndNumber}", method=RequestMethod.GET)
+	public String reservarArea(Model model, @PathVariable String area, @PathVariable String fecha, @PathVariable int timeId, @PathVariable String letterAndNumber) {
+		LocalDate localDate = LocalDate.parse(fecha);
+		reservasService.reservar(area, localDate, timeId, letterAndNumber);
+		return "redirect:/";
 	}
 }
