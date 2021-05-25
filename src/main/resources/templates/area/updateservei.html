@@ -1,0 +1,53 @@
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Afegir Servei al Àrea</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+ <h2>Edició Àrea + Afegir servei</h2>
+    <form action="#" th:action="@{/area/updateservei}"
+                     th:object="${area}" method="post">
+      <table>
+        <tr>
+            <td><label>Nom Area</label></td>
+            <td><input type="text" th:field="*{name}" readonly/></td>
+        </tr>
+        <tr>
+            <td>Serveis:</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>1.- Socorrista</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>2.- Guarderia</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>3.- Cafetería</td>
+        </tr>
+        <tr><td><br></td>
+        </tr>
+        <tr>
+        <td>
+        <select  type="text" > 
+            <option th:each="serveivalue : ${serveiList}"
+                    th:value="${serveivalue}"
+                    th:text="${serveivalue}"></option>
+ 		</select>
+		</td>
+		<td>
+			<input type="submit" value="Afegeix servei" />
+		</td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Solicitar nou servei" /></td>
+        </tr>
+      </table>
+    </form>
+</body>
+</html>

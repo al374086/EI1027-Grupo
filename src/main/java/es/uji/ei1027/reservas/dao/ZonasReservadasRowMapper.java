@@ -14,7 +14,7 @@ public class ZonasReservadasRowMapper implements RowMapper<ZonasReservadas> {
 		ZonasReservadas zonasReservadas = new ZonasReservadas();
 		zonasReservadas.setNumberofreserve(rs.getInt("numberofreserve"));
 		zonasReservadas.setLetterAndNumber(rs.getString("letterAndNumber"));
-		zonasReservadas.setNamearea(rs.getString("namearea"));
+		zonasReservadas.setNameArea(rs.getString("namearea"));
 	      
 	    return zonasReservadas;
 	

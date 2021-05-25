@@ -3,7 +3,7 @@ package es.uji.ei1027.reservas.modelo;
 public class ZonasReservadas {
 	private int numberofreserve;
 	private String letterAndNumber;
-	private String namearea;
+	private String nameArea;
 	
 	public int getNumberofreserve() {
 		return numberofreserve;
@@ -17,16 +17,16 @@ public class ZonasReservadas {
 	public void setLetterAndNumber(String letterAndNumber) {
 		this.letterAndNumber = letterAndNumber;
 	}
-	public String getNamearea() {
-		return namearea;
+	public String getNameArea() {
+		return nameArea;
 	}
-	public void setNamearea(String namearea) {
-		this.namearea = namearea;
+	public void setNameArea(String nameArea) {
+		this.nameArea = nameArea;
 	}
 	@Override
 	public String toString() {
 		return "ZonasReservadas [numberofreserve=" + numberofreserve + ", letterAndNumber=" + letterAndNumber
-				+ ", namearea=" + namearea + "]";
+				+ ", namearea=" + nameArea + "]";
 	}
 	
 	

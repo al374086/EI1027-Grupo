@@ -1,5 +1,7 @@
 package es.uji.ei1027.reservas.controller;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import es.uji.ei1027.reservas.modelo.FormularioSeleccionarLocalidad;
+import es.uji.ei1027.reservas.modelo.FormularioReservarArea;
 import es.uji.ei1027.reservas.services.PantallaReservarService;
 @Controller
 @RequestMapping("/pantallaReservar")
@@ -34,12 +36,12 @@ public class PantallaReservarController {
 		model.addAttribute("localidadesList", null);
 		//model.addAttribute("area", reservasService.getAreas());
 		model.addAttribute("area", null);
-		model.addAttribute("formulario", new FormularioSeleccionarLocalidad());
+		model.addAttribute("formulario", new FormularioReservarArea());
 		return "pantallaReservar/seleccionarArea"; 
 	}
 	
 	@RequestMapping(value="/seleccionarArea", method=RequestMethod.POST)
-	public String getDatos(Model model,@ModelAttribute("formulario") FormularioSeleccionarLocalidad datos, 
+	public String getDatos(Model model,@ModelAttribute("formulario") FormularioReservarArea datos, 
             BindingResult bindingResult) {
 	//	if(datos.getProvincia() == null) {
 	//		model.addAttribute("provinciasList", reservasService.getProvincias());
@@ -61,5 +63,26 @@ public class PantallaReservarController {
 		}
 		
 		return "pantallaReservar/seleccionarArea"; 
+	}
+	
+	@RequestMapping(value="/reservar/{area}", method=RequestMethod.GET)
+	public String reservarArea(Model model, @PathVariable String area) {
+		model.addAttribute("formulario", new FormularioReservarArea());
+		model.addAttribute("area", area);
+		LocalDate fecha = LocalDate.now();
+		List<LocalDate> fechaList = new ArrayList<LocalDate>();
+		fechaList.add(fecha);
+		fechaList.add(fecha.plusDays(1));
+		fechaList.add(fecha.plusDays(2));
+		model.addAttribute("fechaList",fechaList);
+		model.addAttribute("timeSlotList",reservasService.getTimeSlots(area));
+		return "pantallaReservar/reservar"; 
+	}
+	
+	@RequestMapping(value="/reservar", method=RequestMethod.POST)
+	public String getReservarArea(Model model,@ModelAttribute("formulario") FormularioReservarArea datos, 
+            BindingResult bindingResult) {
+		return "pantallaReservar/reservar"; 
+		
 	}
 }
