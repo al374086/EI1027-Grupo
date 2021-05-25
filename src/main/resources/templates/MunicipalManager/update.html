@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Actualizar Municipal Manager</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<h2>Municipal Manager</h2>
+<form action="#" th:action="@{/MunicipalManager/update}"
+      th:object="${MunicipalManager}" method="post">
+    <table>
+        <tr>
+            <td><label>Code</label></td>
+            <td><input type="text" th:field="*{code}" /></td>
+        </tr>
+
+        <tr>
+            <td><label>DNI</label></td>
+            <td><input type="text" th:field="*{dni}" /></td>
+        </tr>
+        <tr>
+            <td><label>Name</label></td>
+            <td><input type="text" th:field="*{name}" /></td>
+        </tr>
+        <tr>
+            <td><label>User</label></td>
+            <td><input type="text" th:field="*{user}" /></td>
+        </tr>
+        <tr>
+            <td><label>Password</label></td>
+            <td><input type="text" th:field="*{password}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Edita MunicipalManager" /></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
