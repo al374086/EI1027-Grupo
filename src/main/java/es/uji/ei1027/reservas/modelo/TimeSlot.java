@@ -8,15 +8,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class TimeSlot {
 	
 	private int timeId;
-<<<<<<< HEAD
-	@DateTimeFormat(iso=DateTimeFormat.ISO.TIME)
+
+
 	private Time startTime;
-	@DateTimeFormat(iso=DateTimeFormat.ISO.TIME)
+
 	private Time endTime;
-=======
+
 	private LocalTime startTime;
 	private LocalTime endTime;
->>>>>>> branch 'main' of https://github.com/al374086/EI1027-Grupo.git
+
 	private String nameArea;
 	
 	public int getTimeId() {
