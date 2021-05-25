@@ -1,5 +1,7 @@
 package es.uji.ei1027.reservas.modelo;
 
+import java.awt.Image;
+
 public class Area {
 	
 	private String name;
@@ -11,6 +13,7 @@ public class Area {
 	private String lengthAndWidth;
 	private String Orientation;
 	private int codeMunicipality;
+	private Image imagen;
 	public String getName() {
 		return name;
 	}
@@ -35,6 +38,13 @@ public class Area {
 	public void setTypeOfArea(String typeOfArea) {
 		this.typeOfArea = typeOfArea;
 	}
+	/*
+	public Image getImagen() {
+		return imagen;
+	}
+	public void setImagen(Image imagen) {
+		this.imagen=imagen;
+	}*/
 	public String getPhysicalCharacteristics() {
 		return physicalCharacteristics;
 	}
@@ -65,6 +75,7 @@ public class Area {
 	public void setCodeMunicipality(int codeMunicipality) {
 		this.codeMunicipality = codeMunicipality;
 	}
+	
 	@Override
 	public String toString() {
 		return "Area [name=" + name + ", isRestricted=" + isRestricted + ", geographicalLocation="
