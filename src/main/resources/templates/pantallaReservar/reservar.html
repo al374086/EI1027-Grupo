@@ -21,6 +21,18 @@
 				th:text="${fechaValue}"></option>
 			</select>
 		</td>
+	   </tr>
+	   <tr>
+	    <td><label>Horario de Reserva </label></td>
+		<td> <select class="form_control" type="text"> 
+			<!--option value="No seleccionat">Selecciona el gènere</option-->
+			<option th:each="timeSlotValue : ${timeSlotList}"
+				th:value="${timeSlotValue}"
+				th:text="${timeSlotValue.startTime} + '-' + ${timeSlotValue.endTime}"></option>
+			</select>
+		</td>
+	   </tr>
+	   <tr>
 		<td><input type="submit" value="Seleccionar" /></td>
 	   </tr>
       </table>

@@ -3,12 +3,20 @@ package es.uji.ei1027.reservas.modelo;
 import java.sql.Time;
 import java.time.LocalTime;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class TimeSlot {
 	
 	private int timeId;
+
+
+
+
 	private LocalTime startTime;
 	private LocalTime endTime;
+
 	private String nameArea;
+	
 	
 	public int getTimeId() {
 		return timeId;

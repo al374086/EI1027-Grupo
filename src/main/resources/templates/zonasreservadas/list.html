@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   <title>Zonas Reservadas</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+   <h1>Llista de zonas reservadas</h1>
+   <table class="table table-striped">
+     <thead>
+       <tr>
+         <th>numberofreserve</th>
+         <th>letterAndNumber</th>
+         <th>nameArea</th>
+         
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="zonareservada: ${zonasreservadas}">
+         <td th:text="${zonareservada.numberofreserve}"></td>
+         <td th:text="${zonareservada.letterAndNumber}"></td>
+         <td th:text="${zonareservada.nameArea}"></td>
+     
+         <td><a type="button" class="btn btn-warning" th:href="@{/zonareservada/update/{numberofreserve}(numberofreserve=${zonareservada.numberofreserve})}">Edita</a>
+         </td>
+         <td><a type="button" class="btn btn-danger" th:href="@{/zonareservada/delete/{numberofreserve}(numberofreserve=${zonareservada.numberofreserve})}">Esborra</a>
+         </td>
+       </tr>
+     </tbody>
+   </table>
+   <a type="button" class="btn btn-success" href="add">Afegeix zonareservada</a>
+</body>
+</html>

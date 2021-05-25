@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Workplan</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Llista de Workplan</h1>
+<table>
+    <thead>
+    <tr>
+        <th>InitialDate</th>
+        <th>EndDate</th>
+
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="workplan: ${workplan}">
+        <td th:text="${workplan.InitialDate}"></td>
+        <td th:text="${workplan.EndDate}"></td>
+
+        <td><a th:href="@{/workplan/update/{InitialDate}{name}(InitialDate=${workplan.InitialDate}, EndDate=${workplan.EndDate})}">Edita</a>
+        </td>
+        <td><a th:href="@{/workplan/delete/{InitialDate}{name}(InitialDate=${workplan.InitialDate}, EndDate=${workplan.EndDate})}">Esborra</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="add" >Afegeix workplan</a>
+</body>
+</html>

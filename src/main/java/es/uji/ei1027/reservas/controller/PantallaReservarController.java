@@ -1,6 +1,7 @@
 package es.uji.ei1027.reservas.controller;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -36,7 +37,6 @@ public class PantallaReservarController {
 		//model.addAttribute("area", reservasService.getAreas());
 		model.addAttribute("area", null);
 		model.addAttribute("formulario", new FormularioReservarArea());
-		//LocalDate fecha1 = new LocalDate();
 		return "pantallaReservar/seleccionarArea"; 
 	}
 	
@@ -69,6 +69,20 @@ public class PantallaReservarController {
 	public String reservarArea(Model model, @PathVariable String area) {
 		model.addAttribute("formulario", new FormularioReservarArea());
 		model.addAttribute("area", area);
+		LocalDate fecha = LocalDate.now();
+		List<LocalDate> fechaList = new ArrayList<LocalDate>();
+		fechaList.add(fecha);
+		fechaList.add(fecha.plusDays(1));
+		fechaList.add(fecha.plusDays(2));
+		model.addAttribute("fechaList",fechaList);
+		model.addAttribute("timeSlotList",reservasService.getTimeSlots(area));
 		return "pantallaReservar/reservar"; 
+	}
+	
+	@RequestMapping(value="/reservar", method=RequestMethod.POST)
+	public String getReservarArea(Model model,@ModelAttribute("formulario") FormularioReservarArea datos, 
+            BindingResult bindingResult) {
+		return "pantallaReservar/reservar"; 
+		
 	}
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Crear nou workplan</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet"
+
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<h2>Nou workplan</h2>
+<form action="#" th:action="@{/workplan/add}"
+      th:object="${workplan}" method="post">
+    <table>
+
+        <tr>
+            <td><label>InitialDate</label></td>
+            <td><input type="text" th:field="*{InitialDate}"  placeholder="dd/MM/yyyy"/></td>
+        </tr>
+        <tr>
+            <td><label>EndDate</label></td>
+            <td><input type="text" th:field="*{EndDate}"  placeholder="dd/MM/yyyy"/></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Afegeix Workplan" /></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
