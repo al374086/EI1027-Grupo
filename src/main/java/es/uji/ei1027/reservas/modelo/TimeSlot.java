@@ -10,14 +10,13 @@ public class TimeSlot {
 	private int timeId;
 
 
-	private Time startTime;
 
-	private Time endTime;
 
 	private LocalTime startTime;
 	private LocalTime endTime;
 
 	private String nameArea;
+	
 	
 	public int getTimeId() {
 		return timeId;
