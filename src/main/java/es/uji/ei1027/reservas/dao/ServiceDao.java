@@ -73,7 +73,22 @@ public class ServiceDao {
 		}
 	}
 
-
-	
+	 /* Obté tots els plans. Torna una llista buida si no n'hi ha cap. */
+		public List<Service> getServices(String area) {
+			try {
+				return jdbcTemplate.query("SELECT * from service join servicesarea ON service.idservice=servicesarea.service WHERE servicesarea.name_area=? ", new ServiceRowMapper(), area);
+			} catch (EmptyResultDataAccessException e) {
+				return new ArrayList<Service>();
+			}
+		}
+		
+		/* Obté tots els plans. Torna una llista buida si no n'hi ha cap. */
+		public List<Service> getServicesCombo() {
+			try {
+				return jdbcTemplate.query("SELECT * from service ", new ServiceRowMapper());
+			} catch (EmptyResultDataAccessException e) {
+				return new ArrayList<Service>();
+			}
+		}
 
 }

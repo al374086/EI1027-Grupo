@@ -18,26 +18,17 @@
             <td>Serveis:</td>
             <td>&nbsp;</td>
         </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>1.- Socorrista</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>2.- Guarderia</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>3.- Cafetería</td>
+        <tr th:each="serveisvalue: ${serveis}"><td></td>
+         <td th:text="${serveisvalue}"></td>
         </tr>
         <tr><td><br></td>
         </tr>
         <tr>
         <td>
-        <select  type="text" > 
-            <option th:each="serveivalue : ${serveiList}"
-                    th:value="${serveivalue}"
-                    th:text="${serveivalue}"></option>
+        <select type="text" name="service" > 
+            <option th:each="service : ${serveiList}"
+                    th:value="${service}"
+                    th:text="${service}"></option>
  		</select>
 		</td>
 		<td>

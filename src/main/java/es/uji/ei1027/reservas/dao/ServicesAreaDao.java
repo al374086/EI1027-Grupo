@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import es.uji.ei1027.reservas.modelo.Service;
 import es.uji.ei1027.reservas.modelo.ServicesArea;
 
 @Repository
@@ -89,6 +91,18 @@ public class ServicesAreaDao {
 	      return new ArrayList<ServicesArea>();
 	  }
 	}
+   
+   /* Obté tots els plans. Torna una llista buida si no n'hi ha cap. */
+	public List<ServicesArea> getServices(String area) {
+		try {
+			
+			return jdbcTemplate.query("SELECT * from servicesarea WHERE name_area=? ", new ServicesAreaRowMapper(), area);
+		} catch (EmptyResultDataAccessException e) {
+			return new ArrayList<ServicesArea>();
+		}
+	}
+
+	
 
 }
 
