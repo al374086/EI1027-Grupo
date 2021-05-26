@@ -17,7 +17,7 @@ public class CitizenRowMapper implements RowMapper<Citizen> {
 		citizen.setTown(rs.getString("town"));
 		citizen.setCountry(rs.getString("country"));
 		citizen.setCp(rs.getInt("cp"));
-		citizen.setPin(rs.getInt("pin"));
+		citizen.setPin(rs.getString("pin"));
 	      
 	      	       
 	      return citizen;

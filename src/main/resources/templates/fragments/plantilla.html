@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<title>Plantilla</title>
+    <link rel="stylesheet" type="text/css" href="estilos.css" />
+
+</head>
+<body>
+	<header>
+		<section id="menu">
+
+            <table>
+                <tr> 
+                    <td><button type="button" class="boton" onclick="">Inicio</button></td>
+                    <td><button type="button" class="boton" onclick="">Reservar</button></td>
+                    <td><button type="button" class="boton" onclick="">Mis Reservas</button></td>
+                    <td><button type="button" class="boton" onclick="">FAQ</button></td>
+                    <td><button type="button" class="boton" onclick="">Mi Perfil</button></td>
+                    
+
+                </tr>
+            </table>
+
+
+        </section>
+     </header>
+     <div th:replace="fragments/logininfo"></div>
+     <div layout:fragment="content"></div>
+     
+     <section id="main">
+        <img src="imagenes/generalitat_valenciana.png"/>
+        
+     </section>
+     <footer>
+		<hr>
+		<p class="text-muted">EI1027 - Disseny i Implementació de
+			Sistemes d'Informació</p>
+	</footer>
+
+
+</body>
+</html>

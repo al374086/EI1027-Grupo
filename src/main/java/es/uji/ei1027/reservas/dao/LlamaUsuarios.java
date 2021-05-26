@@ -56,14 +56,12 @@ public class LlamaUsuarios implements UserDao {
 		if (ciudadano != null) {
 			
 			String numdni = ciudadano.getDni();
-			String pass = Integer.toString(ciudadano.getPin());
-			System.out.println("el num dni es:" + numdni);
-			System.out.println("el num pass de dni es:" + pass);
-			System.out.println("el password:" + password);
+			String pass = ciudadano.getPin();
+			
 			
 			BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
 			//if (user.getPassword().equals(pass)) {
-			System.out.println("esfdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
+			
 			if (passwordEncryptor.checkPassword(password, pass)) {
 				// Es deuria esborrar de manera segura el camp password abans de tornar-lo
 				
@@ -111,10 +109,10 @@ public class LlamaUsuarios implements UserDao {
 		if (municipalManagerDao != null) {
 
 			String numdni = municipalmanager.getDni();
-			String pass = Integer.toString(municipalmanager.getCode());
-			if (user.getPassword().equals(pass)) {
-			//BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
-			//if (passwordEncryptor.checkPassword(password, pass)) {
+			String pass = municipalmanager.getPassword();
+			//if (user.getPassword().equals(pass)) {
+			BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
+			if (passwordEncryptor.checkPassword(password, pass)) {
 			
 				// Es deuria esborrar de manera segura el camp password abans de tornar-lo
 				user.setRol("municipalManager");

@@ -8,29 +8,38 @@
 </head>
 <body>
 <h2>Municipal Manager</h2>
-<form action="#" th:action="@{/MunicipalManager/update}"
-      th:object="${MunicipalManager}" method="post">
+<form action="#" th:action="@{/municipalmanager/update}"
+      th:object="${municipalmanager}" method="post">
     <table>
         <tr>
-            <td><label>Code</label></td>
-            <td><input type="text" th:field="*{code}" /></td>
+            <td><label>dni</label></td>
+            <td><input type="text" th:field="*{dni}" /></td>
         </tr>
 
         <tr>
-            <td><label>DNI</label></td>
-            <td><input type="text" th:field="*{dni}" /></td>
-        </tr>
-        <tr>
-            <td><label>Name</label></td>
+            <td><label>name</label></td>
             <td><input type="text" th:field="*{name}" /></td>
         </tr>
+       
         <tr>
-            <td><label>User</label></td>
+            <td><label>user</label></td>
             <td><input type="text" th:field="*{user}" /></td>
         </tr>
         <tr>
-            <td><label>Password</label></td>
+            <td><label>password</label></td>
             <td><input type="text" th:field="*{password}" /></td>
+        </tr>
+         <tr>
+            <td><label>initialDate</label></td>
+            <td><input type="text" th:field="*{initialDate}" /></td>
+        </tr>
+        <tr>
+            <td><label>endDate</label></td>
+            <td><input type="text" th:field="*{endDate}" /></td>
+        </tr>
+         <tr>
+            <td><label>code</label></td>
+            <td><input type="text" th:field="*{code}" /></td>
         </tr>
         <tr>
             <td colspan="2"><input type="submit" value="Edita MunicipalManager" /></td>

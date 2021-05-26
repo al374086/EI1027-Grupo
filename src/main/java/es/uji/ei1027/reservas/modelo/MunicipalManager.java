@@ -1,6 +1,9 @@
 package es.uji.ei1027.reservas.modelo;
 
+import java.time.LocalDate;
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class MunicipalManager {
     public MunicipalManager() {
@@ -9,7 +12,10 @@ public class MunicipalManager {
     private String name;
     private String user;
     private String password;
-    private Date initialDate;
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
+    private LocalDate initialDate;
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
+    private LocalDate endDate;
     private Integer code;
 
     @Override
@@ -20,6 +26,7 @@ public class MunicipalManager {
                 ", user='" + user + '\'' +
                 ", password='" + password + '\'' +
                 ", initialDate=" + initialDate +
+                ", endDate=" + initialDate +
                 ", code=" + code +
                 '}';
     }
@@ -48,11 +55,13 @@ public class MunicipalManager {
         this.password = password;
     }
 
-    public void setInitialDate(Date initialDate) {
+    public void setInitialDate(LocalDate initialDate) {
         this.initialDate = initialDate;
     }
 
-
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
 
     public String getDni() {
         return dni;
@@ -70,7 +79,12 @@ public class MunicipalManager {
         return password;
     }
 
-    public Date getInitialDate() {
+    public LocalDate getInitialDate() {
+        return initialDate;
+
+    }
+    
+    public LocalDate getEndDate() {
         return initialDate;
 
     }

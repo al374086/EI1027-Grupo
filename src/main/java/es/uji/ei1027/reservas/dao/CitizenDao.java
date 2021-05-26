@@ -31,8 +31,8 @@ public class CitizenDao {
    public void addCitizen(Citizen citizen) {
 	   System.out.println("antes encriptacion" +citizen.getPin());
 	   BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor(); 
-	   String pass = Integer.toString(citizen.getPin());
-	   citizen.setPin(Integer.parseInt(passwordEncryptor.encryptPassword(pass))); 
+	  
+	   citizen.setPin(passwordEncryptor.encryptPassword(citizen.getPin())); 
 	   System.out.println("despues encriptacion" +citizen.getPin());
 	   
        jdbcTemplate.update("INSERT INTO citizen VALUES(?, ?, ?, ?, ?, ?, ?)",

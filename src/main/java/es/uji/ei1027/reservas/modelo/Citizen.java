@@ -7,7 +7,7 @@ public class Citizen {
 	private String town;
 	private String country;
 	private int cp;
-	private int pin;
+	private String pin;
 	public String getDni() {
 		return dni;
 	}
@@ -44,10 +44,10 @@ public class Citizen {
 	public void setCp(int cp) {
 		this.cp = cp;
 	}
-	public int getPin() {
+	public String getPin() {
 		return pin;
 	}
-	public void setPin(int pin) {
+	public void setPin(String pin) {
 		this.pin = pin;
 	}
 	

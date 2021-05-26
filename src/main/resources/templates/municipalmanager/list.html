@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar MunicipalManager</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Llista de Municipal Manager</h1>
+<table>
+    <thead>
+    <tr>
+        <th>dni</th>
+        <th>name</th>
+        <th>user</th>
+        <th>password</th>
+        <th>initialDate</th>
+        <th>endDate</th>
+        <th>code</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="municipalmanager: ${municipalmanagers}">
+        <td th:text="${municipalmanager.dni}"></td>
+        <td th:text="${municipalmanager.name}"></td>
+        <td th:text="${municipalmanager.user}"></td>
+        <td th:text="${municipalmanager.password}"></td>
+        <td th:text="${municipalmanager.initialDate}"></td>
+        <td th:text="${municipalmanager.endDate}"></td>
+        <td th:text="${municipalmanager.code}"></td>
+
+        <td><a th:href="@{/municipalmanager/update/{dni}(dni=${municipalmanager.dni})}">Edita</a>
+        </td>
+        <td><a th:href="@{/municipalmanager/delete/{dni}(dni=${municipalmanager.dni})}">Esborra</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="add" >Afegeix MunicipalManager</a>
+</body>
+</html>
