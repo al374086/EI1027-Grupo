@@ -1,7 +1,7 @@
     *{
-	padding:0;
-	margin:0;
-	
+		padding:0;
+		margin:0;
+		background-color:#CDCDCD;
 	}
 	
 	body{
@@ -10,49 +10,38 @@
 	
 	header{
 		width: 100%;
-		height:70px;
-
 		box-shadow:1px 1px 5px #000;
 		position:fixed;
-	
-	}
+		background-color:#CDCDCD;
+    }
 
-		table {
-   width: 100%;
-   padding-top: 12px;
-   
+   table {
+   		width: 100%;
+   		padding-top: 12px;
+   		background-color:#CDCDCD;
    }
    
    td {
-   width: 20%;
-   text-align: center;
-   vertical-align: top;
-   border: 1px solid #000;
-   border-collapse: collapse;
+   		width: 20%;
+   		text-align: center;
+   		vertical-align: top;
+   		border: 1px solid #000;
+   		border-collapse: collapse;
    }
-	
-	#main{
-		background:#CDCDCD;
-		}
-		
-	.boton {
+   	
+   .boton {
 		width: 100%;
 		border: 1px solid #2e518b; /*anchura, estilo y color borde*/
 		padding: 10px; /*espacio alrededor texto*/
-		background-color: #ffffff; /*color bot�n*/
+		background-color:#CDCDCD; /*color bot�n*/
 		color: #000; /*color texto*/
 		text-decoration: none; /*decoraci�n texto*/
 		text-transform: uppercase; /*capitalizaci�n texto*/
 		font-family: arial; /*tipograf�a texto*/
 		border: 50px; /*bordes redondos*/
-}
+	}
 	
 	img {
-  
-  margin: 0px;
-  float: right;
-  border-radius: 4px;
-  padding: 75px;
-  width: 250px;
-}	
-
+  		 margin: 0px;
+  		 float: right;
+	}

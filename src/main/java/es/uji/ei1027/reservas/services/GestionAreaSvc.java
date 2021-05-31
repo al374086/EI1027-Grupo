@@ -6,17 +6,9 @@ import es.uji.ei1027.reservas.dao.AreaDao;
 import es.uji.ei1027.reservas.modelo.Area;
 import es.uji.ei1027.reservas.modelo.Municipality;
 
-
+/*
 class GestionAreaSvc implements GestionAreaService{
 	
 	@Autowired
 	AreaDao areaDao;
-
-	@Autowired
-	//PlanDao planDao;
-
-	@Override
-	public void addArea() {
-		
-	}
-}
+}*/
