@@ -23,12 +23,7 @@ public class PantallaMisReservasController {
 	
 	@RequestMapping(value="/misReservas", method=RequestMethod.GET)
 	public String getLocalidades(Model model) {
-		//model.addAttribute("provinciasList", reservasService.getProvincias());
-		//model.addAttribute("localidadesList", reservasService.getLocalidades());
-		//model.addAttribute("localidadesList", null);
-		//model.addAttribute("area", reservasService.getAreas());
-		//model.addAttribute("area", null);
-		//model.addAttribute("formulario", new FormularioReservarArea());
+		model.addAttribute("misReservas", misReservasService.getMisReservas("73404595"));
 		return "pantallaMisReservas/misReservas"; 
 	}
 

@@ -8,32 +8,22 @@
 </head>
 <body>
 <h1>Mis Reservas</h1>
-   <table th:if="${area != null}" class="table table-striped" >
-     <thead>
-       <tr>
-         <th>Nom</th>
-         <th>Es restringida</th>
-         <th>Localització</th>
-     	 <th>Tipus de Àrea</th>
-         <th>Caracteristiques</th>
-     	 <th>Descripció</th>
-     	 <th>Longitud y Anchura</th>
-     	 <th>Orientació</th>
-       </tr>
-     </thead>
-     <tbody>
-       <tr th:each="area: ${area}">
-         <td th:text="${area.name}" th:field="*{area}"></td>
-         <td th:text="${area.isRestricted}"></td>
-         <td th:text="${area.geographicalLocation}"></td>
-         <td th:text="${area.typeOfArea}"></td>
-         <td th:text="${area.physicalCharacteristics}"></td>
-         <td th:text="${area.description}"></td>
-         <td th:text="${area.lengthAndWidth}"></td>
-         <td th:text="${area.Orientation}"></td>
-         <td><a th:if="${area.isRestricted == true}" type="submit" class="btn btn-warning" th:href="@{/pantallaReservar/reservar/{area}(area=${area.name})}">Reservar</a>
-       </tr>
-     </tbody>
-   </table>
+       <tr th:each="reserva: ${misReservas}">
+	   <table>
+		<tr>
+	     <td> <img src="https://i.blogs.es/594843/chrome/450_1000.jpg"> </td>
+		 <td>
+			<a th:text="'Area: ' + ${reserva.area}"></a> </br> 
+			<a th:text="'Zonas: ' + ${reserva.zonas}"></a> </br>
+			<a th:text="'Cantidad de personas: ' + ${reserva.reserve.numberOfPeople}"></a> </br>
+			<a th:text="'Horario: ' + ${reserva.timeSlot.startTime} + '-' + ${reserva.timeSlot.endTime}"></a> </br>
+			<a th:text="'Dia de la reserva: ' + ${reserva.reserve.dateOfTheReserve}"></a> </br>
+			<a href="add" class="btn btn-warning" role="button">Modificar Reserva</a>
+			<a href="add" class="btn btn-danger" role="button">Cancelar Reserva</a>
+		 </td>
+		</tr>
+	    </table>
+		<br/>
+      </tr>
 </body>
 </html>
