@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Mis Reservas</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<h1>Mis Reservas</h1>
+   <table th:if="${area != null}" class="table table-striped" >
+     <thead>
+       <tr>
+         <th>Nom</th>
+         <th>Es restringida</th>
+         <th>Localització</th>
+     	 <th>Tipus de Àrea</th>
+         <th>Caracteristiques</th>
+     	 <th>Descripció</th>
+     	 <th>Longitud y Anchura</th>
+     	 <th>Orientació</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="area: ${area}">
+         <td th:text="${area.name}" th:field="*{area}"></td>
+         <td th:text="${area.isRestricted}"></td>
+         <td th:text="${area.geographicalLocation}"></td>
+         <td th:text="${area.typeOfArea}"></td>
+         <td th:text="${area.physicalCharacteristics}"></td>
+         <td th:text="${area.description}"></td>
+         <td th:text="${area.lengthAndWidth}"></td>
+         <td th:text="${area.Orientation}"></td>
+         <td><a th:if="${area.isRestricted == true}" type="submit" class="btn btn-warning" th:href="@{/pantallaReservar/reservar/{area}(area=${area.name})}">Reservar</a>
+       </tr>
+     </tbody>
+   </table>
+</body>
+</html>
