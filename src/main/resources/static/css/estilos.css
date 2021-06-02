@@ -25,7 +25,6 @@
    		width: 20%;
    		text-align: center;
    		vertical-align: top;
-   		border: 1px solid #000;
    		border-collapse: collapse;
    }
    	
@@ -44,4 +43,14 @@
 	img {
   		 margin: 0px;
   		 float: right;
+	}
+	
+	#menu_citizen{
+		border: 1px solid #000;
+	}
+	
+	#login{
+		width:200px;
+		margin:auto;
+		border: 0px;
 	}
