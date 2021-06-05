@@ -35,7 +35,7 @@ public class PantallaMisReservasService {
 		List<MostrarReserva> misReservas = new ArrayList<MostrarReserva>();
 		LocalDate ayer = LocalDate.now().plusDays(-1);
 		for (Reserve reserva :reservas.getReserves()) {
-			if (reserva.getDni().equals(dni) && reserva.getDateOfTheReserve().isBefore(ayer)) {
+			if (reserva.getDni().equals(dni) && reserva.getDateOfTheReserve().isBefore(ayer) && (reserva.getStatus().equals("Reserved") || reserva.getStatus().equals("Active"))) {
 				MostrarReserva unaReserva = new MostrarReserva();
 				unaReserva.setReserve(reserva);
 				List<String> zonas = new ArrayList<String>();
@@ -55,6 +55,27 @@ public class PantallaMisReservasService {
 		
 		return misReservas;
 		
+	}
+	
+	public MostrarReserva getMisReservas(String dni, int id) {
+		List<MostrarReserva> misReservas = getMisReservas(dni);
+		for ( MostrarReserva reserva : misReservas) {
+			if (reserva.getReserve().getNumberOfReserve() == id) {
+				return reserva;
+			}
+		}
+		return null;
+	}
+	
+	public void cancelarReserva(String dni, int id) {
+		List<MostrarReserva> misReservas = getMisReservas(dni);		
+		for ( MostrarReserva reserva : misReservas) {
+			if (reserva.getReserve().getNumberOfReserve() == id) {
+				reserva.getReserve().setStatus("Cancelled");
+				reservas.updateReserve(reserva.getReserve());
+				break;
+			}
+		}
 	}
 
 }

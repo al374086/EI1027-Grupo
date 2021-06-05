@@ -9,7 +9,7 @@
 </head>
 <body>
 <div th:replace="fragments/menu_citizen" >...</div>
-<h1>Mis Reservas</h1>
+<h1>¿Estás seguro que desea cancelar la reserva?</h1>
        <tr th:each="reserva: ${misReservas}">
 	   <table>
 		<tr>
@@ -20,12 +20,12 @@
 			<a th:text="'Cantidad de personas: ' + ${reserva.reserve.numberOfPeople}"></a> </br>
 			<a th:text="'Horario: ' + ${reserva.timeSlot.startTime} + '-' + ${reserva.timeSlot.endTime}"></a> </br>
 			<a th:text="'Dia de la reserva: ' + ${reserva.reserve.dateOfTheReserve}"></a> </br>
-			<a th:href="@{/pantallaMisReservas/misReservas/modificar/{reserva}/(reserva=${reserva.reserve.numberOfReserve})}" class="btn btn-warning" role="button">Modificar Reserva</a>
-			<a th:href="@{/pantallaMisReservas/misReservas/cancelar/{reserva}/(reserva=${reserva.reserve.numberOfReserve})}" class="btn btn-danger" role="button">Cancelar Reserva</a>
 		 </td>
 		</tr>
 	    </table>
 		<br/>
+		<a href="/pantallaMisReservas/misReservas" class="btn btn-success" role="button">Quiero mantener mi reserva</a>
+		<a type="submit" class="btn btn-danger" role="button">Cancelar Reserva</a>
       </tr>
 </body>
 </html>
