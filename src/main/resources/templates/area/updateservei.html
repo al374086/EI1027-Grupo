@@ -10,38 +10,40 @@
 <div th:replace="fragments/menu_gestor_municipal" >...</div>
 <div id="contenido_gestor">
  <h3>Edición Area - Gestión de servicios</h3>
+ <br>
     <form action="#" th:action="@{/area/updateservei}"
                      th:object="${area}" method="post">
       <table id="tabla_gestor">
         <tr>
             <td><img src="../../imagenes/playa_morrongo.jpg" width="100px" height="100px"></td>
-            <td><h3><label th:text="*{name}"> </label></h3></td>
-            <td>&nbsp;</td>
+            <td id="celda_principal"><h3 th:text="*{name}" > </h3></td>
         </tr>
+       </table>
+       <table id="tabla_gestor">
         <tr>
             <td>Serveis:</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr th:each="serveisvalue: ${serveis}"><td></td>
-         <td th:text="${serveisvalue}"></td><td><input type="submit" value="Eliminar" /></td>
+         <td th:text="${serveisvalue}"></td><td><input type="submit" value="Eliminar" class="boton2"/></td>
         </tr>
         <tr><td><br></td>
         </tr>
         <tr>
         <td>
-        <select type="text" name="service" > 
+        <select type="text" name="service" class="boton2" > 
             <option th:each="service : ${serveiList}"
                     th:value="${service}"
                     th:text="${service}"></option>
  		</select>
 		</td>
 		<td>
-			<input type="submit" value="Afegeix servei" />
+			<input type="submit" value="Afegeix servei" class="boton2"/>
 		</td>
         </tr>
         <tr>
-            <td colspan="2"><input type="submit" value="Solicitar nou servei" /></td>
+            <td colspan="2"><input type="submit" value="Solicitar nou servei" class="boton2"/></td>
         </tr>
       </table>
     </form>

@@ -77,9 +77,28 @@
 	}
 	
 	#tabla_gestor{
-		width:300px;
+		width:400px;
 	}
 	
 	#contenido_gestor{
 		padding-left:20;
 	}
+	
+	#celda_principal{
+		background-color:white;
+		font-weight: bold;
+		flex-wrap: nowrap;
+		height:95px;
+		margin:auto;
+		width:200px;
+		border: 1px solid;
+	}
+	
+	.boton2{
+		color:#4d4d4d;
+		border-radius: 4px;
+		padding:3px;
+		font-weight: bold;
+		
+	}
+	
