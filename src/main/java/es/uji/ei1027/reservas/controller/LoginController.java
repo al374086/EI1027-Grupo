@@ -82,11 +82,11 @@ public class LoginController {
 		MunicipalManager municipalManager;
 		
 		if(user.getRol().equals("ciudadanos")) {
-			System.out.println("voy a la pagina reservas");
+			
 			return "reserve/list";
 		
 		}else {
-			System.out.println("voy a la pagina del gestor municipal");
+			
 	
 			return "MunicipalManager/list";
 		

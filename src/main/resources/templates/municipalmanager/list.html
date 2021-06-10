@@ -7,9 +7,11 @@
    <link type="text/css" href="/css/estilos.css" rel="stylesheet"/>
 </head>
 <body>
-<div th:replace="fragments/menu_publico" >...</div>
+<div th:replace="fragments/menu_gestor_municipal" >...</div>
+
 <h1>Llista de Municipal Manager</h1>
 
+<div th:replace="fragments/logininfo" >...</div>
 <table class="table table-striped">
     <thead>
     <tr>
@@ -35,13 +37,13 @@
         <td th:text="${municipalmanager.endDate}"></td>
         <td th:text="${municipalmanager.code}"></td>
 
-        <td><a th:href="@{/municipalmanager/update/{dni}(dni=${municipalmanager.dni})}">Edita</a>
+        <td><a type="button" class="btn btn-warning" th:href="@{/municipalmanager/update/{dni}(dni=${municipalmanager.dni})}">Edita</a>
         </td>
-        <td><a th:href="@{/municipalmanager/delete/{dni}(dni=${municipalmanager.dni})}">Esborra</a>
+        <td><a type="button" class="btn btn-danger" th:href="@{/municipalmanager/delete/{dni}(dni=${municipalmanager.dni})}">Esborra</a>
         </td>
     </tr>
     </tbody>
 </table>
-<a href="add" >Afegeix MunicipalManager</a>
+<a type="button" class="btn btn-success" href="add" >Afegeix MunicipalManager</a>
 </body>
 </html>
