@@ -14,6 +14,8 @@ import es.uji.ei1027.reservas.modelo.Citizen;
 @Controller
 @RequestMapping("/user")
 public class RegistroController {
+	
+	
 /*
 	private CitizenDao citizenDao;
 
