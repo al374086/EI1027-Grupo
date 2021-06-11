@@ -48,7 +48,17 @@ public class LoginController {
 	private UserDao userDao;
 
 	@RequestMapping({"user/login"})
-	public String login(Model model) {
+	public String login(HttpSession session, Model model) {
+		//Si esta logeado va a su lugar
+		if (session.getAttribute("user") != null) {
+			Usuario user = (Usuario) session.getAttribute("user");
+			if(user.getRol().equals("ciudadanos")) {
+				return "redirect:/pantallaMisReservas/misReservas";
+			}else {
+				return "MunicipalManager/list";
+			
+			}
+		}
 		
 		model.addAttribute("user", new Usuario());
 		return "user/login";
@@ -65,6 +75,8 @@ public class LoginController {
 			
 			return "user/login";
 		}
+		
+		
 	       // Comprova que el login siga correcte 
 		// intentant carregar les dades de l'usuari 
 		user = userDao.loadUserByUsername(user.getUsername(), user.getPassword()); 
@@ -90,7 +102,7 @@ public class LoginController {
 		
 		if(user.getRol().equals("ciudadanos")) {
 			
-			return "reserve/list";
+			return "redirect:/pantallaMisReservas/misReservas";
 		
 		}else {
 			
