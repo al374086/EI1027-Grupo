@@ -102,4 +102,10 @@ public class AreaController {
 			 servicesareaDao.addServicesArea(servicesarea);
 			 return "redirect:list"; 
 		}
+	 
+	 @RequestMapping(value="/delete/{area}")
+		public String processDelete(@PathVariable String area) {
+		 areaDao.deleteArea(area);
+		 return "redirect:../list"; 
+		}
 }

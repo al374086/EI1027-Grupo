@@ -19,6 +19,7 @@
      	 <th>Longitud y Anchura</th>
      	 <th>Orientació</th>
 		 <th>Municipí</th>
+		 <th>Url-Imagen</th>
        </tr>
      </thead>
      <tbody>
@@ -32,11 +33,12 @@
          <td th:text="${area.lengthAndWidth}"></td>
          <td th:text="${area.Orientation}"></td>
          <td th:text="${area.codeMunicipality}"></td>
+		 <td th:text="${area.imagen}"></td>
          <td><a type="button" class="btn btn-warning" th:href="@{/area/update/{name}(name=${area.name})}">Edita</a>
          </td>
           <td><a type="button" class="btn btn-warning" th:href="@{/area/updateservei/{name}(name=${area.name})}">Edita Servei</a>
          </td>
-         <td><a type="button" class="btn btn-danger" th:href="@{/area/delete/{name}(code=${area.name})}">Esborra</a>
+         <td><a type="button" class="btn btn-danger" th:href="@{/area/delete/{name}(name=${area.name})}">Esborra</a>
          </td>
        </tr>
      </tbody>

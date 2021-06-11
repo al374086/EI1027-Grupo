@@ -5,7 +5,7 @@ import java.awt.Image;
 public class Area {
 	
 	private String name;
-	private boolean isRestricted;
+	//private boolean isRestricted;
 	private String geographicalLocation;
 	private String typeOfArea;
 	private String physicalCharacteristics;
@@ -13,7 +13,17 @@ public class Area {
 	private String lengthAndWidth;
 	private String Orientation;
 	private int codeMunicipality;
-	private Image imagen;
+	private String imagen;
+	
+	private int isRestricted;
+	
+	
+	public String getImagen() {
+		return imagen;
+	}
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
 	public String getName() {
 		return name;
 	}
@@ -21,10 +31,13 @@ public class Area {
 		this.name = name;
 	}
 	public boolean isRestricted() {
-		return isRestricted;
+		return isRestricted==1;
 	}
 	public void setRestricted(boolean isRestricted) {
-		this.isRestricted = isRestricted;
+		if (isRestricted)
+			this.isRestricted = 1;
+		else
+			this.isRestricted = 0;
 	}
 	public String getGeographicalLocation() {
 		return geographicalLocation;

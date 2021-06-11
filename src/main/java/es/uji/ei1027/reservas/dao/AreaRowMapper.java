@@ -21,6 +21,7 @@ public Area mapRow(ResultSet rs, int rowNum) throws SQLException{
 		area.setLengthAndWidth(rs.getString("lengthAndWidth"));
 		area.setOrientation(rs.getString("Orientation"));
 		area.setCodeMunicipality(rs.getInt("codeMunicipality"));
+		area.setImagen(rs.getString("image"));
 		return area;
 	}
 
