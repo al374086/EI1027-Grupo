@@ -24,10 +24,9 @@ body{
 }
 
 .form-register h4{
-	font-size: 22px
+	font-size: 22px;
 	margin-bottom: 20px;
-
-	}
+}
 
 .controls{
 	width: 100%;

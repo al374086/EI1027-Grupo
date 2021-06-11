@@ -16,7 +16,7 @@
 	      th:object="${user}" method="post">
 		<table id="login">
 		<tr>
-		   	<td align="left"><label>DNI/NIE:</label></td>
+		   	<td align="left"><label>DNI/NIF:</label></td>
             <td align="left"><input class="form_control" type="text" th:field="*{username}"/>
             <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div></td>
         </tr>
