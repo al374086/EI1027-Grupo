@@ -25,7 +25,7 @@
 	    </table>
 		<br/>
 		<a href="/pantallaMisReservas/misReservas" class="btn btn-success" role="button">Quiero mantener mi reserva</a>
-		<a type="submit" class="btn btn-danger" role="button">Cancelar Reserva</a>
+		<a th:href="@{/pantallaMisReservas/misReservas/eliminar/{reserva}/(reserva=${reserva.reserve.numberOfReserve})}"  class="btn btn-danger" role="button">Cancelar Reserva</a>
       </tr>
 </body>
 </html>

@@ -81,6 +81,13 @@ public class LoginController {
 		Citizen ciudadano;
 		MunicipalManager municipalManager;
 		
+		//Tornar a nextUrl
+		if (session.getAttribute("nextUrl") != null) {
+			String nextUrl = (String) session.getAttribute("nextUrl");
+			session.removeAttribute("nextUrl");
+			return "redirect:" + nextUrl;
+		}
+		
 		if(user.getRol().equals("ciudadanos")) {
 			
 			return "reserve/list";
