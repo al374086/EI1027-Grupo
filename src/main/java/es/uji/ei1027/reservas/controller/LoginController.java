@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import es.uji.ei1027.reservas.dao.CitizenDao;
 import es.uji.ei1027.reservas.dao.MunicipalManagerDao;
 import es.uji.ei1027.reservas.dao.UserDao;
 import es.uji.ei1027.reservas.modelo.Citizen;
@@ -113,6 +114,8 @@ public class LoginController {
 		
 		
 	}
+	
+
 	
 	
 	/*

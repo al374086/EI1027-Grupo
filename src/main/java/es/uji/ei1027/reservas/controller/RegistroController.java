@@ -16,18 +16,12 @@ import es.uji.ei1027.reservas.modelo.Citizen;
 public class RegistroController {
 	
 	
-/*
+
 	private CitizenDao citizenDao;
 
 	@Autowired
 	public void setCitizenDao(CitizenDao citizenDao) {
 		this.citizenDao = citizenDao;
-	}
-
-	@RequestMapping("/login")
-	public String loginCitizens(Model model) {
-		model.addAttribute("citizens", citizenDao.getCitizens());
-		return "user/login";
 	}
 
 	@RequestMapping(value = "/addRegistro")
@@ -43,5 +37,5 @@ public class RegistroController {
 		citizenDao.addCitizen(citizen);
 		return "redirect:login";
 	}
-*/
+
 }
