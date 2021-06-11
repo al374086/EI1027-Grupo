@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Crear nou citizen</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h2>Nou citizen</h2>
+    <form action="#" th:action="@{/citizen/add}" 
+                     th:object="${citizen}" method="post"> 
+      <table>
+	    <tr>
+            <td><label>Dni</label></td>
+            <td><input type="text" th:field="*{dni}" /></td> 
+        </tr>
+        <tr>
+            <td><label>Name</label></td>
+            <td><input type="text" th:field="*{name}" /></td> 
+        </tr>
+        <tr>
+            <td><label>Address</label></td>
+            <td><input type="text" th:field="*{address}" /></td>
+        </tr>
+        <tr>
+            <td><label>Town</label></td>
+            <td><input type="text" th:field="*{town}" /></td>
+        </tr>
+		<tr>
+            <td><label>Country</label></td>
+            <td><input type="text" th:field="*{country}" /></td>
+        </tr>
+        <tr>
+            <td><label>Cp</label></td>
+            <td><input type="number" th:field="*{cp}" /></td>
+        </tr>
+        <tr>
+            <td><label>Pin</label></td>
+            <td><input type="text" th:field="*{pin}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Afegeix citizen" /></td>
+        </tr>
+      </table>
+    </form>
+</body>
+</html>
