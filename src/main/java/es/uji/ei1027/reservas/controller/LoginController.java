@@ -103,6 +103,8 @@ public class LoginController {
 		
 		if(user.getRol().equals("ciudadanos")) {
 			
+			//if(user.getUsername().equals("generalitat") && user.)
+			
 			return "redirect:/pantallaMisReservas/misReservas";
 		
 		}else {

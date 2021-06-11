@@ -40,13 +40,13 @@
 		width: 100%;
 		border: 1px solid #2e518b; /*anchura, estilo y color borde*/
 		padding: 10px; /*espacio alrededor texto*/
-		background-color:#CDCDCD; /*color botón*//
+		background-color:#CDCDCD; /*color botón*/
 		color: #000; /*color texto*/
 		text-decoration: none; /*decoración texto*/
 		font-weight: bold;
 		font-family: arial; /*tipografía texto*/
 		border: 50px; /*bordes redondos*/
-	}
+   }
 	
 	img {
   		 margin: 0px;
