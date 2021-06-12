@@ -57,6 +57,8 @@ public class LoginController {
 		if (session.getAttribute("user") != null) {
 			Usuario user = (Usuario) session.getAttribute("user");
 			if(user.getRol().equals("ciudadanos")) {
+				if (user.getUsername().equals("generalitat"))
+					return "redirect:/gestor/index";
 				return "redirect:/pantallaMisReservas/misReservas";
 			}else {
 				return "MunicipalManager/list";
@@ -107,7 +109,8 @@ public class LoginController {
 		if(user.getRol().equals("ciudadanos")) {
 			
 			//if(user.getUsername().equals("generalitat") && user.)
-			
+			if (user.getUsername().equals("generalitat"))
+				return "redirect:/gestor/index";
 			return "redirect:/pantallaMisReservas/misReservas";
 		
 		}else {
