@@ -34,8 +34,10 @@ public class RegistroController {
 	public String processAddSubmit(@ModelAttribute("citizen") Citizen citizen, BindingResult bindingResult) {
 		if (bindingResult.hasErrors())
 			return "user/addRegistro";
+		
 		citizenDao.addCitizen(citizen);
-		return "redirect:login";
+		
+		return "/login";
 	}
 
 }
