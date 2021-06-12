@@ -1,58 +1,75 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"> 
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-   <title> Crear nou citizen</title>
-   <meta charset="UTF-8" />
-   <link rel="stylesheet"       
-     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
-     <link type="text/css" href="/css/style.css" rel="stylesheet" />
+<title>Crear nou citizen</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+	<link type="text/css" href="/css/style.css" rel="stylesheet" />
+	<link type="text/css" href="/css/estilos.css" rel="stylesheet"/>
 </head>
 <body>
 
-<section class="form-register">
-            <h2>Formulario Registro Usuario</h4>
-    <form action="#" th:action="@{/citizen/add}" 
-                     th:object="${citizen}" method="post"> 
-      <table>
-	    <tr>
-            <td><label>Dni</label></td>
-            <td><input class="controls" type="text" th:field="*{dni}" id="nombres" placeholder="Ingrese su dni" /></td> 
-        </tr>
-        <tr>
-            <td><label>Name</label></td>
-            <td><input class="controls" type="text" th:field="*{name}" id="nombres" placeholder="Ingrese su nombre" /></td> 
-        </tr>
-        <tr>
-            <td><label>Address</label></td>
-            <td><input class="controls" type="text" th:field="*{address}" id="nombres" placeholder="Ingrese su direccion" /></td>
-        </tr>
-        <tr>
-            <td><label>Town</label></td>
-            <td><input class="controls" type="text" th:field="*{town}" placeholder="Ingrese su municipio" /></td>
-        </tr>
-		<tr>
-            <td><label>Country</label></td>
-            <td><input class="controls" type="text" th:field="*{country}" id="nombres" placeholder="Ingrese su pais"  /></td>
-        </tr>
-        <tr>
-            <td><label>Cp</label></td>
-            <td><input class="controls" type="number" th:field="*{cp}" id="nombres" placeholder="Ingrese su codigo postal" /></td>
-        </tr>
-        <tr>
-            <td><label>Pin</label></td>
-            <td><input class="controls" type="text" th:field="*{pin}" id="nombres" placeholder="Ingrese su password" /></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td> <input class="botones" type="submit" value="Añadir usuario" /></td> 
-        </tr>
-        
-      </table>
-      
-      
-      
-      <a href="../"> Ya tengo Cuenta </a>
-      
-    </form>
+	<div th:replace="fragments/menu_citizen">...</div>
+	<div th:replace="fragments/logininfo">...</div>
+	<input type="button" value="Página anterior" onClick="history.go(-1);">
+	
+
+	<section class="form-register">
+		<h2>
+			Formulario Registro Usuario
+			</h4>
+			<form action="#" th:action="@{/citizen/add}" th:object="${citizen}"
+				method="post">
+				<table>
+					<tr>
+						<td><label>Dni</label></td>
+						<td><input class="controls" type="text" th:field="*{dni}"
+							id="nombres" placeholder="Ingrese su dni" required /></td>
+					</tr>
+					<tr>
+						<td><label>Name</label></td>
+						<td><input class="controls" type="text" th:field="*{name}"
+							id="nombres" placeholder="Ingrese su nombre" required /></td>
+					</tr>
+					<tr>
+						<td><label>Address</label></td>
+						<td><input class="controls" type="text" th:field="*{address}"
+							id="nombres" placeholder="Ingrese su direccion" required /></td>
+					</tr>
+					<tr>
+						<td><label>Town</label></td>
+						<td><input class="controls" type="text" th:field="*{town}"
+							placeholder="Ingrese su municipio" required /></td>
+					</tr>
+					<tr>
+						<td><label>Country</label></td>
+						<td><input class="controls" type="text" th:field="*{country}"
+							id="nombres" placeholder="Ingrese su pais" required /></td>
+					</tr>
+					<tr>
+						<td><label>Cp</label></td>
+						<td><input class="controls" type="number" th:field="*{cp}"
+							id="nombres" placeholder="Ingrese su codigo postal" required /></td>
+					</tr>
+					<tr>
+						<td><label>Pin</label></td>
+						<td><input class="controls" type="text" th:field="*{pin}"
+							id="nombres" placeholder="Ingrese su password" required /></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input class="botones" type="submit"
+							value="Añadir usuario" /></td>
+					</tr>
+
+					<tr>
+						
+						<td colspan="2"><a id="link" href="../"> Ya tengo Cuenta </a></td>
+					</tr>
+
+				</table>
+			</form>
+			
 </body>
 </html>

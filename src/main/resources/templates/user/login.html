@@ -11,6 +11,7 @@
 	<br>
 	<br>
 	<h3>Acceso</h3>
+	
 	<div th:replace="fragments/logininfo" >...</div>
 	<form action="#" th:action="@{/user/login}" 
 	      th:object="${user}" method="post">
@@ -26,7 +27,8 @@
             <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div></td>
 		</tr>
 		<tr><td></td>
-		<td align="left" border="0">		
+		<td align="left" border="0">
+		<input type="button" value="Página anterior" onClick="history.go(-1);">		
 		<input type="submit" value="Acceso" />
 		</td>
 		</tr>
