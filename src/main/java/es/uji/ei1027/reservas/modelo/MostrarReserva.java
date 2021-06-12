@@ -7,7 +7,14 @@ public class MostrarReserva {
 	private String area;
 	private List<String> zonas;
 	private TimeSlot timeSlot;
+	private String imagen;
 	
+	public String getImagen() {
+		return imagen;
+	}
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
 	public TimeSlot getTimeSlot() {
 		return timeSlot;
 	}

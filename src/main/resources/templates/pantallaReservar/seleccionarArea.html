@@ -15,57 +15,61 @@
       <table>
 	  <tr>
 	    <td><label>Provincia</label></td>
-		<td> <select class="form_control" type="text" th:field="*{provincia}"> 
-			<!--option value="No seleccionat">Selecciona el gènere</option-->
+		<td> <select th:if="${localidadesList == null}" class="form_control" type="text" th:field="*{provincia}"> 
 			<option th:each="provinciaValue : ${provinciasList}"
 				th:value="${provinciaValue}"
 				th:text="${provinciaValue}"></option>
 			</select>
+			<select th:if="${localidadesList != null}" hidden class="form_control" type="text" th:field="*{provincia}"> 
+			<option th:each="provinciaValue : ${provinciasList}"
+				th:value="${provinciaValue}"
+				th:text="${provinciaValue}"></option>
+			</select>
+			<label th:if="${localidadesList != null}" th:text="${provinciasList}"></label>
 		</td>
-		<td th:if="${localidadesList == null}" colspan="2"><input type="submit" value="Seleccionar" /></td>
-		<td th:if="${localidadesList != null}" colspan="2"><li><a href="/pantallaReservar/seleccionarArea">Cambiar Provincia</a></li></td>
+		<td th:if="${localidadesList == null}" colspan="2"><input class="btn btn-success" type="submit" value="Seleccionar" /></td>
+		<td th:if="${localidadesList != null}" colspan="2"><a class="btn btn-danger" href="/pantallaReservar/seleccionarArea">Cambiar Provincia y/o localidad</a></td>
 	   </tr>
 	  <tr th:if="${localidadesList != null}">
 	    <td><label>Localidad</label></td>
-		<td> <select class="form_control" type="text" th:field="*{localidad}"> 
-			<!--option value="No seleccionat">Selecciona el gènere</option-->
+		<td> <select th:if="${areas == null}" class="form_control" type="text" th:field="*{localidad}"> 
 			<option th:each="localidadValue : ${localidadesList}"
 				th:value="${localidadValue}"
 				th:text="${localidadValue}"></option>
 			</select>
+			<select th:if="${areas != null}" hidden class="form_control" type="text" th:field="*{localidad}"> 
+			<option th:each="localidadValue : ${localidadesList}"
+				th:value="${localidadValue}"
+				th:text="${localidadValue}"></option>
+			</select>
+			<label th:if="${areas != null}" th:text="${localidadesList}"></label>
 		</td>
-		<td th:if="${area == null}" colspan="2"><input type="submit" value="Seleccionar" /></td>
+		<td th:if="${areas == null}" colspan="2"><input class="btn btn-success" type="submit" value="Seleccionar" /></td>
 	   </tr>
       </table>
 	  
-	  <h2 th:if="${area != null}">Llista de Àrees</h2>
-   <table th:if="${area != null}" class="table table-striped" >
-     <thead>
-       <tr>
-         <th>Nom</th>
-         <th>Es restringida</th>
-         <th>Localització</th>
-     	 <th>Tipus de Àrea</th>
-         <th>Caracteristiques</th>
-     	 <th>Descripció</th>
-     	 <th>Longitud y Anchura</th>
-     	 <th>Orientació</th>
-       </tr>
-     </thead>
-     <tbody>
-       <tr th:each="area: ${area}">
-         <td th:text="${area.name}" th:field="*{area}"></td>
-         <td th:text="${area.isRestricted}"></td>
-         <td th:text="${area.geographicalLocation}"></td>
-         <td th:text="${area.typeOfArea}"></td>
-         <td th:text="${area.physicalCharacteristics}"></td>
-         <td th:text="${area.description}"></td>
-         <td th:text="${area.lengthAndWidth}"></td>
-         <td th:text="${area.Orientation}"></td>
-         <td><a th:if="${area.isRestricted == true}" type="submit" class="btn btn-warning" th:href="@{/pantallaReservar/reservar/{area}(area=${area.name})}">Reservar</a>
-       </tr>
-     </tbody>
-   </table>
+	<h2 th:if="${areas != null}">Llista de Àrees</h2>
+	<tr th:each="mostrarArea: ${areas}">
+		<table>
+		<tr>
+			<td> <img th:src="@{{imagen}(imagen=${mostrarArea.area.imagen})}" width="384" height="240" />> </td>
+			<td>
+				<h3 th:text="${mostrarArea.area.name}"></h3>
+				<a th:if="${mostrarArea.area.isRestricted == true}">Disponibilidad:</a> </br>
+				<a th:each="time: ${mostrarArea.timeSlot}">
+				<table>
+					<a th:text="${time.startTime} + '-' + ${time.endTime}"> </a> </br>
+				</table>
+				</a>
+
+				</br>
+				<a th:if="${mostrarArea.area.isRestricted == true}" type="submit" class="btn btn-warning" th:href="@{/pantallaReservar/reservar/{area}(area=${mostrarArea.area.name})}">Reservar </a> 
+				<a th:if="${mostrarArea.area.isRestricted == false}" class="btn btn-success" >Area no restringida</a>
+				</br>
+			</td>
+		</tr>
+		</table>
+   </tr>
     </form>
 </body>
 </html>

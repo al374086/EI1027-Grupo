@@ -13,7 +13,7 @@
        <tr th:each="reserva: ${misReservas}">
 	   <table>
 		<tr>
-	     <td> <img src="https://i.blogs.es/594843/chrome/450_1000.jpg"> </td>
+	     <td> <img th:src="@{{imagen}(imagen=${reserva.imagen})}" width="384" height="240"> </td>
 		 <td>
 			<a th:text="'Area: ' + ${reserva.area}"></a> </br> 
 			<a th:text="'Zonas: ' + ${reserva.zonas}"></a> </br>

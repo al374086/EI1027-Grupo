@@ -47,7 +47,7 @@ public class PantallaMisReservasController {
 	          session.setAttribute("nextUrl", "/pantallaMisReservas/misReservas");
 	          return "/user/login";
 	       }
-		model.addAttribute("misReservas", misReservasService.getMisReservas("73404595",id));
+		model.addAttribute("misReservas", misReservasService.getMisReservas(((Usuario) session.getAttribute("user")).getUsername(),id));
 		return "pantallaMisReservas/cancelarReserva"; 
 	}
 	
@@ -59,9 +59,9 @@ public class PantallaMisReservasController {
 	          session.setAttribute("nextUrl", "/pantallaMisReservas/misReservas");
 	          return "/user/login";
 	       }
-		misReservasService.cancelarReserva("73404595", id);
-		model.addAttribute("misReservas", misReservasService.getMisReservas("73404595",id));
-		return "pantallaMisReservas/misReservas"; 
+		misReservasService.cancelarReserva(((Usuario) session.getAttribute("user")).getUsername(), id);
+		model.addAttribute("misReservas", misReservasService.getMisReservas(((Usuario) session.getAttribute("user")).getUsername(),id));
+		return "redirect:/pantallaMisReservas/misReservas"; 
 	}
 
 }
