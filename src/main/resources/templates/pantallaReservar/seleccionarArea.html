@@ -9,6 +9,7 @@
 </head>
 <body>
     <div th:replace="fragments/menu_citizen" >...</div>
+	<div th:replace="fragments/logininfo" >...</div>
     <h1>Reservar</h1>
     <form action="#" th:action="@{/pantallaReservar/seleccionarArea}" 
                      th:object="${formulario}" method="post"> 
