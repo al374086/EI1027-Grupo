@@ -14,19 +14,23 @@
        <tr th:each="reserva: ${misReservas}">
 	   <table>
 		<tr>
-	     <td> <img src="https://i.blogs.es/594843/chrome/450_1000.jpg"> </td>
+	     <td> <img th:src="@{{imagen}(imagen=${reserva.imagen})}" width="384" height="240"> </td>
 		 <td>
 			<a th:text="'Area: ' + ${reserva.area}"></a> </br> 
 			<a th:text="'Zonas: ' + ${reserva.zonas}"></a> </br>
 			<a th:text="'Cantidad de personas: ' + ${reserva.reserve.numberOfPeople}"></a> </br>
 			<a th:text="'Horario: ' + ${reserva.timeSlot.startTime} + '-' + ${reserva.timeSlot.endTime}"></a> </br>
 			<a th:text="'Dia de la reserva: ' + ${reserva.reserve.dateOfTheReserve}"></a> </br>
-			<a th:href="@{/pantallaMisReservas/misReservas/modificar/{reserva}/(reserva=${reserva.reserve.numberOfReserve})}" class="btn btn-warning" role="button">Modificar Reserva</a>
 			<a th:href="@{/pantallaMisReservas/misReservas/cancelar/{reserva}/(reserva=${reserva.reserve.numberOfReserve})}" class="btn btn-danger" role="button">Cancelar Reserva</a>
 		 </td>
 		</tr>
 	    </table>
 		<br/>
       </tr>
+	  <tr th:if="${misReservas!=null and misReservas.empty}">
+		<a> No tienes ninguna reserva actualmente </a> </br>
+		<a> Haz una reserva YA! </a>
+		<a href="/pantallaReservar/seleccionarArea" class="btn btn-success" role="button">Reservar</a>
+	  </tr>
 </body>
 </html>

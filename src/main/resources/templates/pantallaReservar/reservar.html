@@ -14,41 +14,67 @@
                      th:object="${formulario}" method="post"> 
 	<h2 th:text="${areas}"></h2>
 	<table>
-	  <tr>
-	    <td><label>Fecha </label></td>
-		<td> <select class="form_control" type="text" th:field="*{fecha}"> 
+	<tr>
+	<td> <img th:src="@{{imagen}(imagen=${imagen})}" width="384" height="240"/> </td>
+	<td>
+		<label>Fecha: </label> </br>
+		<label>Horario de Reserva: </label>
+	</td>
+	<td>
+		<select th:if="${timeSelected != true}" class="form_control" type="text" th:field="*{fecha}"> 
 			<option th:each="fechaValue : ${fechaList}"
 				th:value="${fechaValue}"
 				th:text="${fechaValue}"></option>
-			</select>
-		</td>
-	   </tr>
-	   <tr>
-	    <td><label>Horario de Reserva </label></td>
-		<td> <select class="form_control" type="text" th:field="*{time}"> 
+			</select> 
+		<label th:if="${timeSelected == true}" th:text="${fechaList[0]}"></label> </br>
+		
+		<select th:if="${timeSelected != true}" class="form_control" type="text" th:field="*{time}"> 
 			<!--option value="No seleccionat">Selecciona el gènere</option-->
 			<option th:each="timeSlotValue : ${timeSlotList}"
 				th:value="${timeSlotValue}"
 				th:text="${timeSlotValue.startTime} + '-' + ${timeSlotValue.endTime}"></option>
 			</select>
-		</td>
-	   </tr>
-	   <tr>
-		<td><input th:if="${zoneList == null}" type="submit" value="Seleccionar" /></td>
-	   </tr>
-      </table>
+		<label th:if="${timeSelected == true}" th:text="${timeSlotList.startTime} + '-' + ${timeSlotList.endTime}"></label> </br>
+		<input  th:if="${timeSelected != true}" type="submit" class="btn btn-success" value="Seleccionar fecha y hora" />
+		<a th:if="${timeSelected == true}" type="button" th:href="@{/pantallaReservar/reservar/{areas}(areas=${areas})}" class="btn btn-danger">Cambiar fecha y hora</a>
+
+	</td>
+	</tr>
+    </table>
+	  
+	  <h2 th:if="${zoneSelected == true}">Zonas seleccionadas</h2>
+	  <table th:if="${zoneSelected == true}" class="table table-striped" >
+     <thead>
+       <tr>
+         <th>Zona</th>
+         <th>Capacidad</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="zone: ${seleccionado}">
+         <td th:text="${zone.letterAndNumber}"></td> 
+         <td th:text="${zone.capacity}"></td>
+         <td><a type="submit" class="btn btn-danger" th:href="@{/pantallaReservar/reservar/{areas}/{fecha}/{timeSlot}/{letter}/{list}(areas=${areas},fecha=${fechaList},timeSlot=${timeSlotList.timeId},letter=${zone.letterAndNumber},list=${seleccionadoSoloLetra})}">Quitar</a> 
+         </td>
+       </tr>
+     </tbody>
+   </table>
+   <td th:if="${zoneSelected == true}"> <a type="submit" class="btn btn-success" th:href="@{/pantallaReservar/completar/{areas}/{fecha}/{timeSlot}/{letter}(areas=${areas},fecha=${fechaList},timeSlot=${timeSlotList.timeId},letter=${seleccionadoSoloLetra})}">RESERVAR</a> </td>
+	  
+	  
+	  <h2 th:if="${zoneList != null}">Selecciona zonas para reservar</h2>
 	  <table th:if="${zoneList != null}" class="table table-striped" >
      <thead>
        <tr>
-         <th>letterAndNumber</th>
-         <th>capacity</th>
+         <th>Zona</th>
+         <th>Capacidad</th>
        </tr>
      </thead>
      <tbody>
        <tr th:each="zone: ${zoneList}">
          <td th:text="${zone.letterAndNumber}"></td> 
          <td th:text="${zone.capacity}"></td>
-         <td><a type="submit" class="btn btn-warning" th:href="@{/pantallaReservar/reservar/{areas}/{fecha}/{timeSlot}/{letter}(areas=${areas},fecha=${fechaList},timeSlot=${timeSlotList.timeId},letter=${zone.letterAndNumber})}">Reservar</a> 
+         <td><a type="submit" class="btn btn-warning" th:href="@{/pantallaReservar/reservar/{areas}/{fecha}/{timeSlot}/{letter}/{list}(areas=${areas},fecha=${fechaList},timeSlot=${timeSlotList.timeId},letter=${zone.letterAndNumber},list=${seleccionadoSoloLetra})}">Seleccionar</a> 
          </td>
        </tr>
      </tbody>

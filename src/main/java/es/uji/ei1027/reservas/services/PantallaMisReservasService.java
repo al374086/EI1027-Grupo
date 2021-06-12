@@ -26,7 +26,7 @@ public class PantallaMisReservasService {
 	ZonasReservadasDao zonasreservadas;
 	
 	@Autowired
-	AreaDao area;
+	AreaDao areaDao;
 	
 	@Autowired
 	TimeSlotDao timeSlot;
@@ -35,7 +35,7 @@ public class PantallaMisReservasService {
 		List<MostrarReserva> misReservas = new ArrayList<MostrarReserva>();
 		LocalDate ayer = LocalDate.now().plusDays(-1);
 		for (Reserve reserva :reservas.getReserves()) {
-			if (reserva.getDni().equals(dni) && reserva.getDateOfTheReserve().isBefore(ayer) && (reserva.getStatus().equals("Reserved") || reserva.getStatus().equals("Active"))) {
+			if (reserva.getDni().equals(dni) && reserva.getDateOfTheReserve().isAfter(ayer) && (reserva.getStatus().equals("Reserved") || reserva.getStatus().equals("Active"))) {
 				MostrarReserva unaReserva = new MostrarReserva();
 				unaReserva.setReserve(reserva);
 				List<String> zonas = new ArrayList<String>();
@@ -46,9 +46,17 @@ public class PantallaMisReservasService {
 						area = zonaReservada.getNameArea();
 					}
 				}
+				String imagen = null;
+				if ( !area.equals("Area desconozida ERROR"))
+					imagen = areaDao.getArea(area).getImagen();
+				if (imagen == null) {
+					imagen = "https://bit.ly/2TfGaWR";
+				}
+				
 				unaReserva.setArea(area);
 				unaReserva.setZonas(zonas);
 				unaReserva.setTimeSlot(timeSlot.getTimeSlot(reserva.getTimeID()));
+				unaReserva.setImagen(imagen);
 				misReservas.add(unaReserva);
 			}
 		}

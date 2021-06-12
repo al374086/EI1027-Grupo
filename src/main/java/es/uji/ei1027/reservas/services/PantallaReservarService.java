@@ -18,6 +18,8 @@ import es.uji.ei1027.reservas.dao.TimeSlotDao;
 import es.uji.ei1027.reservas.dao.ZonasReservadasDao;
 import es.uji.ei1027.reservas.dao.ZoneDao;
 import es.uji.ei1027.reservas.modelo.Area;
+import es.uji.ei1027.reservas.modelo.MostrarAreas;
+import es.uji.ei1027.reservas.modelo.MostrarReserva;
 import es.uji.ei1027.reservas.modelo.Municipality;
 import es.uji.ei1027.reservas.modelo.Reserve;
 import es.uji.ei1027.reservas.modelo.TimeSlot;
@@ -65,6 +67,33 @@ public class PantallaReservarService {
 		return localidades;
 	}
 	
+	public List<MostrarAreas> getAreasv2(String localidad) { //Proximamente, modificar funcion a un municipio solo
+		List<MostrarAreas> areas = new ArrayList<MostrarAreas>();
+		Municipality municipio = new Municipality();
+		for (Municipality busqueda : municipality.getMunicipality()) {
+			if (busqueda.getName().equals(localidad)) {
+				municipio = busqueda;
+				break;
+			}
+		}
+		for (Area area: area.getAreas()) {
+			if (area.getCodeMunicipality() == municipio.getCode()) {
+				MostrarAreas mostrar = new MostrarAreas();
+				
+				String imagen = area.getImagen();
+				if (imagen == null || imagen.length() == 0) {
+					imagen = "https://bit.ly/2TfGaWR";
+				}
+				area.setImagen(imagen);
+				mostrar.setArea(area);
+				mostrar.setTimeSlot(this.getTimeSlots(area.getName()));
+				
+				areas.add(mostrar);
+			}
+		}
+		return areas;
+	}
+	
 	public List<Area> getAreas(String localidad) { //Proximamente, modificar funcion a un municipio solo
 		List<Area> areas = new ArrayList<Area>();
 		Municipality municipio = new Municipality();
@@ -91,7 +120,7 @@ public class PantallaReservarService {
 	}
 	
 	
-	public List<Zone> getZonasDisponibles(String area, LocalDate fecha, TimeSlot time) {
+	public List<Zone> getZonasDisponibles(String area, LocalDate fecha, TimeSlot time, List<String> seleccionado) {
 		List<Zone> listaDeZonas = new ArrayList<Zone>();
 		List<String> reservasDeUnArea = new ArrayList<String>();
 		for (ZonasReservadas busqueda : zonasreservadas.getZonasReservadas()) {
@@ -100,6 +129,9 @@ public class PantallaReservarService {
 				if (reserva.getTimeID() == time.getTimeId() && reserva.getStatus().equals("Reserved") && reserva.getDateOfTheReserve().equals(fecha))
 					reservasDeUnArea.add(busqueda.getLetterAndNumber());
 			}
+		}
+		for (String zona : seleccionado) {
+			reservasDeUnArea.add(zona);
 		}
 		for (Zone busqueda : zone.getZones()) {
 			if (busqueda.getNameArea().equals(area)) { 
@@ -111,21 +143,40 @@ public class PantallaReservarService {
 		
 	}
 	
+	public List<Zone> getZones(List<String> letras, String area) {
+		List<Zone> zonas = new ArrayList<Zone>();
+		for (String letra : letras)
+			zonas.add(zone.getZone(letra, area));
+		return zonas;
+	}
+	
 	public TimeSlot getTimeSlot(int id) {
 		return timeslot.getTimeSlot(id);
 	}
 	
+	public String getImagen(String nameArea) {
+		String imagen = area.getArea(nameArea).getImagen();
+		if (imagen == null) {
+			imagen = "https://bit.ly/2TfGaWR";
+		}
+		return imagen;
+	}
+	
 	
 	//Pruebas
-	public void reservar(String area, LocalDate fecha, int timeId, String letterAndNumber) {
+	public void reservar(String area, LocalDate fecha, int timeId, List<String> ListletterAndNumber, String dni) {
 		Reserve reserva = new Reserve();
 		reserva.setDateOfReservation(LocalDate.now());
 		reserva.setDateOfTheReserve(fecha);
-		reserva.setDni("73404595");
-		reserva.setNumberOfPeople(5);
-		reserva.setQrCode("qr");
+		reserva.setDni(dni);
+		reserva.setQrCode("QR not aviable");
 		reserva.setStatus("Reserved");
 		reserva.setTimeID(timeId);
+		
+		int NumberOfPeople = 0;
+		for (String letterAndNumber : ListletterAndNumber) 
+			NumberOfPeople += zone.getZone(letterAndNumber, area).getCapacity();
+		reserva.setNumberOfPeople(NumberOfPeople);
 		
 		reservas.addReserve(reserva);
 		
@@ -137,13 +188,16 @@ public class PantallaReservarService {
 		}
 		
 		
+		for (String letterAndNumber : ListletterAndNumber) {
+			ZonasReservadas zonaReserva = new ZonasReservadas();
+			zonaReserva.setLetterAndNumber(letterAndNumber);
+			zonaReserva.setNameArea(area);
+			zonaReserva.setNumberofreserve(maxId);
+			zonasreservadas.addZonaReservadas(zonaReserva);
+			
+		}
 		
-		ZonasReservadas zonaReserva = new ZonasReservadas();
-		zonaReserva.setLetterAndNumber(letterAndNumber);
-		zonaReserva.setNameArea(area);
-		zonaReserva.setNumberofreserve(maxId);
-		
-		zonasreservadas.addZonaReservadas(zonaReserva);
+		;
 		// reserve.getDateOfReservation(), reserve.getDateOfTheReserve(), reserve.getStatus(), reserve.getNumberOfPeople(),
 		//   reserve.getQrCode(), reserve.getDni(), reserve.getTimeID()
 	}
