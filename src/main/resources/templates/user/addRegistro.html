@@ -10,8 +10,6 @@
 </head>
 <body>
 
-	<div th:replace="fragments/menu_citizen">...</div>
-	<div th:replace="fragments/logininfo">...</div>
 	<input type="button" value="Página anterior" onClick="history.go(-1);">
 	
 
@@ -19,7 +17,7 @@
 		<h2>
 			Formulario Registro Usuario
 			</h4>
-			<form action="#" th:action="@{/citizen/add}" th:object="${citizen}"
+			<form th:object="${citizen}"
 				method="post">
 				<table>
 					<tr>
@@ -65,7 +63,7 @@
 
 					<tr>
 						
-						<td colspan="2"><a id="link" href="../"> Ya tengo Cuenta </a></td>
+						<td colspan="2"><a id="link" href="/user/login"> Ya tengo Cuenta </a></td>
 					</tr>
 
 				</table>
