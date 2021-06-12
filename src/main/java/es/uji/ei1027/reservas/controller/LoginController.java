@@ -47,6 +47,9 @@ class UserValidator implements Validator {
 public class LoginController {
 	@Autowired
 	private UserDao userDao;
+	
+	@Autowired
+	private CitizenDao citizenDao;
 
 	@RequestMapping({"user/login"})
 	public String login(HttpSession session, Model model) {
@@ -117,7 +120,24 @@ public class LoginController {
 		
 	}
 	
-
+	
+	@RequestMapping({"/user/faq"})
+	public String faq(HttpSession session, Model model) {
+		return "/user/faq";
+	}
+	
+	
+	@RequestMapping({"/user/miPerfil"})
+	public String miPerfil(HttpSession session, Model model) {
+		if (session.getAttribute("user") == null) 
+	       { 
+	          model.addAttribute("user", new Usuario());
+	          session.setAttribute("nextUrl", "/user/miPerfil");
+	          return "/user/login";
+	       }
+		model.addAttribute("citizen", citizenDao.getCitizen(((Usuario) session.getAttribute("user")).getUsername()));
+		return "user/miPerfil";
+	}
 	
 	
 	/*

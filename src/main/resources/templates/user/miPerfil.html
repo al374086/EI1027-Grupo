@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Mis Perfil</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+	 <link type="text/css" href="/css/estilos.css" rel="stylesheet"/>
+</head>
+<body>
+<div th:replace="fragments/menu_citizen" >...</div>
+<div th:replace="fragments/logininfo" >...</div>
+<h1>Mi Perfil</h1>
+<b>DNI: </b><a th:text="${citizen.dni}"></a> </br>
+<b>Name: </b><a th:text="${citizen.name}"></a> </br>
+<b>Address: </b><a th:text="${citizen.address}"></a> </br>
+<b>Town: </b><a th:text="'Town: ' + ${citizen.town}"></a> </br>
+<b>Country: </b><a th:text="${citizen.country}"></a> </br>
+<b>Cp: </b><a th:text="${citizen.cp}"></a> </br>
+</body>
