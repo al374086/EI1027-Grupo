@@ -37,7 +37,7 @@ public class RegistroController {
 		
 		citizenDao.addCitizen(citizen);
 		
-		return "/login";
+		return "redirect:/user/login";
 	}
 
 }
