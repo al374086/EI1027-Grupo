@@ -70,15 +70,21 @@ public class RegistroController {
 		   citizen.setPin("");
 		   
 		   model.addAttribute("citizen", citizen);
+		   
 			return "/user/updateRegistroUsuario"; 
 		}
+	   
 	   
 	   @RequestMapping(value="/updateRegistroUsuario", method = RequestMethod.POST) 
 		public String processUpdateSubmit(
 	                           @ModelAttribute("citizen") Citizen citizen, 
 	                           BindingResult bindingResult) {
+		   
 			 if (bindingResult.hasErrors()) 
 				 return "/user/updateRegistroUsuario";
+			 
+			 
+			
 			 citizenDao.updateCitizen(citizen);
 			 return "redirect:/user/login"; 
 		}

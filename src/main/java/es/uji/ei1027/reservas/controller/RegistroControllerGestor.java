@@ -35,7 +35,10 @@ public class RegistroControllerGestor {
 
 	@RequestMapping(value = "/addRegistroGestor")
 	public String addMunicipalManager(HttpSession session, Model model) {
-		
+		if (session.getAttribute("user") != null) 
+	       { 
+	          return "redicrect:/user/login";
+	       }
 	      
 		model.addAttribute("municipalmanager", new MunicipalManager());
 		return "user/addRegistroGestor";
