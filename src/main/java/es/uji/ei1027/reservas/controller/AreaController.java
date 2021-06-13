@@ -3,6 +3,8 @@ package es.uji.ei1027.reservas.controller;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,7 @@ import es.uji.ei1027.reservas.modelo.Area;
 import es.uji.ei1027.reservas.modelo.FormularioAñadirServicioArea;
 import es.uji.ei1027.reservas.modelo.Service;
 import es.uji.ei1027.reservas.modelo.ServicesArea;
+import es.uji.ei1027.reservas.modelo.Usuario;
 import es.uji.ei1027.reservas.services.GestionAreaService;
 
 @Controller
@@ -70,7 +73,11 @@ public class AreaController {
 	 }
 	 
 	 @RequestMapping("/list") 
-	 public String listArea(Model model) {
+	 public String listArea(HttpSession session, Model model) {
+		 if (session.getAttribute("user") == null || ((Usuario) session.getAttribute("user")).getRol().equals("ciudadanos")) 
+	       { 
+	          return "redirect:/user/login";
+	       } 
 		 model.addAttribute("area", areaDao.getAreas());
 		 return "area/list";
 	 }
@@ -92,7 +99,13 @@ public class AreaController {
 		}
 	 
 	 @RequestMapping(value="/updateservei/{name}", method = RequestMethod.GET)
-	 public String editAreaservei(Model model, @PathVariable String name) {
+	 public String editAreaservei(HttpSession session, Model model, @PathVariable String name) {
+		 if (session.getAttribute("user") == null || ((Usuario) session.getAttribute("user")).getRol().equals("ciudadanos")) 
+	       { 
+	          return "redirect:/user/login";
+	       } 
+		 
+		 
 			model.addAttribute("area", name);
 			model.addAttribute("formulario", new FormularioAñadirServicioArea());
 			//model.addAttribute("servei", serviceDao.getServices());
@@ -122,7 +135,13 @@ public class AreaController {
 		}
 	 
 	 @RequestMapping(value="/updateservei/{name}/delete/{idservice}", method = RequestMethod.GET)
-	 public String editAreaservei(Model model, @PathVariable String name, @PathVariable int idservice) {
+	 public String editAreaservei(HttpSession session, Model model, @PathVariable String name, @PathVariable int idservice) {
+		 if (session.getAttribute("user") == null || ((Usuario) session.getAttribute("user")).getRol().equals("ciudadanos")) 
+	       { 
+	          return "redirect:/user/login";
+	       } 
+		 
+		 
 		 	for (ServicesArea servicio :servicesareaDao.getServices(name)) {
 		 		if (servicio.getService() == idservice)
 		 			servicesareaDao.deleteServicesArea(servicio);
@@ -131,7 +150,13 @@ public class AreaController {
 	 }
 	 
 	 @RequestMapping(value="/delete/{area}")
-		public String processDelete(@PathVariable String area) {
+		public String processDelete(HttpSession session, @PathVariable String area) {
+		 
+		 if (session.getAttribute("user") == null || ((Usuario) session.getAttribute("user")).getRol().equals("ciudadanos")) 
+	       { 
+	          return "redirect:/user/login";
+	       } 
+		 
 		 areaDao.deleteArea(area);
 		 return "redirect:../list"; 
 		}
