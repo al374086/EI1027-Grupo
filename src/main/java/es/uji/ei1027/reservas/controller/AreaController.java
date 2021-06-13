@@ -62,7 +62,7 @@ public class AreaController {
 	 @RequestMapping(value="/add", method=RequestMethod.POST)
 	 public String processAddSubmit(@ModelAttribute("area") Area area,
 	                                   BindingResult bindingResult) {
-		 System.out.println("ddddddddddddddddddddddddddddddddd");
+		 
 	   	 if (bindingResult.hasErrors()) 
 	   			return "area/add";
 	   	 areaDao.addArea(area);
