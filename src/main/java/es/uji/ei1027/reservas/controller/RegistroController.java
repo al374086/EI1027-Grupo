@@ -80,8 +80,8 @@ public class RegistroController {
 			 if (bindingResult.hasErrors()) 
 				 return "/user/updateRegistroUsuario";
 			 citizenDao.updateCitizen(citizen);
-			 return "redirect:/user/login"; 
-		}
+			 return "redirect:/user/miPerfil"; 
+		} 
 	   
 	  
 	
