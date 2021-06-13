@@ -13,7 +13,7 @@
     <h2>Actualizar Area</h2>
     <form action="#" th:action="@{/area/update}" 
                      th:object="${area}" method="post">
-      <table>
+      <table id="tabla_forms">
         <tr>
             <td><label>Area</label></td>
             <td><input type="text" th:field="*{name}" /></td> 
