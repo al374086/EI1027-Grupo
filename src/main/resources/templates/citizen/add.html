@@ -13,7 +13,8 @@
       <table>
 	    <tr>
             <td><label>Dni</label></td>
-            <td><input type="text" th:field="*{dni}" /></td> 
+            <td><input type="text" th:field="*{dni}" th:class="${#fields.hasErrors('nom')} ? needcorrection" /></td>
+				<td th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}" class="error"/></td> 
         </tr>
         <tr>
             <td><label>Name</label></td>

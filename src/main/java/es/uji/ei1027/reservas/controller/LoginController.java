@@ -140,6 +140,11 @@ public class LoginController {
 	}
 	
 	
+	
+	
+	
+	
+	
 	/*
 	@RequestMapping(value={"reserve/add"}, method=RequestMethod.POST)
 	public String checkLoginCitizen(@ModelAttribute("user") Usuario user,  		

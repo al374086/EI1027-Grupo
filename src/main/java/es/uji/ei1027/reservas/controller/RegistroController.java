@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,6 +41,10 @@ public class RegistroController {
 
 	@RequestMapping(value = "/addRegistro", method = RequestMethod.POST)
 	public String processAddSubmit(HttpSession session, @ModelAttribute("citizen") Citizen citizen, BindingResult bindingResult) {
+		
+		CitizenValidator citizenValidator = new CitizenValidator(); 
+		citizenValidator.validate(citizen, bindingResult); 
+		
 		if (bindingResult.hasErrors())
 			return "user/addRegistro";
 		
@@ -51,5 +57,27 @@ public class RegistroController {
 		
 		return "redirect:/user/login";
 	}
-
-}
+	
+	
+	
+	class CitizenValidator implements Validator { 
+		@Override
+		public boolean supports(Class<?> cls) { 
+			return Usuario.class.isAssignableFrom(cls);
+		}
+		
+		@Override 
+		public void validate(Object obj, Errors errors) {
+		  
+			Citizen citizen = (Citizen) obj;
+			
+			if (citizenDao.getCitizen(citizen.getDni())!=null)
+				errors.rejectValue("dni", "obligatorio", "El usuario ya exite");
+			
+			
+			
+	}
+	}
+	}
+	
+	
