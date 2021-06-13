@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-   <title>Gestion Municipios</title>
+   <title>Gestionar Municipis</title>
    <meta charset="UTF-8" />
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-   <link type="text/css" href="/css/estilos.css" rel="stylesheet"/>
 </head>
 <body>
-<div th:replace="fragments/menu_responsable_ma" >...</div>
-<div th:replace="fragments/logininfo" >...</div>
-   <h1>Lista Municipios</h1>
+   <h1>Llista de Municipis</h1>
    <table class="table table-striped">
      <thead>
        <tr>
-         <th>Codigo</th>
-         <th>Municipio</th>
+         <th>Codí</th>
+         <th>Municipi</th>
          <th>Provincia</th>
        </tr>
      </thead>
@@ -25,11 +22,11 @@
          <td th:text="${municipality.province}"></td>
          <td><a type="button" class="btn btn-warning" th:href="@{/municipality/update/{code}(code=${municipality.code})}">Edita</a>
          </td>
-         <td><a type="button" class="btn btn-danger" th:href="@{/municipality/delete/{code}(code=${municipality.code})}">Borrar</a>
+         <td><a type="button" class="btn btn-danger" th:href="@{/municipality/delete/{code}(code=${municipality.code})}">Esborra</a>
          </td>
        </tr>
      </tbody>
    </table>
-   <a href="add" class="btn btn-success">Añadir Municipi</a>
+   <a href="add">Afegeix Municipi</a>
 </body>
 </html>

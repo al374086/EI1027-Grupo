@@ -1,38 +1,36 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Actualizar service</title>
+    <title>Actualizar Servicio</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <link type="text/css" href="/css/estilos.css" rel="stylesheet"/>
 </head>
 <body>
-<h2>Actualizar Service</h2>
+<div th:replace="fragments/menu_responsable_ma" >...</div>
+<div th:replace="fragments/logininfo" >...</div>
+<h2>Actualizar Servicio</h2>
 <form action="#" th:action="@{/service/update}"
       th:object="${service}" method="post">
     <table>
-        
         <tr>
-        
-        	
             <td><input type="hidden" th:field="*{idservice}" /></td>
          </tr>
          <tr>
-            <td><label>name</label></td>
+            <td><label>Nombre Servicio</label></td>
             <td><input type="text" th:field="*{name}"/></td>
         </tr>
         <tr>
-            <td><label>type</label></td>
+            <td><label>Tipo</label></td>
             <td><input type="text" th:field="*{type}"/></td>
         </tr>
         <tr>
-            <td><label>description</label></td>
+            <td><label>Descripcion</label></td>
             <td><input type="text" th:field="*{description}"/></td>
         </tr>
-        
-        
         <tr>
-            <td colspan="2"><input type="submit" value="Actualizar service" /></td>
+            <td colspan="2"><input type="submit" class="btn btn-success" value="Actualizar Servicio" /></td>
         </tr>
     </table>
 </form>

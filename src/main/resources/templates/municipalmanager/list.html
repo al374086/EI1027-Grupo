@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Gestionar MunicipalManager</title>
+    <title>Gestionar Gestores Municipales</title>
     <meta charset="UTF-8" />
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
    <link type="text/css" href="/css/estilos.css" rel="stylesheet"/>
 </head>
 <body>
-<div th:replace="fragments/menu_gestor_municipal" >...</div>
-
-<h1>Llista de Municipal Manager</h1>
-
+<div th:replace="fragments/menu_responsable_ma" >...</div>
 <div th:replace="fragments/logininfo" >...</div>
+<h1>Lista de Gestores Municipales</h1>
 <table class="table table-striped">
     <thead>
     <tr>
-        <th>dni</th>
-        <th>name</th>
-        <th>user</th>
-        <th>password</th>
-        <th>initialDate</th>
-        <th>endDate</th>
-        <th>code</th>
+        <th>Dni</th>
+        <th>Nombre</th>
+        <th>Usuario</th>
+        <th>Password</th>
+        <th>Fecha Inicial</th>
+        <th>Fecha Final</th>
+        <th>Codigo</th>
 
 
     </tr>
@@ -44,6 +42,6 @@
     </tr>
     </tbody>
 </table>
-<a type="button" class="btn btn-success" href="add" >Afegeix MunicipalManager</a>
+<a type="button" class="btn btn-success" href="add" >Añadir Gestor Municipal</a>
 </body>
 </html>

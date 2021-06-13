@@ -5,44 +5,47 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <link type="text/css" href="/css/estilos.css" rel="stylesheet"/>
 </head>
 <body>
+<div th:replace="fragments/menu_responsable_ma" >...</div>
+<div th:replace="fragments/logininfo" >...</div>
 <h2>Municipal Manager</h2>
 <form action="#" th:action="@{/municipalmanager/update}"
       th:object="${municipalmanager}" method="post">
     <table>
         <tr>
-            <td><label>dni</label></td>
-            <td><input type="text" th:field="*{dni}" /></td>
+            <td><label>DNI</label></td>
+            <td><input type="text" th:field="*{dni}" readonly /></td>
         </tr>
 
         <tr>
-            <td><label>name</label></td>
+            <td><label>Nombre</label></td>
             <td><input type="text" th:field="*{name}" /></td>
         </tr>
        
         <tr>
-            <td><label>user</label></td>
+            <td><label>Usuario</label></td>
             <td><input type="text" th:field="*{user}" /></td>
         </tr>
         <tr>
-            <td><label>password</label></td>
+            <td><label>Password</label></td>
             <td><input type="text" th:field="*{password}" /></td>
         </tr>
          <tr>
-            <td><label>initialDate</label></td>
+            <td><label>Fecha Inicial</label></td>
             <td><input type="text" th:field="*{initialDate}" /></td>
         </tr>
         <tr>
-            <td><label>endDate</label></td>
+            <td><label>Fecha Final</label></td>
             <td><input type="text" th:field="*{endDate}" /></td>
         </tr>
          <tr>
-            <td><label>code</label></td>
+            <td><label>Codigo Municipio</label></td>
             <td><input type="text" th:field="*{code}" /></td>
         </tr>
         <tr>
-            <td colspan="2"><input type="submit" value="Edita MunicipalManager" /></td>
+            <td colspan="2"><input type="submit" class="btn btn-success" value="Actualiza Gestor" /></td>
         </tr>
     </table>
 </form>

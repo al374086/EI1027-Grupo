@@ -5,18 +5,21 @@
    <meta charset="UTF-8" />
    <link rel="stylesheet"       
      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+     <link type="text/css" href="/css/estilos.css" rel="stylesheet"/>
 </head>
 <body>
-    <h2>municipi</h2>
+    <div th:replace="fragments/menu_responsable_ma" >...</div>
+    <div th:replace="fragments/logininfo" >...</div>
+    <h2>Municipio</h2>
     <form action="#" th:action="@{/municipality/update}"
                      th:object="${municipality}" method="post">
       <table>
         <tr>
-            <td><label>Codi</label></td>
+            <td><label>Codigo</label></td>
             <td><input type="text" th:field="*{code}" readonly/></td>
         </tr>
         <tr>
-            <td><label>Municipi</label></td>
+            <td><label>Municipio</label></td>
             <td><input type="text" th:field="*{name}" /></td>
         </tr>
         <tr>
@@ -24,7 +27,7 @@
             <td><input type="text" th:field="*{province}" /></td>
         </tr>
         <tr>
-            <td colspan="2"><input type="submit" value="Actualiza municipi" /></td>
+            <td colspan="2"><input type="submit" class="btn btn-success" value="Actualizar municipio" /></td>
         </tr>
       </table>
     </form>

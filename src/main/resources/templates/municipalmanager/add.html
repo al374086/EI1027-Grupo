@@ -5,10 +5,12 @@
     <title>Nou Municipal Manager</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet"
-
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <link type="text/css" href="/css/estilos.css" rel="stylesheet"/>
 </head>
 <body>
+<div th:replace="fragments/menu_responsable_ma" >...</div>
+<div th:replace="fragments/logininfo" >...</div>
 <h2>Nou Municipal Manager</h2>
 <form action="#" th:action="@{/municipalmanager/add}"
       th:object="${municipalmanager}" method="post">
@@ -41,7 +43,7 @@
             <td><label>code</label></td>
             <td><input type="text" th:field="*{code}"/></td>
         </tr>
-            <td colspan="2"><input type="submit" value="Afegeix Municipal Manager" /></td>
+            <td colspan="2"><input type="submit" class="btn btn-success" value="Afegeix Municipal Manager" /></td>
         </tr>
     </table>
 </form>

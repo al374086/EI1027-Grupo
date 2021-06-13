@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"> 
 <head>
-   <title>Gestionar Service</title>
+   <title>Gestionar Servicios</title>
    <meta charset="UTF-8" />
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+   <link type="text/css" href="/css/estilos.css" rel="stylesheet"/>
 </head>
 <body>
-   <h1>Llista de Services</h1>
-   <table>
+   <div th:replace="fragments/menu_responsable_ma" >...</div>
+   <div th:replace="fragments/logininfo" >...</div>
+   <h1>Lista de servicios</h1>
+   <table class="table table-striped">
      <thead>
        <tr>
-         <th>idservice</th>
-         <th>name</th>
-         <th>type</th>
-         <th>description</th>
-         <th>name_service</th>
-         <th>name_area</th>
+         <th>Idservice</th>
+         <th>Nombre</th>
+         <th>Tipo</th>
+         <th>Descripcion</th>
        </tr>
      </thead>
      <tbody>
@@ -26,13 +27,13 @@
          <td th:text="${service.description}"></td>
          
          
-         <td><a th:href="@{/service/update/{idservice}(idservice=${service.idservice})}">Edita</a> 
+         <td><a class="btn btn-warning" th:href="@{/service/update/{idservice}(idservice=${service.idservice})}">Editar</a> 
          </td>
-         <td><a th:href="@{/service/delete/{idservice}(idservice=${service.idservice})}">Esborra</a>
+         <td><a class="btn btn-danger" th:href="@{/service/delete/{idservice}(idservice=${service.idservice})}">Borrar</a>
          </td>
        </tr>
      </tbody>
    </table>
-   <a href="add" >Afegeix service</a> 
+   <a href="add" class="btn btn-success">Añadir Servicio</a> 
 </body>
 </html>

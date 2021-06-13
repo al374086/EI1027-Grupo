@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"> 
 <head>
-   <title>Crear nova Municipi</title>
+   <title>Crear nuevo Municipio</title>
    <meta charset="UTF-8" />
    <link rel="stylesheet"       
      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+     <link type="text/css" href="/css/estilos.css" rel="stylesheet"/>
 </head>
 <body>
-    <h2>Nou Municipi</h2>
+	<div th:replace="fragments/menu_responsable_ma" >...</div>
+    <div th:replace="fragments/logininfo" >...</div>
+    <h2>Nuevo Municipio</h2>
     <form action="#" th:action="@{/municipality/add}" 
                      th:object="${municipality}" method="post">
       <table>
         <tr>
-            <td><label>Municipi</label></td>
+            <td><label>Municipio</label></td>
             <td><input type="text" th:field="*{name}" /></td> 
         </tr>
         <tr>
@@ -20,7 +23,7 @@
             <td><input type="text" th:field="*{province}" /></td>
         </tr>
         <tr>
-            <td colspan="2"><input type="submit" value="Afegeix Municipi" /></td>
+            <td colspan="2"><input type="submit" class="btn btn-success" value="Añadir Municipio" /></td>
         </tr>
       </table>
     </form>
