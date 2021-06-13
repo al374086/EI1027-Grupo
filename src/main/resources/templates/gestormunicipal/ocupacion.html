@@ -29,8 +29,6 @@
 			</select>
 			<label th:if="${localidadesList != null}" th:text="${provinciasList}"></label>
 		</td>
-		<td th:if="${localidadesList == null}" colspan="2"><input class="btn btn-success" type="submit" value="Seleccionar" /></td>
-		<td th:if="${localidadesList != null}" colspan="2"><a class="btn btn-danger" href="/gestor/ocupacion">Cambiar Provincia y/o localidad</a></td>
 	   </tr>
 	  <tr th:if="${localidadesList != null}">
 	    <td><label>Localidad</label></td>
