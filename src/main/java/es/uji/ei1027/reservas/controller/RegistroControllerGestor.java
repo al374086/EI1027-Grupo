@@ -37,7 +37,7 @@ public class RegistroControllerGestor {
 	public String addMunicipalManager(HttpSession session, Model model) {
 		if (session.getAttribute("user") != null) 
 	       { 
-	          return "redicrect:/user/login";
+	          return "redirect:/user/login";
 	       }
 	      
 		model.addAttribute("municipalmanager", new MunicipalManager());
