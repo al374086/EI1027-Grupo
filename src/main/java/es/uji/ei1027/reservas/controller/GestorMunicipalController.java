@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -95,6 +96,19 @@ public class GestorMunicipalController {
 		}
 		model.addAttribute("reserves", reserves );
 		return "/gestormunicipal/list"; 
+	}
+	
+	@RequestMapping(value="/list/cancel/{id}")
+	public String cancelarReserva(HttpSession session, Model model, @PathVariable int id) {
+		if (session.getAttribute("user") == null || ((Usuario) session.getAttribute("user")).getRol().equals("ciudadanos")) 
+	       { 
+	          return "redirect:/user/login";
+	       } 
+		
+		Reserve reserva = reserveDao.getReserve(id);
+		reserva.setStatus("Cancelled");
+		reserveDao.updateReserve(reserva);
+		return "redirect:/gestormunicipal/list"; 
 	}
 	
 	
