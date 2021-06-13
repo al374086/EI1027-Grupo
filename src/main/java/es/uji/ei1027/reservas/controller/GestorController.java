@@ -47,7 +47,7 @@ public class GestorController {
 		else if (datos.getArea() == null) {
 			model.addAttribute("provinciasList", datos.getProvincia());
 			model.addAttribute("localidadesList", datos.getLocalidad());
-		//	model.addAttribute("areas", gestorService.getAreasv2(datos.getLocalidad()));
+			model.addAttribute("ocupado", gestorService.getNivelOcupacion(datos.getLocalidad()));
 			return "/gestor/ocupacion";
 		}
 		else {
