@@ -4,21 +4,22 @@
    <title>Gestionar Àrees</title>
    <meta charset="UTF-8" />
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+   <link type="text/css" href="/css/estilos.css" rel="stylesheet"/>
 </head>
 <body>
-   <h1>Llista de Àrees</h1>
+   <h1>Lista de Areas</h1>
    <table class="table table-striped">
      <thead>
        <tr>
          <th>Nom</th>
          <th>Es restringida</th>
-         <th>Localització</th>
-     	 <th>Tipus de Àrea</th>
-         <th>Caracteristiques</th>
-     	 <th>Descripció</th>
+         <th>Localización</th>
+     	 <th>Tipo de Area</th>
+         <th>Caracteristicas</th>
+     	 <th>Descripción</th>
      	 <th>Longitud y Anchura</th>
-     	 <th>Orientació</th>
-		 <th>Municipí</th>
+     	 <th>Orientación</th>
+		 <th>Municipio</th>
 		 <th>Url-Imagen</th>
        </tr>
      </thead>
@@ -34,15 +35,15 @@
          <td th:text="${area.Orientation}"></td>
          <td th:text="${area.codeMunicipality}"></td>
 		 <td th:text="${area.imagen}"></td>
-         <td><a type="button" class="btn btn-warning" th:href="@{/area/update/{name}(name=${area.name})}">Edita</a>
+         <td><a type="button" class="btn btn-warning" th:href="@{/area/update/{name}(name=${area.name})}">Editar</a>
          </td>
-          <td><a type="button" class="btn btn-warning" th:href="@{/area/updateservei/{name}(name=${area.name})}">Edita Servei</a>
+          <td><a type="button" class="btn btn-warning" th:href="@{/area/updateservei/{name}(name=${area.name})}">Editar Servei</a>
          </td>
-         <td><a type="button" class="btn btn-danger" th:href="@{/area/delete/{name}(name=${area.name})}">Esborra</a>
+         <td><a type="button" class="btn btn-danger" th:href="@{/area/delete/{name}(name=${area.name})}">Borrar</a>
          </td>
        </tr>
      </tbody>
    </table>
-   <a type="button" class="btn btn-success" href="add">Afegeix area</a>
+   <a type="button" class="btn btn-success" href="add">Añdir area</a>
 </body>
 </html>
