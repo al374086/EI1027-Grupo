@@ -16,6 +16,23 @@ public class Reserve {
 	private String qrCode;
 	private String dni;
 	private int timeID;
+	private String area;
+	private TimeSlot time;
+	
+	
+	
+	public TimeSlot getTime() {
+		return time;
+	}
+	public void setTime(TimeSlot time) {
+		this.time = time;
+	}
+	public String getArea() {
+		return area;
+	}
+	public void setArea(String area) {
+		this.area = area;
+	}
 	public int getNumberOfReserve() {
 		return numberOfReserve;
 	}

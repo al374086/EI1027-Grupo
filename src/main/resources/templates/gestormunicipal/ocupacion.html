@@ -8,7 +8,7 @@
 	 <link type="text/css" href="/css/estilos.css" rel="stylesheet"/>
 </head>
 <body>
-<div th:replace="fragments/menu_responsable_ma" >...</div>
+<div th:replace="fragments/menu_gestor_municipal" >...</div>
 <div th:replace="fragments/logininfo" >...</div>
 <h1>Nivel de ocupacion municipios</h1>
 
@@ -17,34 +17,15 @@
       <table>
 	  <tr>
 	    <td><label>Provincia</label></td>
-		<td> <select th:if="${localidadesList == null}" class="form_control" type="text" th:field="*{provincia}"> 
-			<option th:each="provinciaValue : ${provinciasList}"
-				th:value="${provinciaValue}"
-				th:text="${provinciaValue}"></option>
-			</select>
-			<select th:if="${localidadesList != null}" hidden class="form_control" type="text" th:field="*{provincia}"> 
-			<option th:each="provinciaValue : ${provinciasList}"
-				th:value="${provinciaValue}"
-				th:text="${provinciaValue}"></option>
-			</select>
-			<label th:if="${localidadesList != null}" th:text="${provinciasList}"></label>
+		<td> 
+			<label th:text="${provinciasList}"></label>
 		</td>
 	   </tr>
 	  <tr th:if="${localidadesList != null}">
 	    <td><label>Localidad</label></td>
-		<td> <select th:if="${areas == null}" class="form_control" type="text" th:field="*{localidad}"> 
-			<option th:each="localidadValue : ${localidadesList}"
-				th:value="${localidadValue}"
-				th:text="${localidadValue}"></option>
-			</select>
-			<select th:if="${areas != null}" hidden class="form_control" type="text" th:field="*{localidad}"> 
-			<option th:each="localidadValue : ${localidadesList}"
-				th:value="${localidadValue}"
-				th:text="${localidadValue}"></option>
-			</select>
-			<label th:if="${areas != null}" th:text="${localidadesList}"></label>
+		<td> 
+			<label th:text="${localidadesList}"></label>
 		</td>
-		<td th:if="${areas == null}" colspan="2"><input class="btn btn-success" type="submit" value="Seleccionar" /></td>
 	   </tr>
       </table>
 	  

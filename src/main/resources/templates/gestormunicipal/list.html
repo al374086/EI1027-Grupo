@@ -15,15 +15,14 @@
    <table class="table table-striped">
      <thead>
        <tr>
-         <th>numberOfReserve</th>
-         <th>dateOfReservation</th>
-         <th>dateOfTheReserve</th>
+         <th>Numero de la reserva</th>
+         <th>Dia que lo reservo</th>
+         <th>Dia de la reserva</th>
          <th>status</th>
-         <th>numberOfPeople</th>
-		 <th>qrCode</th>
+         <th>Personas</th>
 		 <th>dni</th>
-         <th>timeID</th>
-		 <th></th>
+         <th>tiempo</th>
+		 <th>area</th>
 		 <th></th>
        </tr>
      </thead>
@@ -34,12 +33,11 @@
          <td th:text="${reserve.dateOfTheReserve}"></td>
          <td th:text="${reserve.status}"></td>
          <td th:text="${reserve.numberOfPeople}"></td>
-		 <td th:text="${reserve.qrCode}"></td>
 		 <td th:text="${reserve.dni}"></td>
-		 <td th:text="${reserve.timeID}"></td>
-         <td><a type="button" class="btn btn-warning" th:href="@{/reserve/update/{numberOfReserve}(numberOfReserve=${reserve.numberOfReserve})}">Edita</a>
+		 <td th:text="${reserve.time.startTime} + '-' + ${reserve.time.endTime}"></td>
+		 <td th:text="${reserve.area}"></td>
          </td>
-         <td><a type="button" class="btn btn-danger" th:href="@{/reserve/delete/{numberOfReserve}(numberOfReserve=${reserve.numberOfReserve})}">Esborra</a>
+         <td><a type="button" class="btn btn-danger" th:href="@{/gestormunicipal/list/cancel/{numberOfReserve}(numberOfReserve=${reserve.numberOfReserve})}">Cancelar</a>
          </td>
        </tr>
      </tbody>
