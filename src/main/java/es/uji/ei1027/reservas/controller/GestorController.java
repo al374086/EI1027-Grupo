@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.uji.ei1027.reservas.modelo.FormularioReservarArea;
+import es.uji.ei1027.reservas.modelo.Usuario;
 import es.uji.ei1027.reservas.services.GestorService;
 
 @Controller
@@ -30,15 +31,25 @@ public class GestorController {
 	}
 	
 	@RequestMapping(value="/ocupacion", method=RequestMethod.GET)
-	public String getLocalidades(Model model) {
+	public String getLocalidades(HttpSession session, Model model) {
+		if (session.getAttribute("user") == null || !((Usuario) session.getAttribute("user")).getUsername().equals("generalitat")) 
+	       { 
+	          model.addAttribute("user", new Usuario());
+	          return "redirect:/user/login";
+	       } 
 		model.addAttribute("provinciasList", gestorService.getProvincias());
 		model.addAttribute("formulario", new FormularioReservarArea());
 		return "/gestor/ocupacion"; 
 	}
 	
 	@RequestMapping(value="/ocupacion", method=RequestMethod.POST)
-	public String getDatos(Model model,@ModelAttribute("formulario") FormularioReservarArea datos, 
+	public String getDatos(HttpSession session, Model model,@ModelAttribute("formulario") FormularioReservarArea datos, 
             BindingResult bindingResult) {
+		if (session.getAttribute("user") == null || !((Usuario) session.getAttribute("user")).getUsername().equals("generalitat")) 
+	       { 
+	          model.addAttribute("user", new Usuario());
+	          return "redirect:/user/login";
+	       } 
 		if(datos.getLocalidad() == null) {
 			model.addAttribute("provinciasList", datos.getProvincia());
 			model.addAttribute("localidadesList", gestorService.getLocalidades(datos.getProvincia()));

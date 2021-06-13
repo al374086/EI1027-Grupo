@@ -1,5 +1,7 @@
 package es.uji.ei1027.reservas.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.uji.ei1027.reservas.dao.MunicipalityDao;
 import es.uji.ei1027.reservas.modelo.Municipality;
+import es.uji.ei1027.reservas.modelo.Usuario;
 
 @Controller
 @RequestMapping("/municipality")
@@ -27,7 +30,11 @@ public class MunicipalityController {
 	 
 	 // Operacions: Crear, llistar, actualitzar, esborrar
 	 @RequestMapping(value="/add") 
-	 public String addMunicipality(Model model) {
+	 public String addMunicipality(HttpSession session, Model model) {
+		 if (session.getAttribute("user") == null || !((Usuario) session.getAttribute("user")).getUsername().equals("generalitat")) 
+	       { 
+	          return "redirect:/user/login";
+	       } 
 			model.addAttribute("municipality", new Municipality());
 			//System.out.println("add en el controller");
 			return "municipality/add";
@@ -44,7 +51,11 @@ public class MunicipalityController {
 	 
 	 
 	 @RequestMapping(value="/update/{code}", method = RequestMethod.GET)
-	 public String editMunicipality(Model model, @PathVariable int code) {
+	 public String editMunicipality(HttpSession session, Model model, @PathVariable int code) {
+		 if (session.getAttribute("user") == null || !((Usuario) session.getAttribute("user")).getUsername().equals("generalitat")) 
+	       { 
+	          return "redirect:/user/login";
+	       } 
 			model.addAttribute("municipality", municipalityDao.getMunicipality(code));
 			return "municipality/update"; 
 	 }
@@ -60,13 +71,21 @@ public class MunicipalityController {
 		}
 	 
 	 @RequestMapping("/list") 
-	 public String listMunicipality(Model model) {
+	 public String listMunicipality(HttpSession session, Model model) {
+		 if (session.getAttribute("user") == null || !((Usuario) session.getAttribute("user")).getUsername().equals("generalitat")) 
+	       { 
+	          return "redirect:/user/login";
+	       } 
 		 model.addAttribute("municipality", municipalityDao.getMunicipality());
 		 return "municipality/list";
 	 }
 	 
 	 @RequestMapping(value="/delete/{code}")
-		public String processDelete(@PathVariable int code) {
+		public String processDelete(HttpSession session, Model model, @PathVariable int code) {
+		 if (session.getAttribute("user") == null || !((Usuario) session.getAttribute("user")).getUsername().equals("generalitat")) 
+	       { 
+	          return "redirect:/user/login";
+	       } 
 	          municipalityDao.deleteMunicipality(code);
 	          return "redirect:../list"; 
 	 }

@@ -81,7 +81,7 @@ public class RegistroController {
 				 return "/user/updateRegistroUsuario";
 			 citizenDao.updateCitizen(citizen);
 			 return "redirect:/user/miPerfil"; 
-		} 
+		}
 	   
 	  
 	

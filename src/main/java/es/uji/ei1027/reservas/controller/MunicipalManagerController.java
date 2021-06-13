@@ -1,5 +1,7 @@
 package es.uji.ei1027.reservas.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.uji.ei1027.reservas.dao.MunicipalManagerDao;
 import es.uji.ei1027.reservas.modelo.MunicipalManager;
+import es.uji.ei1027.reservas.modelo.Usuario;
 
 
 @Controller
@@ -28,7 +31,11 @@ public class MunicipalManagerController {
    // Operacions: Crear, llistar, actualitzar, esborrar
    
    @RequestMapping("/list")
-   public String listMunicipalManager(Model model) {
+   public String listMunicipalManager(HttpSession session, Model model) {
+	   if (session.getAttribute("user") == null || !((Usuario) session.getAttribute("user")).getUsername().equals("generalitat")) 
+       { 
+          return "redirect:/user/login";
+       } 
 	  
       model.addAttribute("municipalmanagers", municipalmanagerDao.getMunicipalManagers());
      
@@ -37,7 +44,12 @@ public class MunicipalManagerController {
    
    
    @RequestMapping(value="/add") 
-	public String addMunicipalManager(Model model) {
+	public String addMunicipalManager(HttpSession session, Model model) {
+	   if (session.getAttribute("user") == null || !((Usuario) session.getAttribute("user")).getUsername().equals("generalitat")) 
+       { 
+          return "redirect:/user/login";
+       } 
+	   
 		model.addAttribute("municipalmanager", new MunicipalManager());
 		return "municipalmanager/add";
 	}
@@ -56,7 +68,12 @@ public class MunicipalManagerController {
    
    
    @RequestMapping(value="/update/{dni}", method = RequestMethod.GET)
-	public String editMunicipalManager(Model model, @PathVariable String dni) {
+	public String editMunicipalManager(HttpSession session, Model model, @PathVariable String dni) {
+	   
+	   if (session.getAttribute("user") == null || !((Usuario) session.getAttribute("user")).getUsername().equals("generalitat")) 
+       { 
+          return "redirect:/user/login";
+       } 
 	   
 		model.addAttribute("municipalmanager", municipalmanagerDao.getMunicipalManager(dni));
 		return "municipalmanager/update"; 
@@ -76,7 +93,13 @@ public class MunicipalManagerController {
    
    
    @RequestMapping(value="/delete/{dni}")
-	public String processDelete(@PathVariable String dni) {
+	public String processDelete(HttpSession session, @PathVariable String dni) {
+	   
+	   if (session.getAttribute("user") == null || !((Usuario) session.getAttribute("user")).getUsername().equals("generalitat")) 
+       { 
+          return "redirect:/user/login";
+       } 
+	   
 	   municipalmanagerDao.deleteMunicipalManagerDNI(dni);
           return "redirect:../list"; 
 	}
