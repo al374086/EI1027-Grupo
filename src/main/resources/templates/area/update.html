@@ -5,8 +5,11 @@
    <meta charset="UTF-8" />
    <link rel="stylesheet"       
      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+   <link type="text/css" href="/css/estilos.css" rel="stylesheet"/>
 </head>
 <body>
+    <div th:replace="fragments/menu_gestor_municipal" >...</div>
+    <div th:replace="fragments/logininfo" >...</div>
     <h2>Actualizar Area</h2>
     <form action="#" th:action="@{/area/update}" 
                      th:object="${area}" method="post">
