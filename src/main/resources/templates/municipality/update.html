@@ -13,7 +13,7 @@
     <h2>Municipio</h2>
     <form action="#" th:action="@{/municipality/update}"
                      th:object="${municipality}" method="post">
-      <table>
+      <table id="tabla_forms">
         <tr>
             <td><label>Codigo</label></td>
             <td><input type="text" th:field="*{code}" readonly/></td>
