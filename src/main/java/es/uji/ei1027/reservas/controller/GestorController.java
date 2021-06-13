@@ -29,6 +29,7 @@ public class GestorController {
 	public String index(HttpSession session, Model model) {
 		return "redirect:/gestor/ocupacion"; 
 	}
+
 	
 	@RequestMapping(value="/ocupacion", method=RequestMethod.GET)
 	public String getLocalidades(HttpSession session, Model model) {
