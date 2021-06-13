@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -57,6 +58,36 @@ public class RegistroController {
 		
 		return "redirect:/user/login";
 	}
+	
+	
+	
+	
+	
+	   @RequestMapping(value="/updateRegistroUsuario/{dni}", method = RequestMethod.GET)
+		public String editCitizen(Model model, @PathVariable String dni) {
+			
+		   Citizen citizen = citizenDao.getCitizen(dni);
+		   citizen.setPin("");
+		   
+		   model.addAttribute("citizen", citizen);
+			return "/user/updateRegistroUsuario"; 
+		}
+	   
+	   @RequestMapping(value="/updateRegistroUsuario", method = RequestMethod.POST) 
+		public String processUpdateSubmit(
+	                           @ModelAttribute("citizen") Citizen citizen, 
+	                           BindingResult bindingResult) {
+			 if (bindingResult.hasErrors()) 
+				 return "/user/updateRegistroUsuario";
+			 citizenDao.updateCitizen(citizen);
+			 return "redirect:/user/login"; 
+		}
+	   
+	  
+	
+	
+	
+	
 	
 	
 	

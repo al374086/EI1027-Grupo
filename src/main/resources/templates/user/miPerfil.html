@@ -17,4 +17,8 @@
 <b>Town: </b><a th:text="${citizen.town}"></a> </br>
 <b>Country: </b><a th:text="${citizen.country}"></a> </br>
 <b>Cp: </b><a th:text="${citizen.cp}"></a> </br>
+
+<a type="button" class="btn btn-warning" th:href="@{/user/updateRegistroUsuario/{dni}(dni=${citizen.dni})}">Edita</a>
+
+
 </body>

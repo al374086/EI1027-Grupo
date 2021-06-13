@@ -82,6 +82,13 @@ public class MunicipalManagerDao{
     /* Actualitza els atributs del citizen
     (excepte el dni  que és la clau primària) */
     public void updateMunicipalManager(MunicipalManager municipalManager) {
+    	
+    	   System.out.println("antes encriptacion" +municipalManager.getPassword());
+      	   BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor(); 
+      	   
+      	   municipalManager.setPassword(passwordEncryptor.encryptPassword(municipalManager.getPassword())); 
+      	   System.out.println("despues encriptacion" +municipalManager.getPassword());
+        	System.out.println("introduciendo datos");
         jdbcTemplate.update("UPDATE municipalmanager SET name=?, usuario=?, password=?, initialDate=?, endDate=?, code=? where dni=?",
         		 municipalManager.getName(),municipalManager.getUser(),municipalManager.getPassword(),municipalManager.getInitialDate(),
         		 municipalManager.getEndDate(),municipalManager.getCode(),municipalManager.getDni());

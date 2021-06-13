@@ -53,6 +53,13 @@ public class CitizenDao {
    /* Actualitza els atributs del citizen
       (excepte el dni  que és la clau primària) */
    public void updateCitizen(Citizen citizen) {
+	   
+	   System.out.println("antes encriptacion" +citizen.getPin());
+	   BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor(); 
+	  
+	   citizen.setPin(passwordEncryptor.encryptPassword(citizen.getPin())); 
+	   System.out.println("despues encriptacion" +citizen.getPin());
+	 
        jdbcTemplate.update("UPDATE citizen SET name=?, address=?, town=?, country=?, cp=?, pin=? where dni=?",
     		   citizen.getName(), citizen.getAddress(), citizen.getTown(), citizen.getCountry(), citizen.getCp(),
     		   citizen.getPin(), citizen.getDni());

@@ -35,13 +35,13 @@
         <td th:text="${municipalmanager.endDate}"></td>
         <td th:text="${municipalmanager.code}"></td>
 
-        <td><a type="button" class="btn btn-warning" th:href="@{/municipalmanager/update/{dni}(dni=${municipalmanager.dni})}">Edita</a>
+        <td><a type="button" class="btn btn-warning" th:href="@{/user/updateGestor/{dni}(dni=${municipalmanager.dni})}">Edita</a>
         </td>
         <td><a type="button" class="btn btn-danger" th:href="@{/municipalmanager/delete/{dni}(dni=${municipalmanager.dni})}">Esborra</a>
         </td>
     </tr>
     </tbody>
 </table>
-<a type="button" class="btn btn-success" href="add" >Añadir Gestor Municipal</a>
+<a type="button" class="btn btn-success" href="/user/addRegistroGestor" >Añadir Gestor Municipal</a>
 </body>
 </html>

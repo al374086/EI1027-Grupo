@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Crear nou Municipal Manager</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+<link type="text/css" href="/css/style.css" rel="stylesheet" />
+<link type="text/css" href="/css/estilos.css" rel="stylesheet" />
+</head>
+<body>
+
+	<div th:replace="fragments/menu_responsable_ma">...</div>
+	<div th:replace="fragments/logininfo">...</div>
+
+	<section class="form-register">
+		<h2>Formulario Registro Municipal Manager</h2>
+		<form th:object="${municipalmanager}" method="post">
+			<table>
+				<tr>
+					<td><label>Dni</label></td>
+					<td><input class="controls" type="text" th:field="*{dni}"
+						id="nombres" placeholder="Ingrese su dni" required /></td>
+
+				</tr>
+
+				<tr>
+					<td></td>
+
+					<div class="error" th:if="${#fields.hasErrors('dni')}"
+						th:errors="*{dni}"></div>
+					</td>
+
+				</tr>
+				<tr>
+					<td><label>Name</label></td>
+					<td><input class="controls" type="text" th:field="*{name}"
+						id="nombres" placeholder="Ingrese su nombre" required /></td>
+				</tr>
+				<tr>
+					<td><label>User</label></td>
+					<td><input class="controls" type="text" th:field="*{user}"
+						id="nombres" placeholder="Ingrese su usuario" required /></td>
+				</tr>
+				<tr>
+					<td><label>Password</label></td>
+					<td><input class="controls" type="text" th:field="*{password}"
+						placeholder="Ingrese el password" required /></td>
+				</tr>
+				<tr>
+					<td><label>InitialDate</label></td>
+					<td><input class="controls" type="date"
+						th:field="*{initialDate}" id="nombres"
+						placeholder="Ingrese el initialDate"  /></td>
+				</tr>
+				<tr>
+					<td><label>EndDate</label></td>
+					<td><input class="controls" type="date"
+						th:field="*{endDate}" id="nombres"
+						placeholder="Ingrese el endDate"  /></td>
+				</tr>
+				<tr>
+					<td><label>Code</label></td>
+					<td><input class="controls" type="text" th:field="*{code}"
+						id="nombres" placeholder="Ingrese su code" required /></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input class="botones" type="submit"
+						value="Añadir Municipal Manager" /></td>
+				</tr>
+
+
+
+			</table>
+		</form>
+</body>
+</html>
