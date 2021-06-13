@@ -18,6 +18,7 @@ public class GestorMunicipalController {
 	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public String listaReservas(HttpSession session, Model model) {
-		return "/gestor/list"; 
+		return "/gestormunicipal/list"; 
 	}
+	
 }
