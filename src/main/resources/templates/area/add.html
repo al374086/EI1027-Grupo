@@ -5,9 +5,12 @@
    <meta charset="UTF-8" />
    <link rel="stylesheet"       
      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <link type="text/css" href="/css/estilos.css" rel="stylesheet"/>
 </head>
 <body>
-    <h2> Nova Area</h2>
+	<div th:replace="fragments/menu_gestor_municipal" >...</div>
+    <div th:replace="fragments/logininfo" >...</div>
+    <h2>Nueva Area</h2>
     <form action="#" th:action="@{/area/add}" 
                      th:object="${area}" method="post">
       <table>
@@ -22,22 +25,22 @@
         </tr>
         
          <tr>
-            <td><label>Localització</label></td>
+            <td><label>Localitización</label></td>
             <td><input type="text" th:field="*{geographicalLocation}" /></td>
         </tr>
         
 		<tr>
-            <td><label>Tipus de Àrea</label></td>
+            <td><label>Tipo de Area</label></td>
             <td><input type="text" th:field="*{typeOfArea}" /></td>
         </tr>
         
         <tr>
-            <td><label>Caracteristiques</label></td>
+            <td><label>Caracteristicas</label></td>
             <td><input type="text" th:field="*{physicalCharacteristics}" /></td>
         </tr>
         
         <tr>
-            <td><label>Description</label></td>
+            <td><label>Descripción</label></td>
             <td><input type="text" th:field="*{description}" /></td>
         </tr>
         <tr>
@@ -45,7 +48,7 @@
             <td><input type="text" th:field="*{lengthAndWidth}" /></td>
         </tr>
         <tr>
-            <td><label>Orientation</label></td>
+            <td><label>Orientación</label></td>
             <td><input type="text" th:field="*{Orientation}" /></td>
         </tr>
         
@@ -59,7 +62,7 @@
             <td><input type="text" th:field="*{imagen}" /></td>
         </tr>
         <tr>
-            <td colspan="2"><input type="submit" value="Afegeix Àrea" /></td>
+            <td colspan="2"><input type="submit" value="Añadir Area" /></td>
         </tr>
       </table>
     </form>
