@@ -32,7 +32,7 @@ class UserValidator implements Validator {
 	  // Exercici: Afegeix codi per comprovar que 
          // l'usuari i la contrasenya no estiguen buits 
          // ...
-		Usuario usuario = (Usuario) obj;
+		Usuario  usuario = (Usuario) obj;
 		
 		if (usuario.getUsername().trim().equals(""))
 			errors.rejectValue("username", "obligatorio", "Hay que introducir un usuario");
