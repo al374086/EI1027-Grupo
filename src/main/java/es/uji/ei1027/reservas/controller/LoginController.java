@@ -61,7 +61,7 @@ public class LoginController {
 					return "redirect:/gestor/index";
 				return "redirect:/pantallaMisReservas/misReservas";
 			}else {
-				return "gestormunicipal/index";
+				return "redirect:/gestormunicipal/index";
 			
 			}
 		}
@@ -116,7 +116,7 @@ public class LoginController {
 		}else {
 			
 	
-			return "gestormunicipal/index";
+			return "redirect:/gestormunicipal/index";
 		
 		}
 		
