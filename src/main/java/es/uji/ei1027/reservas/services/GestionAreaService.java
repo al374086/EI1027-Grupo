@@ -15,22 +15,27 @@ public class GestionAreaService{
 	@Autowired
 	ServiceDao servicedao;
 
-	public List<String> getservices(String area) {
-		List<String> services = new ArrayList<String>();
+	public List<Service> getservices(String area) {
+		//List<String> services = new ArrayList<String>();
 		List<Service> servicios = servicedao.getServices(area);
 		//System.out.println(servicios.size());
-		for (Service servicio : servicios ) {
-			services.add(servicio.getName());
-		}
-		return services;
+		//for (Service servicio : servicios ) {
+		//	services.add(servicio.getName());
+		//}
+		return servicios;
 	}
 	
-	public List<String> getservicesCombo() {
+	public List<String> getservicesCombo(List<Service> serviciosInc) {
+		List<Integer> serviciosInt = new ArrayList<Integer>();
+		for (Service servicio : serviciosInc) {
+			serviciosInt.add(servicio.getIdservice());
+		}
 		List<String> services = new ArrayList<String>();
 		List<Service> servicios = servicedao.getServicesCombo();
 		//System.out.println(servicios.size());
 		for (Service servicio : servicios ) {
-			services.add(servicio.getName());
+			if(!serviciosInt.contains(servicio.getIdservice()))
+				services.add(servicio.getName());
 		}
 		return services;
 	}

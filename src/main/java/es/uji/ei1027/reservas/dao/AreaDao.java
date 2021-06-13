@@ -61,4 +61,12 @@ public class AreaDao {
         }
     }
     /*Prueba commit*/
+    
+    public String getImagen(String nameArea) {
+		String imagen = this.getArea(nameArea).getImagen();
+		if (imagen == null) {
+			imagen = "https://bit.ly/2TfGaWR";
+		}
+		return imagen;
+	}
 }

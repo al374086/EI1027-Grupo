@@ -53,7 +53,7 @@
 	<tr th:each="mostrarArea: ${areas}">
 		<table>
 		<tr>
-			<td> <img th:src="@{{imagen}(imagen=${mostrarArea.area.imagen})}" width="384" height="240" />> </td>
+			<td> <img th:src="@{{imagen}(imagen=${mostrarArea.area.imagen})}" width="384" height="240" /> </td>
 			<td>
 				<h3 th:text="${mostrarArea.area.name}"></h3>
 				<a th:if="${mostrarArea.area.isRestricted == true}">Disponibilidad:</a> </br>

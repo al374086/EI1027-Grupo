@@ -12,38 +12,46 @@
  <h3>Edición Area - Gestión de servicios</h3>
  <br>
     <form action="#" th:action="@{/area/updateservei}"
-                     th:object="${area}" method="post">
+                     th:object="${formulario}" method="post">
       <table id="tabla_gestor">
         <tr>
-            <td><img src="../../imagenes/playa_morrongo.jpg" width="100px" height="100px"></td>
-            <td id="celda_principal"><h3 th:text="*{name}" > </h3></td>
+            <td><img th:src="@{{imagen}(imagen=${imagen})}" width="100px" height="100px"></td>
+            <td id="celda_principal"><h3 th:text="${area}" > </h3></td>
         </tr>
        </table>
        <table id="tabla_gestor">
         <tr>
+			</br>
             <td>Serveis:</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr th:each="serveisvalue: ${serveis}"><td></td>
-         <td th:text="${serveisvalue}"></td><td><input type="submit" value="Eliminar" class="boton2"/></td>
+         <td th:text="${serveisvalue.name}"></td><td><a th:href="@{/area/updateservei/{area}/delete/{idservice}(area=${area},idservice=${serveisvalue.idservice})}" class="boton2"> Eliminar <a/></td>
         </tr>
         <tr><td><br></td>
         </tr>
         <tr>
         <td>
-        <select type="text" name="service" class="boton2" > 
-            <option th:each="service : ${serveiList}"
-                    th:value="${service}"
-                    th:text="${service}"></option>
- 		</select>
+		
+		<select hidden class="form_control" type="text" th:field="*{area}"> 
+			<option th:each="a : ${area}"
+				th:value="${a}"
+				th:text="${a}"></option>
+			</select> 
+		
+		<select class="form_control" type="text" th:field="*{servicio}"> 
+			<option th:each="service : ${serveiList}"
+				th:value="${service}"
+				th:text="${service}"></option>
+			</select> 
 		</td>
 		<td>
 			<input type="submit" value="Afegeix servei" class="boton2"/>
 		</td>
         </tr>
         <tr>
-            <td colspan="2"><input type="submit" value="Solicitar nou servei" class="boton2"/></td>
+            <td colspan="2"><input value="Solicitar nou servei" class="boton2"/></td>
         </tr>
       </table>
     </form>
