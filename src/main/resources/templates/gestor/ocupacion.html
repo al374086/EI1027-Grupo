@@ -30,7 +30,7 @@
 			<label th:if="${localidadesList != null}" th:text="${provinciasList}"></label>
 		</td>
 		<td th:if="${localidadesList == null}" colspan="2"><input class="btn btn-success" type="submit" value="Seleccionar" /></td>
-		<td th:if="${localidadesList != null}" colspan="2"><a class="btn btn-danger" href="/pantallaReservar/seleccionarArea">Cambiar Provincia y/o localidad</a></td>
+		<td th:if="${localidadesList != null}" colspan="2"><a class="btn btn-danger" href="/gestor/ocupacion">Cambiar Provincia y/o localidad</a></td>
 	   </tr>
 	  <tr th:if="${localidadesList != null}">
 	    <td><label>Localidad</label></td>
@@ -49,6 +49,30 @@
 		<td th:if="${areas == null}" colspan="2"><input class="btn btn-success" type="submit" value="Seleccionar" /></td>
 	   </tr>
       </table>
+	  
+	  
+	  <tr th:each="ocupacionArea: ${ocupado}">
+		<table>
+		<tr>
+			<td>
+				<h3 th:text="${ocupacionArea.area}"></h3>
+				<tr th:each="ocupacionDia: ${ocupacionArea.ocupacion}">
+					<table>
+					<tr>
+						<b th:text="'Dia: ' + ${ocupacionDia.date}" /> </br>
+						<tr th:each="ocupacionHora: ${ocupacionDia.ocupacionHora}">
+							<table>
+							<tr>
+							<a th:text="'Horas: ' + ${ocupacionHora.time.startTime} + '-' + ${ocupacionHora.time.endTime} + ' Ocupacion: ' + ${ocupacionHora.ocupado} + '/' + ${ocupacionHora.capacidad} + ' (' + ${ocupacionHora.porcentaje} + '%)'"/>
+							</tr>
+							</table>
+					</tr>
+					</table>
+				</tr>
+			</td>
+		</tr>
+		</table>
+   </tr>
 
 
 </body>

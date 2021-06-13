@@ -106,7 +106,7 @@ public class LlamaUsuarios implements UserDao {
 		MunicipalManager municipalmanager = new MunicipalManager();
 		municipalmanager= municipalManagerDao.getMunicipalManager(dni);
 
-		if (municipalManagerDao != null) {
+		if (municipalmanager != null) {
 
 			String numdni = municipalmanager.getDni();
 			String pass = municipalmanager.getPassword();

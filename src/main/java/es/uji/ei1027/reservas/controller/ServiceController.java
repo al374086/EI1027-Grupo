@@ -1,5 +1,7 @@
 package es.uji.ei1027.reservas.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.uji.ei1027.reservas.dao.ServiceDao;
 import es.uji.ei1027.reservas.modelo.Service;
+import es.uji.ei1027.reservas.modelo.Usuario;
 
 
 @Controller
@@ -31,13 +34,24 @@ public class ServiceController {
 	   // ...
 	 
 	 @RequestMapping("/list")
-	    public String listServices(Model model) {
+	    public String listServices(HttpSession session, Model model) {
+		 if (session.getAttribute("user") == null || !((Usuario) session.getAttribute("user")).getUsername().equals("generalitat")) 
+	       { 
+	          return "redirect:/user/login";
+	       } 
+		 
+		 
 	        model.addAttribute("services", serviceDao.getServices());
 	        return "service/list";
 	    }
 	 
 	 @RequestMapping(value="/add") 
-		public String addService(Model model) {
+		public String addService(HttpSession session, Model model) {
+		 
+		 if (session.getAttribute("user") == null || !((Usuario) session.getAttribute("user")).getUsername().equals("generalitat")) 
+	       { 
+	          return "redirect:/user/login";
+	       } 
 		 	
 			model.addAttribute("service", new Service());
 			return "service/add";
@@ -57,7 +71,11 @@ public class ServiceController {
 	 
 	 
 	 @RequestMapping(value="/update/{idservice}", method = RequestMethod.GET)
-	    public String editService(Model model, @PathVariable int idservice) {
+	    public String editService(HttpSession session, Model model, @PathVariable int idservice) {
+		 if (session.getAttribute("user") == null || !((Usuario) session.getAttribute("user")).getUsername().equals("generalitat")) 
+	       { 
+	          return "redirect:/user/login";
+	       } 
 		 
 	        model.addAttribute("service", serviceDao.getService(idservice));
 	        
@@ -78,7 +96,12 @@ public class ServiceController {
 	    
 	    
 	    @RequestMapping(value="/delete/{idservice}")
-	    public String processDelete(@PathVariable int idservice) {
+	    public String processDelete(HttpSession session, @PathVariable int idservice) {
+	    	if (session.getAttribute("user") == null || !((Usuario) session.getAttribute("user")).getUsername().equals("generalitat")) 
+	        { 
+	           return "redirect:/user/login";
+	        } 
+	    	
 	    	serviceDao.deleteService(idservice);
 	        return "redirect:../list";
 	    }

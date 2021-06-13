@@ -53,9 +53,9 @@ public class RegistroControllerGestor {
 		if (bindingResult.hasErrors())
 			return "user/addRegistroGestor";
 		
-		if (session.getAttribute("user") != null) 
+		if (session.getAttribute("user") == null) 
 	       { 
-	          return "redicrect:/user/login";
+	          return "redirect:/user/login";
 	       }
 		
 		municipalmanagerDao.addMunicipalManager(municipalmanager);
