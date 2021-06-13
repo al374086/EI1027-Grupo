@@ -14,16 +14,13 @@
 	<div th:replace="fragments/logininfo">...</div>
 
 	<section class="form-register">
-		<h2>Formulario Registro Municipal Manager</h2>
+		<h2>Registro Gestor Municipal</h2>
 		<form th:object="${municipalmanager}" method="post">
 			<table>
 				<tr>
 					<td><label>Dni</label></td>
-					<td><input class="controls" type="text" th:field="*{dni}"
-						id="nombres" placeholder="Ingrese su dni" required /></td>
-
+					<td><input class="controls" type="text" th:field="*{dni}" id="nombres" placeholder="Ingrese su dni" required /></td>
 				</tr>
-
 				<tr>
 					<td></td>
 
@@ -33,12 +30,12 @@
 
 				</tr>
 				<tr>
-					<td><label>Name</label></td>
+					<td><label>Nombre</label></td>
 					<td><input class="controls" type="text" th:field="*{name}"
 						id="nombres" placeholder="Ingrese su nombre" required /></td>
 				</tr>
 				<tr>
-					<td><label>User</label></td>
+					<td><label>Usuario</label></td>
 					<td><input class="controls" type="text" th:field="*{user}"
 						id="nombres" placeholder="Ingrese su usuario" required /></td>
 				</tr>
@@ -48,26 +45,26 @@
 						placeholder="Ingrese el password" required /></td>
 				</tr>
 				<tr>
-					<td><label>InitialDate</label></td>
+					<td><label>Fecha Inicial</label></td>
 					<td><input class="controls" type="date"
 						th:field="*{initialDate}" id="nombres"
 						placeholder="Ingrese el initialDate"  /></td>
 				</tr>
 				<tr>
-					<td><label>EndDate</label></td>
+					<td><label>Fecha Final</label></td>
 					<td><input class="controls" type="date"
 						th:field="*{endDate}" id="nombres"
 						placeholder="Ingrese el endDate"  /></td>
 				</tr>
 				<tr>
-					<td><label>Code</label></td>
+					<td><label>Codigo Municipio</label></td>
 					<td><input class="controls" type="text" th:field="*{code}"
 						id="nombres" placeholder="Ingrese su code" required /></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td><input class="botones" type="submit"
-						value="Añadir Municipal Manager" /></td>
+						value="Añadir Gestor Municipal" /></td>
 				</tr>
 
 
